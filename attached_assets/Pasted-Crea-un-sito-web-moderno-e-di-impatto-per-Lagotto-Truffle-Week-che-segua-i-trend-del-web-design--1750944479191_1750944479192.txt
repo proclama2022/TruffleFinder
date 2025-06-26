@@ -1,0 +1,129 @@
+Crea un sito web moderno e di impatto per "Lagotto & Truffle Week" che segua i trend del web design 2025, mantenendo le grafiche originali del documento ma elevandole con effetti eleganti e gestibili.
+DESIGN VISION - MODERNO ED ELEGANTE:
+HOMEPAGE HERO:
+
+Hero section full-height con gradient background animato (#8B4513 to #DAA520)
+Logo circolare centrale con subtle rotation al hover
+Typography bold e moderna con fade-in animation
+CTA button con gradient e hover glow effect
+Scroll indicator elegante con bounce animation
+Background con subtle pattern di foglie autunnali
+
+DESIGN SYSTEM MODERNO:
+Palette Colori:
+
+Primario: #8B4513 (marrone tartufo)
+Secondario: #DAA520 (oro elegante)
+Gradient: Linear da marrone a oro per elementi hero
+Neutri: #FAF0E6, #F5F5DC per backgrounds
+Dark mode: Toggle con smooth transition
+
+Layout Moderno:
+
+Cards con glassmorphism: Background semi-trasparente con blur
+Shadows moderne: Box-shadow multi-layer per depth
+Border radius: 16px per look contemporaneo
+Spacing system: Grid 8px per consistency
+Typography scale: Hierarchy chiara e leggibile
+
+SEZIONI PRINCIPALI:
+1. HERO SECTION:
+- Background gradient con overlay pattern
+- Logo animato con CSS transforms
+- Titolo con typing animation semplice
+- CTA button con hover scale effect
+- Stats counter animato (giorni, attività, partecipanti)
+2. PROGRAMMA - TIMELINE ELEGANTE:
+- Timeline verticale su desktop, cards su mobile
+- Ogni giorno ha una card con hover lift effect
+- Icone SVG per ogni attività
+- Progress line che si riempie allo scroll
+- Date prominenti con typography bold
+3. ATTIVITÀ - GRID MODERNO:
+- CSS Grid responsive con gap generoso
+- Cards con immagine, gradient overlay e testo
+- Hover effects con smooth transitions
+- Badge per difficoltà/durata
+- Bottoni ghost style
+4. GALLERY - MASONRY RESPONSIVE:
+- Layout a griglia asimmetrica
+- Lightbox semplice per zoom
+- Lazy loading per performance
+- Filtri con active states
+- Hover overlay con info
+EFFETTI E ANIMAZIONI (GESTIBILI):
+Micro-animazioni:
+
+Fade-in on scroll: Con Intersection Observer
+Hover transforms: Scale e translate leggeri
+Button interactions: Ripple effect semplice
+Loading states: Skeleton screens basic
+Menu transitions: Slide e fade eleganti
+
+CSS Moderno:
+
+CSS Custom Properties: Per theming dinamico
+CSS Grid + Flexbox: Layout responsivi
+CSS Animations: Keyframes per effetti base
+Media queries: Mobile-first approach
+CSS Variables: Per color switching
+
+GRAFICHE ORIGINALI POTENZIATE:
+Utilizzo Smart:
+
+Logo tartufo: Come hero element con subtle animation
+Foto Lagotto: Con overlay gradient e info on hover
+Immagini tartufi: Come decorative elements
+Pattern foglie: Come background subtle
+Colori autunnali: Per palette e gradients
+
+FUNZIONALITÀ MODERNE ESSENZIALI:
+Core Features:
+
+Responsive design: Mobile-first
+Dark/Light mode: Toggle nel header
+Smooth scroll: Behavior CSS
+Loading animations: CSS-only
+Form validation: JavaScript vanilla
+Language toggle: IT/EN
+Image optimization: WebP format
+Performance: Minimal JS bundle
+
+Interactive Elements:
+
+Navigation sticky: Con background blur
+Scroll progress: Barra superiore
+Back to top: Button animato
+Form feedback: Visual states
+Image galleries: Con navigation
+Contact form: Con success states
+
+TECNOLOGIE SEMPLIFICATE:
+Stack Moderno Ma Gestibile:
+
+HTML5: Semantico e accessibile
+CSS3: Grid, Flexbox, Custom Properties
+JavaScript ES6: Vanilla per interazioni
+GSAP (leggero): Solo per scroll animations
+CSS Animations: Per micro-interazioni
+Intersection Observer: Per reveal effects
+
+Performance Focus:
+
+Critical CSS: Inline per first paint
+Lazy loading: Per immagini
+Minification: CSS e JS
+WebP images: Per compressed sizes
+Efficient animations: GPU-accelerated
+
+STRUTTURA PAGINE:
+
+Homepage: Hero + Preview programma + CTA
+Programma: Timeline elegante bilingue
+Attività: Grid con dettagli
+Location: Mappa + info sede
+Gallery: Masonry + lightbox
+Contatti: Form + info organizzatore
+Prenotazioni: Form multi-step
+
+Il design deve risultare professionale, moderno e coinvolgente senza essere eccessivamente complesso da implementare. Focus su user experience fluida, performance ottimali e visual appeal contemporaneo che valorizzi il brand Lagotto & Truffle Week.
