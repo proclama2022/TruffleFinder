@@ -138,7 +138,7 @@ export function ActivitiesGrid() {
                   <div className="absolute top-4 right-4">
                     <div className={`${getDifficultyColor(activity.difficulty)} rounded-xl px-3 py-1.5 shadow-lg`}>
                       <span className="text-white text-xs font-bold tracking-wide">
-                        {t(activity.difficulty)}
+                        {t(activity.difficulty as any)}
                       </span>
                     </div>
                   </div>

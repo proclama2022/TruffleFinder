@@ -49,52 +49,81 @@ export default function Home() {
       <Navigation />
       <HeroSection />
       
-      {/* About Section */}
-      <section className="py-20 bg-white dark:bg-gray-800 transition-colors duration-300">
+      {/* Modern About Section */}
+      <section className="py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
         <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-5xl font-bold text-amber-900 dark:text-white mb-8">
-              {t("unforgettableExperience")}
-            </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300 mb-12 leading-relaxed">
-              {t("aboutDescription")}
-            </p>
+          <div className="max-w-6xl mx-auto">
+            {/* Header */}
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-indigo-100 to-purple-100 dark:from-indigo-900/30 dark:to-purple-900/30 px-4 py-2 rounded-full mb-6">
+                <i className="fas fa-sparkles text-indigo-600 dark:text-indigo-400"></i>
+                <span className="text-indigo-700 dark:text-indigo-300 text-sm font-semibold tracking-wide uppercase">Why Choose Us</span>
+              </div>
+              <h2 className="text-6xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent mb-6">
+                The Experience
+              </h2>
+              <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
+                {t("aboutDescription")}
+              </p>
+            </div>
             
+            {/* Features Cards */}
             <div className="grid md:grid-cols-3 gap-8">
-              <div className="glassmorphism rounded-2xl p-8 shadow-xl hover:scale-105 transition-transform duration-300">
-                <div className="w-16 h-16 bg-gradient-to-r from-yellow-500 to-yellow-700 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <i className="fas fa-search text-2xl text-white"></i>
+              <div className="group">
+                <div className="relative bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-200 dark:border-gray-700 hover:-translate-y-2">
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                    <i className="fas fa-search text-2xl text-white"></i>
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 text-center">
+                    {t("truffleHunting")}
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-400 text-center leading-relaxed">
+                    {t("truffleHuntingDesc")}
+                  </p>
+                  
+                  {/* Decorative Element */}
+                  <div className="absolute top-4 right-4 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
+                    <i className="fas fa-leaf text-4xl text-blue-500"></i>
+                  </div>
                 </div>
-                <h3 className="text-2xl font-semibold text-amber-900 dark:text-white mb-4">
-                  {t("truffleHunting")}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300">
-                  {t("truffleHuntingDesc")}
-                </p>
               </div>
               
-              <div className="glassmorphism rounded-2xl p-8 shadow-xl hover:scale-105 transition-transform duration-300">
-                <div className="w-16 h-16 bg-gradient-to-r from-yellow-500 to-yellow-700 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <i className="fas fa-graduation-cap text-2xl text-white"></i>
+              <div className="group">
+                <div className="relative bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-200 dark:border-gray-700 hover:-translate-y-2">
+                  <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                    <i className="fas fa-graduation-cap text-2xl text-white"></i>
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 text-center">
+                    {t("trainingSessions")}
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-400 text-center leading-relaxed">
+                    {t("trainingSessionsDesc")}
+                  </p>
+                  
+                  {/* Decorative Element */}
+                  <div className="absolute top-4 right-4 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
+                    <i className="fas fa-medal text-4xl text-purple-500"></i>
+                  </div>
                 </div>
-                <h3 className="text-2xl font-semibold text-amber-900 dark:text-white mb-4">
-                  {t("trainingSessions")}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300">
-                  {t("trainingSessionsDesc")}
-                </p>
               </div>
               
-              <div className="glassmorphism rounded-2xl p-8 shadow-xl hover:scale-105 transition-transform duration-300">
-                <div className="w-16 h-16 bg-gradient-to-r from-yellow-500 to-yellow-700 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <i className="fas fa-utensils text-2xl text-white"></i>
+              <div className="group">
+                <div className="relative bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-200 dark:border-gray-700 hover:-translate-y-2">
+                  <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-teal-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                    <i className="fas fa-utensils text-2xl text-white"></i>
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 text-center">
+                    {t("gourmetExperience")}
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-400 text-center leading-relaxed">
+                    {t("gourmetExperienceDesc")}
+                  </p>
+                  
+                  {/* Decorative Element */}
+                  <div className="absolute top-4 right-4 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
+                    <i className="fas fa-utensils text-4xl text-green-500"></i>
+                  </div>
                 </div>
-                <h3 className="text-2xl font-semibold text-amber-900 dark:text-white mb-4">
-                  {t("gourmetExperience")}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300">
-                  {t("gourmetExperienceDesc")}
-                </p>
               </div>
             </div>
           </div>
@@ -107,107 +136,109 @@ export default function Home() {
       <Gallery />
       <ContactSection />
       
-      {/* Footer */}
-      <footer className="bg-amber-900 text-white py-16">
+      {/* Modern Footer */}
+      <footer className="bg-gray-900 dark:bg-black text-white py-20">
         <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-4 gap-8 mb-12">
-            <div>
+          <div className="grid md:grid-cols-4 gap-12 mb-16">
+            {/* Brand Section */}
+            <div className="md:col-span-2">
               <div className="flex items-center space-x-3 mb-6">
-                <div className="w-12 h-12 bg-yellow-600 rounded-full flex items-center justify-center">
-                  <i className="fas fa-dog text-xl"></i>
+                <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center">
+                  <i className="fas fa-dog text-xl text-white"></i>
                 </div>
-                <span className="text-2xl font-bold">Lagotto & Truffle Week</span>
+                <span className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  Lagotto & Truffle Week
+                </span>
               </div>
-              <p className="text-yellow-200">
+              <p className="text-gray-400 text-lg leading-relaxed mb-6 max-w-md">
                 {t("heroTitle")}
               </p>
-            </div>
-            
-            <div>
-              <h4 className="text-xl font-semibold mb-6">{t("quickLinks")}</h4>
-              <ul className="space-y-3">
-                <li>
-                  <button
-                    onClick={() => scrollToElement("home")}
-                    className="text-yellow-200 hover:text-white transition-colors"
-                  >
-                    {t("home")}
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => scrollToElement("program")}
-                    className="text-yellow-200 hover:text-white transition-colors"
-                  >
-                    {t("program")}
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => scrollToElement("activities")}
-                    className="text-yellow-200 hover:text-white transition-colors"
-                  >
-                    {t("activities")}
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => scrollToElement("team")}
-                    className="text-yellow-200 hover:text-white transition-colors"
-                  >
-                    Team
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => scrollToElement("gallery")}
-                    className="text-yellow-200 hover:text-white transition-colors"
-                  >
-                    {t("gallery")}
-                  </button>
-                </li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="text-xl font-semibold mb-6">{t("contact")}</h4>
-              <ul className="space-y-3">
-                <li className="text-yellow-200">+39 334 750 0887</li>
-                <li className="text-yellow-200">info@lagottotruffleweek.it</li>
-                <li className="text-yellow-200">Portico di Romagna</li>
-                <li className="text-yellow-200">Al Vecchio Convento</li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="text-xl font-semibold mb-6">{t("followUs")}</h4>
               <div className="flex space-x-4">
-                <a href="#" className="w-10 h-10 bg-yellow-700 rounded-full flex items-center justify-center hover:bg-yellow-600 transition-colors">
-                  <i className="fab fa-facebook-f"></i>
+                <a href="#" className="group w-12 h-12 bg-gray-800 hover:bg-gradient-to-br hover:from-purple-600 hover:to-pink-600 rounded-xl flex items-center justify-center transition-all duration-300">
+                  <i className="fab fa-facebook-f text-gray-400 group-hover:text-white"></i>
                 </a>
-                <a href="#" className="w-10 h-10 bg-yellow-700 rounded-full flex items-center justify-center hover:bg-yellow-600 transition-colors">
-                  <i className="fab fa-instagram"></i>
+                <a href="#" className="group w-12 h-12 bg-gray-800 hover:bg-gradient-to-br hover:from-purple-600 hover:to-pink-600 rounded-xl flex items-center justify-center transition-all duration-300">
+                  <i className="fab fa-instagram text-gray-400 group-hover:text-white"></i>
                 </a>
-                <a href="#" className="w-10 h-10 bg-yellow-700 rounded-full flex items-center justify-center hover:bg-yellow-600 transition-colors">
-                  <i className="fab fa-youtube"></i>
+                <a href="#" className="group w-12 h-12 bg-gray-800 hover:bg-gradient-to-br hover:from-purple-600 hover:to-pink-600 rounded-xl flex items-center justify-center transition-all duration-300">
+                  <i className="fab fa-youtube text-gray-400 group-hover:text-white"></i>
                 </a>
+              </div>
+            </div>
+            
+            {/* Quick Links */}
+            <div>
+              <h4 className="text-lg font-bold mb-6 text-white">Quick Links</h4>
+              <ul className="space-y-3">
+                {[
+                  { key: "home", label: t("home") },
+                  { key: "program", label: t("program") },
+                  { key: "activities", label: t("activities") },
+                  { key: "team", label: "Team" },
+                  { key: "gallery", label: t("gallery") }
+                ].map((link) => (
+                  <li key={link.key}>
+                    <button
+                      onClick={() => scrollToElement(link.key)}
+                      className="text-gray-400 hover:text-purple-400 transition-colors duration-300 hover:translate-x-1 transform inline-block"
+                    >
+                      {link.label}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            
+            {/* Contact Info */}
+            <div>
+              <h4 className="text-lg font-bold mb-6 text-white">Contact Info</h4>
+              <div className="space-y-4">
+                <div className="flex items-center space-x-3">
+                  <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <i className="fas fa-phone text-white text-xs"></i>
+                  </div>
+                  <span className="text-gray-400">+39 334 750 0887</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-8 h-8 bg-gradient-to-br from-green-500 to-teal-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <i className="fas fa-envelope text-white text-xs"></i>
+                  </div>
+                  <span className="text-gray-400">info@lagottotruffleweek.it</span>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <i className="fas fa-map-marker-alt text-white text-xs"></i>
+                  </div>
+                  <div className="text-gray-400">
+                    <div>Portico di Romagna</div>
+                    <div>Al Vecchio Convento</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
           
-          <div className="border-t border-yellow-700 pt-8 text-center">
-            <p className="text-yellow-200">
-              {t("allRightsReserved")}
-            </p>
+          {/* Bottom Section */}
+          <div className="border-t border-gray-800 pt-8">
+            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+              <p className="text-gray-400 text-sm">
+                © 2025 Lagotto & Truffle Week. All rights reserved.
+              </p>
+              <div className="flex items-center space-x-6 text-sm text-gray-400">
+                <a href="#" className="hover:text-purple-400 transition-colors">Privacy Policy</a>
+                <a href="#" className="hover:text-purple-400 transition-colors">Terms of Service</a>
+                <a href="#" className="hover:text-purple-400 transition-colors">Cookie Policy</a>
+              </div>
+            </div>
           </div>
         </div>
       </footer>
       
-      {/* Back to Top Button */}
+      {/* Modern Back to Top Button */}
       <button
         id="backToTop"
         onClick={scrollToTop}
-        className="fixed bottom-8 right-8 w-14 h-14 gradient-bg text-white rounded-full shadow-2xl hover:scale-110 transition-all duration-300 opacity-0 pointer-events-none z-50"
+        className="fixed bottom-8 right-8 w-14 h-14 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-2xl shadow-2xl hover:shadow-purple-500/25 hover:scale-110 transition-all duration-300 opacity-0 pointer-events-none z-50"
       >
         <i className="fas fa-arrow-up"></i>
       </button>
