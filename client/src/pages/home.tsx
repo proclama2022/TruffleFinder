@@ -143,7 +143,7 @@ export default function Home() {
             {/* Brand Section */}
             <div className="md:col-span-2">
               <div className="flex items-center space-x-3 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-amber-600 to-yellow-600 rounded-2xl flex items-center justify-center">
+                <div className="w-12 h-12 bg-gradient-to-br from-amber-800 to-amber-700 rounded-2xl flex items-center justify-center">
                   <i className="fas fa-dog text-xl text-white"></i>
                 </div>
                 <span className="text-2xl font-bold bg-gradient-to-r from-amber-400 to-yellow-400 bg-clip-text text-transparent">

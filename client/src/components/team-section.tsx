@@ -11,7 +11,7 @@ const teamMembers = [
     type: "founder",
     experience: "15+",
     specialty: "Truffle Training & Lagotto Breeding",
-    color: "from-amber-600 to-yellow-600",
+    color: "from-amber-800 to-amber-700",
     icon: "fas fa-crown"
   },
   {
@@ -23,7 +23,7 @@ const teamMembers = [
     type: "team",
     experience: "10+",
     specialty: "Canine Training & Event Management",
-    color: "from-amber-500 to-yellow-500",
+    color: "from-amber-700 to-stone-600",
     icon: "fas fa-users"
   },
   {
@@ -35,7 +35,7 @@ const teamMembers = [
     type: "expert",
     experience: "20+",
     specialty: "Professional Handling & Grooming",
-    color: "from-yellow-600 to-amber-600",
+    color: "from-stone-700 to-amber-700",
     icon: "fas fa-cut"
   },
   {

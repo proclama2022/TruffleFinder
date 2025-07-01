@@ -148,7 +148,7 @@ export function ProgramTimeline() {
                   
                   {/* Day Badge */}
                   <div className="absolute -top-4 left-8">
-                    <div className="bg-gradient-to-r from-amber-600 to-yellow-600 text-white rounded-2xl px-6 py-3 shadow-lg">
+                    <div className="bg-gradient-to-r from-amber-800 to-amber-700 text-white rounded-2xl px-6 py-3 shadow-lg">
                       <div className="text-center">
                         <div className="text-2xl font-bold">{dayData.day}</div>
                         <div className="text-xs font-medium opacity-90">October</div>
@@ -176,7 +176,7 @@ export function ProgramTimeline() {
                         <div key={actIndex} className="group/activity">
                           <div className="bg-gray-50 dark:bg-gray-700/50 rounded-2xl p-6 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300">
                             <div className="flex items-start space-x-4">
-                              <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-yellow-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                              <div className="w-12 h-12 bg-gradient-to-br from-amber-700 to-amber-600 rounded-xl flex items-center justify-center flex-shrink-0">
                                 <i className={`${activity.icon} text-white text-lg`}></i>
                               </div>
                               <div className="flex-1 min-w-0">

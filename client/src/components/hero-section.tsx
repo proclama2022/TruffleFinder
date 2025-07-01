@@ -61,7 +61,7 @@ export function HeroSection() {
           <div className="w-24 h-1 bg-gradient-to-r from-amber-600 to-stone-500 mx-auto rounded-full"></div>
         </div>
 
-        <p className={`text-xl md:text-2xl text-yellow-100 mb-12 max-w-3xl mx-auto leading-relaxed transition-all duration-1000 delay-500 ${animated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        <p className={`text-xl md:text-2xl text-stone-100 mb-12 max-w-3xl mx-auto leading-relaxed transition-all duration-1000 delay-500 ${animated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           {t("heroTitle")}
         </p>
 
@@ -70,19 +70,19 @@ export function HeroSection() {
           <div className="relative">
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
               <div className="text-4xl font-bold text-white mb-2">5</div>
-              <div className="text-yellow-200 text-sm font-medium">{t("days")}</div>
+              <div className="text-stone-300 text-sm font-medium">{t("days")}</div>
             </div>
           </div>
           <div className="relative">
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
               <div className="text-4xl font-bold text-white mb-2">12</div>
-              <div className="text-yellow-200 text-sm font-medium">{t("activities_count")}</div>
+              <div className="text-stone-300 text-sm font-medium">{t("activities_count")}</div>
             </div>
           </div>
           <div className="relative">
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
               <div className="text-4xl font-bold text-white mb-2">50+</div>
-              <div className="text-yellow-200 text-sm font-medium">{t("participants")}</div>
+              <div className="text-stone-300 text-sm font-medium">{t("participants")}</div>
             </div>
           </div>
         </div>
