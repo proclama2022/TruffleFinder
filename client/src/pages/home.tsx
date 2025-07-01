@@ -143,10 +143,10 @@ export default function Home() {
             {/* Brand Section */}
             <div className="md:col-span-2">
               <div className="flex items-center space-x-3 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center">
+                <div className="w-12 h-12 bg-gradient-to-br from-amber-600 to-yellow-600 rounded-2xl flex items-center justify-center">
                   <i className="fas fa-dog text-xl text-white"></i>
                 </div>
-                <span className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <span className="text-2xl font-bold bg-gradient-to-r from-amber-400 to-yellow-400 bg-clip-text text-transparent">
                   Lagotto & Truffle Week
                 </span>
               </div>
@@ -238,7 +238,7 @@ export default function Home() {
       <button
         id="backToTop"
         onClick={scrollToTop}
-        className="fixed bottom-8 right-8 w-14 h-14 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-2xl shadow-2xl hover:shadow-purple-500/25 hover:scale-110 transition-all duration-300 opacity-0 pointer-events-none z-50"
+        className="fixed bottom-8 right-8 w-14 h-14 bg-gradient-to-r from-amber-600 to-yellow-600 text-white rounded-2xl shadow-2xl hover:shadow-amber-500/25 hover:scale-110 transition-all duration-300 opacity-0 pointer-events-none z-50"
       >
         <i className="fas fa-arrow-up"></i>
       </button>

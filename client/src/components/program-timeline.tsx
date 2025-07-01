@@ -176,7 +176,7 @@ export function ProgramTimeline() {
                         <div key={actIndex} className="group/activity">
                           <div className="bg-gray-50 dark:bg-gray-700/50 rounded-2xl p-6 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300">
                             <div className="flex items-start space-x-4">
-                              <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-purple-400 rounded-xl flex items-center justify-center flex-shrink-0">
+                              <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-yellow-500 rounded-xl flex items-center justify-center flex-shrink-0">
                                 <i className={`${activity.icon} text-white text-lg`}></i>
                               </div>
                               <div className="flex-1 min-w-0">
