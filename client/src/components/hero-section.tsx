@@ -20,33 +20,37 @@ export function HeroSection() {
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-800 overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-amber-900 via-amber-800 to-yellow-800 overflow-hidden">
       {/* Modern Background Elements */}
       <div className="absolute inset-0">
         {/* Floating Geometric Shapes */}
-        <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-3xl rotate-12 animate-float blur-sm"></div>
-        <div className="absolute top-40 right-32 w-24 h-24 bg-gradient-to-br from-blue-400/20 to-cyan-400/20 rounded-2xl -rotate-12 animate-float blur-sm" style={{ animationDelay: "2s" }}></div>
-        <div className="absolute bottom-32 left-1/4 w-40 h-40 bg-gradient-to-br from-pink-400/20 to-purple-400/20 rounded-full animate-float blur-sm" style={{ animationDelay: "4s" }}></div>
+        <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-br from-amber-400/20 to-yellow-400/20 rounded-3xl rotate-12 animate-float blur-sm"></div>
+        <div className="absolute top-40 right-32 w-24 h-24 bg-gradient-to-br from-yellow-400/20 to-amber-400/20 rounded-2xl -rotate-12 animate-float blur-sm" style={{ animationDelay: "2s" }}></div>
+        <div className="absolute bottom-32 left-1/4 w-40 h-40 bg-gradient-to-br from-amber-400/20 to-yellow-400/20 rounded-full animate-float blur-sm" style={{ animationDelay: "4s" }}></div>
         
         {/* Grid Pattern */}
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       </div>
 
       <div className="container mx-auto px-6 text-center relative z-10">
-        {/* Logo/Icon */}
+        {/* Real Logo */}
         <div className={`mb-12 transition-all duration-1000 ${animated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="relative inline-block">
-            <div className="w-24 h-24 mx-auto bg-gradient-to-br from-purple-500 to-pink-500 rounded-3xl flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-300">
-              <i className="fas fa-dog text-4xl text-white"></i>
+            <div className="w-32 h-32 mx-auto bg-white/10 backdrop-blur-sm rounded-3xl flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-300 border border-white/20">
+              <img 
+                src="/logo.jpg" 
+                alt="Lagotto & Truffle Week Logo" 
+                className="w-24 h-24 rounded-2xl object-cover"
+              />
             </div>
-            <div className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-br from-yellow-400 to-orange-400 rounded-xl animate-pulse"></div>
+            <div className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-br from-yellow-400 to-amber-400 rounded-xl animate-pulse"></div>
           </div>
         </div>
 
         {/* Title */}
         <div className={`mb-8 transition-all duration-1000 delay-300 ${animated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <h1 className="text-7xl md:text-9xl font-black text-white mb-4 leading-tight">
-            <span className="bg-gradient-to-r from-purple-200 via-pink-200 to-yellow-200 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-yellow-200 via-amber-200 to-yellow-100 bg-clip-text text-transparent">
               Lagotto
             </span>
             <br />
@@ -54,10 +58,10 @@ export function HeroSection() {
               Truffle Week
             </span>
           </h1>
-          <div className="w-24 h-1 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto rounded-full"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-amber-400 to-yellow-400 mx-auto rounded-full"></div>
         </div>
 
-        <p className={`text-xl md:text-2xl text-purple-100 mb-12 max-w-3xl mx-auto leading-relaxed transition-all duration-1000 delay-500 ${animated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        <p className={`text-xl md:text-2xl text-yellow-100 mb-12 max-w-3xl mx-auto leading-relaxed transition-all duration-1000 delay-500 ${animated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           {t("heroTitle")}
         </p>
 
@@ -66,19 +70,19 @@ export function HeroSection() {
           <div className="relative">
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
               <div className="text-4xl font-bold text-white mb-2">5</div>
-              <div className="text-purple-200 text-sm font-medium">{t("days")}</div>
+              <div className="text-yellow-200 text-sm font-medium">{t("days")}</div>
             </div>
           </div>
           <div className="relative">
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
               <div className="text-4xl font-bold text-white mb-2">12</div>
-              <div className="text-purple-200 text-sm font-medium">{t("activities_count")}</div>
+              <div className="text-yellow-200 text-sm font-medium">{t("activities_count")}</div>
             </div>
           </div>
           <div className="relative">
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
               <div className="text-4xl font-bold text-white mb-2">50+</div>
-              <div className="text-purple-200 text-sm font-medium">{t("participants")}</div>
+              <div className="text-yellow-200 text-sm font-medium">{t("participants")}</div>
             </div>
           </div>
         </div>
@@ -87,9 +91,9 @@ export function HeroSection() {
         <div className={`flex flex-col sm:flex-row gap-4 justify-center transition-all duration-1000 delay-1000 ${animated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <button
             onClick={handleBookNow}
-            className="group relative bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-2xl font-semibold hover:scale-105 transition-all duration-300 shadow-2xl overflow-hidden"
+            className="group relative bg-gradient-to-r from-amber-700 to-yellow-600 text-white px-8 py-4 rounded-2xl font-semibold hover:scale-105 transition-all duration-300 shadow-2xl overflow-hidden"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-700 to-pink-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-amber-800 to-yellow-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             <span className="relative flex items-center">
               {t("bookNow")}
               <i className="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>

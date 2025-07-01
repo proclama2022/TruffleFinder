@@ -127,9 +127,9 @@ export function ProgramTimeline() {
       <div className="container mx-auto px-6">
         {/* Modern Header */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/30 dark:to-purple-900/30 px-4 py-2 rounded-full mb-6">
-            <i className="fas fa-calendar-alt text-blue-600 dark:text-blue-400"></i>
-            <span className="text-blue-700 dark:text-blue-300 text-sm font-semibold tracking-wide uppercase">Event Schedule</span>
+          <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-amber-100 to-yellow-100 dark:from-amber-900/30 dark:to-yellow-900/30 px-4 py-2 rounded-full mb-6">
+            <i className="fas fa-calendar-alt text-amber-600 dark:text-amber-400"></i>
+            <span className="text-amber-700 dark:text-amber-300 text-sm font-semibold tracking-wide uppercase">Event Schedule</span>
           </div>
           <h2 className="text-6xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent mb-6">
             5-Day Journey
@@ -148,7 +148,7 @@ export function ProgramTimeline() {
                   
                   {/* Day Badge */}
                   <div className="absolute -top-4 left-8">
-                    <div className="bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-2xl px-6 py-3 shadow-lg">
+                    <div className="bg-gradient-to-r from-amber-600 to-yellow-600 text-white rounded-2xl px-6 py-3 shadow-lg">
                       <div className="text-center">
                         <div className="text-2xl font-bold">{dayData.day}</div>
                         <div className="text-xs font-medium opacity-90">October</div>

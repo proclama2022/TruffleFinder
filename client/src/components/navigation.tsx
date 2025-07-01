@@ -37,8 +37,8 @@ export function Navigation() {
             onClick={() => handleNavClick("home")}
             className={`transition-colors font-medium text-sm ${
               scrolled 
-                ? 'text-gray-700 dark:text-gray-200 hover:text-purple-600 dark:hover:text-purple-400' 
-                : 'text-white hover:text-purple-200'
+                ? 'text-gray-700 dark:text-gray-200 hover:text-amber-600 dark:hover:text-amber-400' 
+                : 'text-white hover:text-yellow-200'
             }`}
           >
             {t("home")}
@@ -47,8 +47,8 @@ export function Navigation() {
             onClick={() => handleNavClick("program")}
             className={`transition-colors font-medium text-sm ${
               scrolled 
-                ? 'text-gray-700 dark:text-gray-200 hover:text-purple-600 dark:hover:text-purple-400' 
-                : 'text-white hover:text-purple-200'
+                ? 'text-gray-700 dark:text-gray-200 hover:text-amber-600 dark:hover:text-amber-400' 
+                : 'text-white hover:text-yellow-200'
             }`}
           >
             {t("program")}
@@ -57,8 +57,8 @@ export function Navigation() {
             onClick={() => handleNavClick("activities")}
             className={`transition-colors font-medium text-sm ${
               scrolled 
-                ? 'text-gray-700 dark:text-gray-200 hover:text-purple-600 dark:hover:text-purple-400' 
-                : 'text-white hover:text-purple-200'
+                ? 'text-gray-700 dark:text-gray-200 hover:text-amber-600 dark:hover:text-amber-400' 
+                : 'text-white hover:text-yellow-200'
             }`}
           >
             {t("activities")}
@@ -67,8 +67,8 @@ export function Navigation() {
             onClick={() => handleNavClick("team")}
             className={`transition-colors font-medium text-sm ${
               scrolled 
-                ? 'text-gray-700 dark:text-gray-200 hover:text-purple-600 dark:hover:text-purple-400' 
-                : 'text-white hover:text-purple-200'
+                ? 'text-gray-700 dark:text-gray-200 hover:text-amber-600 dark:hover:text-amber-400' 
+                : 'text-white hover:text-yellow-200'
             }`}
           >
             Team
@@ -77,8 +77,8 @@ export function Navigation() {
             onClick={() => handleNavClick("gallery")}
             className={`transition-colors font-medium text-sm ${
               scrolled 
-                ? 'text-gray-700 dark:text-gray-200 hover:text-purple-600 dark:hover:text-purple-400' 
-                : 'text-white hover:text-purple-200'
+                ? 'text-gray-700 dark:text-gray-200 hover:text-amber-600 dark:hover:text-amber-400' 
+                : 'text-white hover:text-yellow-200'
             }`}
           >
             {t("gallery")}
@@ -87,8 +87,8 @@ export function Navigation() {
             onClick={() => handleNavClick("contact")}
             className={`transition-colors font-medium text-sm ${
               scrolled 
-                ? 'text-gray-700 dark:text-gray-200 hover:text-purple-600 dark:hover:text-purple-400' 
-                : 'text-white hover:text-purple-200'
+                ? 'text-gray-700 dark:text-gray-200 hover:text-amber-600 dark:hover:text-amber-400' 
+                : 'text-white hover:text-yellow-200'
             }`}
           >
             {t("contact")}

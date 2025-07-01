@@ -24,11 +24,12 @@
   --ring: hsl(20, 14.3%, 4.1%);
   --radius: 1rem;
   
-  /* Custom Truffle Colors */
-  --truffle-brown: hsl(25, 62%, 32%);
-  --truffle-gold: hsl(43, 80%, 56%);
-  --truffle-light: hsl(31, 46%, 96%);
-  --truffle-cream: hsl(60, 55%, 91%);
+  /* Custom Truffle Colors - Based on Logo */
+  --truffle-brown: hsl(30, 35%, 25%);
+  --truffle-gold: hsl(45, 45%, 65%);
+  --truffle-light: hsl(45, 60%, 92%);
+  --truffle-cream: hsl(45, 50%, 88%);
+  --truffle-dark: hsl(30, 40%, 15%);
 }
 
 .dark {
