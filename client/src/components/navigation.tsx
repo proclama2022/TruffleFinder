@@ -48,6 +48,12 @@ export function Navigation() {
             {t("activities")}
           </button>
           <button
+            onClick={() => handleNavClick("team")}
+            className="text-white hover:text-yellow-300 transition-colors font-medium"
+          >
+            Team
+          </button>
+          <button
             onClick={() => handleNavClick("gallery")}
             className="text-white hover:text-yellow-300 transition-colors font-medium"
           >

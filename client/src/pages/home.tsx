@@ -3,6 +3,7 @@ import { Navigation } from "@/components/navigation";
 import { HeroSection } from "@/components/hero-section";
 import { ProgramTimeline } from "@/components/program-timeline";
 import { ActivitiesGrid } from "@/components/activities-grid";
+import { TeamSection } from "@/components/team-section";
 import { Gallery } from "@/components/gallery";
 import { ContactSection } from "@/components/contact-section";
 import { useLanguage } from "@/hooks/use-language";
@@ -102,6 +103,7 @@ export default function Home() {
       
       <ProgramTimeline />
       <ActivitiesGrid />
+      <TeamSection />
       <Gallery />
       <ContactSection />
       
@@ -146,6 +148,14 @@ export default function Home() {
                     className="text-yellow-200 hover:text-white transition-colors"
                   >
                     {t("activities")}
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => scrollToElement("team")}
+                    className="text-yellow-200 hover:text-white transition-colors"
+                  >
+                    Team
                   </button>
                 </li>
                 <li>

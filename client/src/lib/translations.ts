@@ -56,6 +56,22 @@ export const translations = {
     hunting: "Caccia",
     food: "Cibo",
     
+    // Team
+    teamTitle: "Il Nostro Team",
+    teamDescription: "Incontra i professionisti che renderanno la tua esperienza indimenticabile.",
+    mainTrainer: "Truffle Trainer Principale",
+    teamMember: "Membro del Team",
+    specialGuest: "Ospite Speciale",
+    yearsExperience: "anni di esperienza",
+    nicolettaRole: "Fondatrice e Truffle Trainer Certificata",
+    nicolettaDesc: "Esperta allevatrice di Lagotto Romagnolo e trainer specializzata nella ricerca del tartufo. Nicoletta guida con passione ogni aspetto dell'evento, dalla formazione alla caccia al tartufo.",
+    virgilioRole: "Esperto Cinofilo e Coordinatore",
+    virgilioDesc: "Specialista nell'addestramento cinofilo e nella gestione degli eventi. Virgilio coordina le attività pratiche e supporta i partecipanti durante le sessioni di training.",
+    danieleRole: "Maestro di Handling e Grooming",
+    danieleDesc: "Esperto riconosciuto a livello nazionale per le tecniche di handling e grooming dei Lagotto Romagnolo. Condurrà workshop esclusivi durante l'evento.",
+    surpriseGuestRole: "Ospite a Sorpresa",
+    surpriseGuestDesc: "Un esperto del settore cinofilo che arricchirà l'evento con la sua presenza e conoscenza specializzata.",
+    
     // Contact
     contactTitle: "Contatti e Prenotazioni",
     contactDescription: "Pronto a unirti a noi? Mettiti in contatto per assicurarti il posto per questa esperienza indimenticabile.",
@@ -144,6 +160,22 @@ export const translations = {
     dogs: "Dogs",
     hunting: "Hunting",
     food: "Food",
+    
+    // Team
+    teamTitle: "Our Team",
+    teamDescription: "Meet the professionals who will make your experience unforgettable.",
+    mainTrainer: "Main Truffle Trainer",
+    teamMember: "Team Member",
+    specialGuest: "Special Guest",
+    yearsExperience: "years of experience",
+    nicolettaRole: "Founder and Certified Truffle Trainer",
+    nicolettaDesc: "Expert Lagotto Romagnolo breeder and trainer specialized in truffle hunting. Nicoletta passionately leads every aspect of the event, from training to truffle hunting.",
+    virgilioRole: "Canine Expert and Coordinator",
+    virgilioDesc: "Specialist in canine training and event management. Virgilio coordinates practical activities and supports participants during training sessions.",
+    danieleRole: "Master of Handling and Grooming",
+    danieleDesc: "Nationally recognized expert in Lagotto Romagnolo handling and grooming techniques. He will conduct exclusive workshops during the event.",
+    surpriseGuestRole: "Surprise Guest",
+    surpriseGuestDesc: "A canine industry expert who will enrich the event with their presence and specialized knowledge.",
     
     // Contact
     contactTitle: "Contact & Booking",
