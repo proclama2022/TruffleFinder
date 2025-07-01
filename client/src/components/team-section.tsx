@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useLanguage } from "@/hooks/use-language";
 
 const teamMembers = [
@@ -7,9 +8,11 @@ const teamMembers = [
     role: "nicolettaRole",
     description: "nicolettaDesc",
     image: "https://images.unsplash.com/photo-1494790108755-2616c2e62e7c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&h=500",
-    type: "main",
+    type: "founder",
     experience: "15+",
-    specialty: "Truffle Training & Lagotto Breeding"
+    specialty: "Truffle Training & Lagotto Breeding",
+    color: "from-purple-500 to-pink-500",
+    icon: "fas fa-crown"
   },
   {
     id: 2,
@@ -19,7 +22,9 @@ const teamMembers = [
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&h=500",
     type: "team",
     experience: "10+",
-    specialty: "Canine Training & Event Management"
+    specialty: "Canine Training & Event Management",
+    color: "from-blue-500 to-cyan-500",
+    icon: "fas fa-users"
   },
   {
     id: 3,
@@ -27,157 +32,189 @@ const teamMembers = [
     role: "danieleRole",
     description: "danieleDesc",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&h=500",
-    type: "guest",
+    type: "expert",
     experience: "20+",
-    specialty: "Professional Handling & Grooming"
+    specialty: "Professional Handling & Grooming",
+    color: "from-green-500 to-teal-500",
+    icon: "fas fa-cut"
   },
   {
     id: 4,
-    name: "Ospite Speciale",
+    name: "Mystery Expert",
     role: "surpriseGuestRole",
     description: "surpriseGuestDesc",
     image: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&h=500",
-    type: "guest",
+    type: "mystery",
     experience: "?",
-    specialty: "To be revealed"
+    specialty: "Coming Soon...",
+    color: "from-gray-400 to-gray-600",
+    icon: "fas fa-question"
   }
 ];
 
-const getTypeColor = (type: string) => {
-  switch (type) {
-    case "main": return "bg-gradient-to-r from-yellow-500 to-yellow-700";
-    case "team": return "bg-gradient-to-r from-amber-500 to-amber-700";
-    case "guest": return "bg-gradient-to-r from-orange-500 to-orange-700";
-    default: return "bg-gradient-to-r from-gray-500 to-gray-700";
-  }
-};
-
 const getTypeLabel = (type: string, t: any) => {
   switch (type) {
-    case "main": return t("mainTrainer");
-    case "team": return t("teamMember");
-    case "guest": return t("specialGuest");
+    case "founder": return "Founder & Lead Trainer";
+    case "team": return "Core Team";
+    case "expert": return "Expert Consultant";
+    case "mystery": return "Mystery Guest";
     default: return "";
   }
 };
 
 export function TeamSection() {
   const { t } = useLanguage();
+  const [activeCard, setActiveCard] = useState<number | null>(null);
 
   return (
-    <section id="team" className="py-20 bg-truffle-50 dark:bg-gray-900 transition-colors duration-300">
+    <section id="team" className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold text-amber-900 dark:text-white mb-8">
-            {t("teamTitle")}
+        {/* Modern Header */}
+        <div className="text-center mb-20">
+          <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900/30 dark:to-pink-900/30 px-4 py-2 rounded-full mb-6">
+            <i className="fas fa-users text-purple-600 dark:text-purple-400"></i>
+            <span className="text-purple-700 dark:text-purple-300 text-sm font-semibold tracking-wide uppercase">Meet Our Team</span>
+          </div>
+          <h2 className="text-6xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent mb-6">
+            The Dream Team
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            {t("teamDescription")}
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
+            Passionate experts dedicated to creating extraordinary experiences for you and your Lagotto
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+        {/* Team Cards Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto mb-16">
           {teamMembers.map((member, index) => (
-            <div key={member.id} className={`group ${member.type === 'main' ? 'lg:col-span-2 lg:row-span-1' : ''}`}>
-              <div className="glassmorphism rounded-2xl overflow-hidden shadow-xl hover:scale-105 transition-all duration-300 h-full">
-                {/* Profile Image */}
-                <div className={`relative ${member.type === 'main' ? 'h-80' : 'h-64'} bg-cover bg-center`} 
-                     style={{ backgroundImage: `url(${member.image})` }}>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+            <div 
+              key={member.id} 
+              className={`group cursor-pointer ${member.type === 'founder' ? 'lg:col-span-2' : ''}`}
+              onMouseEnter={() => setActiveCard(member.id)}
+              onMouseLeave={() => setActiveCard(null)}
+            >
+              <div className={`
+                relative bg-white dark:bg-gray-800 rounded-3xl p-6 shadow-lg hover:shadow-2xl 
+                transition-all duration-500 border border-gray-200 dark:border-gray-700
+                ${activeCard === member.id ? 'transform -translate-y-2 scale-105' : ''}
+                ${member.type === 'founder' ? 'lg:p-8' : ''}
+              `}>
+                
+                {/* Gradient Background Effect */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${member.color} opacity-0 group-hover:opacity-5 rounded-3xl transition-opacity duration-500`}></div>
+                
+                {/* Header with Avatar and Badge */}
+                <div className="flex items-start justify-between mb-6">
+                  <div className="flex items-center space-x-4">
+                    <div className="relative">
+                      <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${member.color} p-0.5 ${member.type === 'founder' ? 'lg:w-20 lg:h-20' : ''}`}>
+                        <img 
+                          src={member.image} 
+                          alt={member.name}
+                          className="w-full h-full rounded-2xl object-cover"
+                        />
+                      </div>
+                      <div className={`absolute -bottom-2 -right-2 w-8 h-8 bg-gradient-to-br ${member.color} rounded-xl flex items-center justify-center`}>
+                        <i className={`${member.icon} text-white text-sm`}></i>
+                      </div>
+                    </div>
+                    {member.type === 'founder' && (
+                      <div className="hidden lg:block">
+                        <div className="flex space-x-2">
+                          <a href="#" className="w-8 h-8 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center hover:bg-purple-100 dark:hover:bg-purple-900/30 transition-colors">
+                            <i className="fab fa-instagram text-gray-600 dark:text-gray-400 text-sm"></i>
+                          </a>
+                          <a href="#" className="w-8 h-8 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center hover:bg-purple-100 dark:hover:bg-purple-900/30 transition-colors">
+                            <i className="fab fa-linkedin text-gray-600 dark:text-gray-400 text-sm"></i>
+                          </a>
+                          <a href="mailto:info@lagottotruffleweek.it" className="w-8 h-8 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center hover:bg-purple-100 dark:hover:bg-purple-900/30 transition-colors">
+                            <i className="fas fa-envelope text-gray-600 dark:text-gray-400 text-sm"></i>
+                          </a>
+                        </div>
+                      </div>
+                    )}
+                  </div>
                   
                   {/* Type Badge */}
-                  <div className="absolute top-4 left-4">
-                    <span className={`${getTypeColor(member.type)} text-white px-3 py-1 rounded-full text-sm font-semibold`}>
+                  <div className={`px-3 py-1 bg-gradient-to-r ${member.color} rounded-full`}>
+                    <span className="text-white text-xs font-bold tracking-wide">
                       {getTypeLabel(member.type, t)}
                     </span>
-                  </div>
-
-                  {/* Experience Badge */}
-                  <div className="absolute top-4 right-4">
-                    <div className="bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-semibold">
-                      {member.experience} {t("yearsExperience")}
-                    </div>
-                  </div>
-
-                  {/* Name overlay */}
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <h3 className={`${member.type === 'main' ? 'text-3xl' : 'text-2xl'} font-bold text-white mb-2`}>
-                      {member.name}
-                    </h3>
-                    <p className="text-yellow-200 font-semibold">
-                      {member.specialty}
-                    </p>
                   </div>
                 </div>
 
                 {/* Content */}
-                <div className="p-6">
-                  <h4 className="text-xl font-semibold text-amber-900 dark:text-white mb-3">
-                    {t(member.role as any)}
-                  </h4>
-                  <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                <div className="space-y-4">
+                  <div>
+                    <h3 className={`font-bold text-gray-900 dark:text-white ${member.type === 'founder' ? 'text-2xl lg:text-3xl' : 'text-xl'}`}>
+                      {member.name}
+                    </h3>
+                    <p className={`text-gray-600 dark:text-gray-400 font-medium ${member.type === 'founder' ? 'text-lg' : 'text-sm'}`}>
+                      {member.specialty}
+                    </p>
+                  </div>
+                  
+                  <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
                     {t(member.description as any)}
                   </p>
                   
-                  {/* Social Links for main trainer */}
-                  {member.type === 'main' && (
-                    <div className="mt-6 flex space-x-4">
-                      <a href="#" className="w-10 h-10 bg-yellow-600 rounded-full flex items-center justify-center hover:bg-yellow-700 transition-colors">
-                        <i className="fab fa-instagram text-white"></i>
-                      </a>
-                      <a href="#" className="w-10 h-10 bg-yellow-600 rounded-full flex items-center justify-center hover:bg-yellow-700 transition-colors">
-                        <i className="fab fa-facebook-f text-white"></i>
-                      </a>
-                      <a href="mailto:info@lagottotruffleweek.it" className="w-10 h-10 bg-yellow-600 rounded-full flex items-center justify-center hover:bg-yellow-700 transition-colors">
-                        <i className="fas fa-envelope text-white"></i>
-                      </a>
+                  {/* Experience Badge */}
+                  <div className="flex items-center justify-between pt-4 border-t border-gray-100 dark:border-gray-700">
+                    <div className="flex items-center space-x-2">
+                      <i className="fas fa-award text-gray-400 text-xs"></i>
+                      <span className="text-gray-500 dark:text-gray-400 text-xs font-medium">
+                        {member.experience} years experience
+                      </span>
                     </div>
-                  )}
+                    
+                    {member.type === 'mystery' && (
+                      <div className="animate-pulse">
+                        <div className="w-2 h-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"></div>
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Additional Info */}
-        <div className="mt-16 text-center">
-          <div className="glassmorphism rounded-2xl p-8 max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-r from-yellow-500 to-yellow-700 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <i className="fas fa-award text-2xl text-white"></i>
-                </div>
-                <h4 className="text-xl font-semibold text-amber-900 dark:text-white mb-2">
-                  Esperti Certificati
-                </h4>
-                <p className="text-gray-600 dark:text-gray-300 text-sm">
-                  Tutti i nostri trainer sono certificati ENCI e riconosciuti a livello nazionale
-                </p>
+        {/* Stats Section */}
+        <div className="mt-20">
+          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <div className="text-center p-6 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-2xl border border-purple-100 dark:border-purple-800">
+              <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <i className="fas fa-award text-white text-xl"></i>
               </div>
-              
-              <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-r from-yellow-500 to-yellow-700 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <i className="fas fa-heart text-2xl text-white"></i>
-                </div>
-                <h4 className="text-xl font-semibold text-amber-900 dark:text-white mb-2">
-                  Passione Autentica
-                </h4>
-                <p className="text-gray-600 dark:text-gray-300 text-sm">
-                  Ogni membro del team condivide la passione per i Lagotto e la tradizione del tartufo
-                </p>
+              <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
+                Certified Experts
+              </h4>
+              <p className="text-gray-600 dark:text-gray-400 text-sm">
+                ENCI certified trainers with national recognition
+              </p>
+            </div>
+            
+            <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 rounded-2xl border border-blue-100 dark:border-blue-800">
+              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <i className="fas fa-heart text-white text-xl"></i>
               </div>
-              
-              <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-r from-yellow-500 to-yellow-700 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <i className="fas fa-users text-2xl text-white"></i>
-                </div>
-                <h4 className="text-xl font-semibold text-amber-900 dark:text-white mb-2">
-                  Supporto Continuo
-                </h4>
-                <p className="text-gray-600 dark:text-gray-300 text-sm">
-                  Il nostro team ti accompagnerà in ogni momento dell'esperienza
-                </p>
+              <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
+                Authentic Passion
+              </h4>
+              <p className="text-gray-600 dark:text-gray-400 text-sm">
+                Genuine love for Lagotto and truffle traditions
+              </p>
+            </div>
+            
+            <div className="text-center p-6 bg-gradient-to-br from-green-50 to-teal-50 dark:from-green-900/20 dark:to-teal-900/20 rounded-2xl border border-green-100 dark:border-green-800">
+              <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-teal-500 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <i className="fas fa-users text-white text-xl"></i>
               </div>
+              <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
+                Continuous Support
+              </h4>
+              <p className="text-gray-600 dark:text-gray-400 text-sm">
+                We're with you every step of the journey
+              </p>
             </div>
           </div>
         </div>

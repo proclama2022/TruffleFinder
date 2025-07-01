@@ -123,47 +123,80 @@ export function ProgramTimeline() {
   };
 
   return (
-    <section id="program" className="py-20 bg-truffle-50 dark:bg-gray-900 transition-colors duration-300">
+    <section id="program" className="py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold text-amber-900 dark:text-white mb-8">
-            {t("eventProgram")}
+        {/* Modern Header */}
+        <div className="text-center mb-20">
+          <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/30 dark:to-purple-900/30 px-4 py-2 rounded-full mb-6">
+            <i className="fas fa-calendar-alt text-blue-600 dark:text-blue-400"></i>
+            <span className="text-blue-700 dark:text-blue-300 text-sm font-semibold tracking-wide uppercase">Event Schedule</span>
+          </div>
+          <h2 className="text-6xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent mb-6">
+            5-Day Journey
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
             {t("programDescription")}
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          <div className="relative">
-            {/* Timeline Line */}
-            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-1 timeline-line transform md:-translate-x-1/2"></div>
-
+        {/* Timeline Cards */}
+        <div className="max-w-6xl mx-auto">
+          <div className="grid gap-8">
             {programData.map((dayData, index) => (
-              <div key={dayData.day} className="relative flex items-center mb-16">
-                <div className="absolute left-4 md:left-1/2 w-8 h-8 bg-yellow-600 rounded-full transform md:-translate-x-1/2 flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">{dayData.day}</span>
-                </div>
-                <div className={`ml-16 md:ml-0 ${index % 2 === 0 ? 'md:w-1/2 md:pr-12' : 'md:w-1/2 md:pl-12 md:ml-auto'}`}>
-                  <div className="glassmorphism rounded-2xl p-8 shadow-xl hover:scale-105 transition-transform duration-300">
-                    <h3 className="text-2xl font-bold text-amber-900 dark:text-white mb-4">
-                      {t(dayData.dayKey)}
-                    </h3>
-                    <div className="space-y-4">
+              <div key={dayData.day} className="group">
+                <div className="relative bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-200 dark:border-gray-700">
+                  
+                  {/* Day Badge */}
+                  <div className="absolute -top-4 left-8">
+                    <div className="bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-2xl px-6 py-3 shadow-lg">
+                      <div className="text-center">
+                        <div className="text-2xl font-bold">{dayData.day}</div>
+                        <div className="text-xs font-medium opacity-90">October</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="pt-8">
+                    <div className="flex items-center justify-between mb-6">
+                      <h3 className="text-3xl font-bold text-gray-900 dark:text-white">
+                        {t(dayData.dayKey)}
+                      </h3>
+                      <div className="hidden md:block">
+                        <div className="flex items-center space-x-2 text-gray-500 dark:text-gray-400">
+                          <i className="fas fa-clock"></i>
+                          <span className="text-sm font-medium">Full Day</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Activities Grid */}
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                       {dayData.activities.map((activity, actIndex) => (
-                        <div key={actIndex} className="flex items-start space-x-3">
-                          <i className={`${activity.icon} text-yellow-600 mt-1`}></i>
-                          <div>
-                            <h4 className="font-semibold text-amber-900 dark:text-white">
-                              {getActivityText(activity.titleKey)}
-                            </h4>
-                            <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">
-                              {getActivityText(activity.descKey)}
-                            </p>
+                        <div key={actIndex} className="group/activity">
+                          <div className="bg-gray-50 dark:bg-gray-700/50 rounded-2xl p-6 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300">
+                            <div className="flex items-start space-x-4">
+                              <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-purple-400 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i className={`${activity.icon} text-white text-lg`}></i>
+                              </div>
+                              <div className="flex-1 min-w-0">
+                                <h4 className="font-semibold text-gray-900 dark:text-white mb-2 leading-tight">
+                                  {getActivityText(activity.titleKey)}
+                                </h4>
+                                <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                                  {getActivityText(activity.descKey)}
+                                </p>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       ))}
                     </div>
+                  </div>
+
+                  {/* Decorative Element */}
+                  <div className="absolute top-4 right-4 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
+                    <i className="fas fa-paw text-6xl text-gray-400"></i>
                   </div>
                 </div>
               </div>
