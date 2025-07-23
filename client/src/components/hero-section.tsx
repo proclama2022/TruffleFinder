@@ -20,7 +20,7 @@ export function HeroSection() {
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-stone-900 via-amber-900 to-stone-800 overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-stone-900 via-amber-900 to-stone-800 overflow-hidden pt-20">
       {/* Modern Background Elements */}
       <div className="absolute inset-0">
         {/* Floating Geometric Shapes */}

@@ -7,6 +7,7 @@ export function Navigation() {
   const { theme, toggleTheme } = useTheme();
   const { language, setLanguage, t } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,6 +20,7 @@ export function Navigation() {
 
   const handleNavClick = (elementId: string) => {
     scrollToElement(elementId);
+    setMobileMenuOpen(false);
   };
 
   const toggleLanguage = () => {
@@ -26,98 +28,195 @@ export function Navigation() {
   };
 
   return (
-    <nav className={`fixed top-6 left-1/2 transform -translate-x-1/2 z-40 transition-all duration-500 ${
+    <nav className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
       scrolled 
-        ? 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl border border-gray-200/50 dark:border-gray-700/50' 
-        : 'bg-white/10 backdrop-blur-sm border border-white/20'
-    } rounded-2xl px-6 py-3 shadow-xl`}>
-      <div className="flex items-center space-x-8">
-        <div className="flex items-center space-x-6">
-          <button
-            onClick={() => handleNavClick("home")}
-            className={`transition-colors font-medium text-sm ${
+        ? 'bg-white/95 dark:bg-gray-950/95 backdrop-blur-xl border-b border-stone-200/20 dark:border-stone-700/20 shadow-lg' 
+        : 'bg-transparent'
+    }`}>
+      <div className="container mx-auto px-6">
+        <div className="flex items-center justify-between h-20">
+          {/* Logo Section */}
+          <div className="flex items-center space-x-3">
+            <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 ${
               scrolled 
-                ? 'text-gray-700 dark:text-gray-200 hover:text-amber-600 dark:hover:text-amber-400' 
-                : 'text-white hover:text-yellow-200'
-            }`}
-          >
-            {t("home")}
-          </button>
-          <button
-            onClick={() => handleNavClick("program")}
-            className={`transition-colors font-medium text-sm ${
+                ? 'bg-gradient-to-br from-amber-800 to-amber-700' 
+                : 'bg-white/10 backdrop-blur-sm border border-white/20'
+            }`}>
+              <i className="fas fa-dog text-white text-lg"></i>
+            </div>
+            <span className={`text-xl font-bold transition-all duration-300 ${
               scrolled 
-                ? 'text-gray-700 dark:text-gray-200 hover:text-amber-600 dark:hover:text-amber-400' 
-                : 'text-white hover:text-yellow-200'
-            }`}
-          >
-            {t("program")}
-          </button>
-          <button
-            onClick={() => handleNavClick("activities")}
-            className={`transition-colors font-medium text-sm ${
-              scrolled 
-                ? 'text-gray-700 dark:text-gray-200 hover:text-amber-600 dark:hover:text-amber-400' 
-                : 'text-white hover:text-yellow-200'
-            }`}
-          >
-            {t("activities")}
-          </button>
-          <button
-            onClick={() => handleNavClick("team")}
-            className={`transition-colors font-medium text-sm ${
-              scrolled 
-                ? 'text-gray-700 dark:text-gray-200 hover:text-amber-600 dark:hover:text-amber-400' 
-                : 'text-white hover:text-yellow-200'
-            }`}
-          >
-            Team
-          </button>
-          <button
-            onClick={() => handleNavClick("gallery")}
-            className={`transition-colors font-medium text-sm ${
-              scrolled 
-                ? 'text-gray-700 dark:text-gray-200 hover:text-amber-600 dark:hover:text-amber-400' 
-                : 'text-white hover:text-yellow-200'
-            }`}
-          >
-            {t("gallery")}
-          </button>
-          <button
-            onClick={() => handleNavClick("contact")}
-            className={`transition-colors font-medium text-sm ${
-              scrolled 
-                ? 'text-gray-700 dark:text-gray-200 hover:text-amber-600 dark:hover:text-amber-400' 
-                : 'text-white hover:text-yellow-200'
-            }`}
-          >
-            {t("contact")}
-          </button>
+                ? 'bg-gradient-to-r from-amber-800 to-amber-700 bg-clip-text text-transparent' 
+                : 'text-white'
+            }`}>
+              Lagotto Week
+            </span>
+          </div>
+
+          {/* Main Navigation */}
+          <div className="hidden md:flex items-center space-x-1">
+            <button
+              onClick={() => handleNavClick("home")}
+              className={`px-4 py-2 rounded-xl transition-all duration-300 font-medium text-sm ${
+                scrolled 
+                  ? 'text-gray-700 dark:text-gray-200 hover:text-amber-800 hover:bg-amber-50 dark:hover:bg-amber-900/20' 
+                  : 'text-white/90 hover:text-white hover:bg-white/10'
+              }`}
+            >
+              {t("home")}
+            </button>
+            <button
+              onClick={() => handleNavClick("program")}
+              className={`px-4 py-2 rounded-xl transition-all duration-300 font-medium text-sm ${
+                scrolled 
+                  ? 'text-gray-700 dark:text-gray-200 hover:text-amber-800 hover:bg-amber-50 dark:hover:bg-amber-900/20' 
+                  : 'text-white/90 hover:text-white hover:bg-white/10'
+              }`}
+            >
+              {t("program")}
+            </button>
+            <button
+              onClick={() => handleNavClick("activities")}
+              className={`px-4 py-2 rounded-xl transition-all duration-300 font-medium text-sm ${
+                scrolled 
+                  ? 'text-gray-700 dark:text-gray-200 hover:text-amber-800 hover:bg-amber-50 dark:hover:bg-amber-900/20' 
+                  : 'text-white/90 hover:text-white hover:bg-white/10'
+              }`}
+            >
+              {t("activities")}
+            </button>
+            <button
+              onClick={() => handleNavClick("team")}
+              className={`px-4 py-2 rounded-xl transition-all duration-300 font-medium text-sm ${
+                scrolled 
+                  ? 'text-gray-700 dark:text-gray-200 hover:text-amber-800 hover:bg-amber-50 dark:hover:bg-amber-900/20' 
+                  : 'text-white/90 hover:text-white hover:bg-white/10'
+              }`}
+            >
+              Team
+            </button>
+            <button
+              onClick={() => handleNavClick("gallery")}
+              className={`px-4 py-2 rounded-xl transition-all duration-300 font-medium text-sm ${
+                scrolled 
+                  ? 'text-gray-700 dark:text-gray-200 hover:text-amber-800 hover:bg-amber-50 dark:hover:bg-amber-900/20' 
+                  : 'text-white/90 hover:text-white hover:bg-white/10'
+              }`}
+            >
+              {t("gallery")}
+            </button>
+          </div>
+
+          {/* Right Side Actions */}
+          <div className="flex items-center space-x-2">
+            <button
+              onClick={toggleLanguage}
+              className={`px-3 py-2 rounded-xl transition-all duration-300 flex items-center space-x-1 ${
+                scrolled 
+                  ? 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800' 
+                  : 'text-white/80 hover:text-white hover:bg-white/10'
+              }`}
+            >
+              <i className="fas fa-globe text-sm"></i>
+              <span className="text-xs font-semibold">{language.toUpperCase()}</span>
+            </button>
+            
+            <button
+              onClick={toggleTheme}
+              className={`p-2 rounded-xl transition-all duration-300 ${
+                scrolled 
+                  ? 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800' 
+                  : 'text-white/80 hover:text-white hover:bg-white/10'
+              }`}
+            >
+              <i className={`fas ${theme === "dark" ? "fa-sun" : "fa-moon"} text-sm`}></i>
+            </button>
+
+            <button
+              onClick={() => handleNavClick("contact")}
+              className={`ml-3 px-6 py-2 rounded-xl font-semibold text-sm transition-all duration-300 ${
+                scrolled 
+                  ? 'bg-gradient-to-r from-amber-800 to-amber-700 text-white hover:from-amber-900 hover:to-amber-800 shadow-md hover:shadow-lg' 
+                  : 'bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 border border-white/30'
+              }`}
+            >
+              {t("contact")}
+            </button>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className={`md:hidden p-2 rounded-xl transition-all duration-300 ${
+                scrolled 
+                  ? 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800' 
+                  : 'text-white/80 hover:text-white hover:bg-white/10'
+              }`}
+            >
+              <i className={`fas ${mobileMenuOpen ? 'fa-times' : 'fa-bars'} text-lg`}></i>
+            </button>
+          </div>
         </div>
-        <div className={`flex items-center space-x-3 border-l pl-6 ${
-          scrolled ? 'border-gray-200 dark:border-gray-700' : 'border-white/20'
+
+        {/* Mobile Menu */}
+        <div className={`md:hidden transition-all duration-300 overflow-hidden ${
+          mobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
         }`}>
-          <button
-            onClick={toggleLanguage}
-            className={`p-2 rounded-lg transition-all duration-200 ${
-              scrolled 
-                ? 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800' 
-                : 'text-white hover:bg-white/10'
-            }`}
-          >
-            <i className="fas fa-globe text-sm"></i>
-            <span className="ml-1 text-xs font-semibold">{language.toUpperCase()}</span>
-          </button>
-          <button
-            onClick={toggleTheme}
-            className={`p-2 rounded-lg transition-all duration-200 ${
-              scrolled 
-                ? 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800' 
-                : 'text-white hover:bg-white/10'
-            }`}
-          >
-            <i className={`fas ${theme === "dark" ? "fa-sun" : "fa-moon"} text-sm`}></i>
-          </button>
+          <div className={`pb-6 pt-4 border-t ${
+            scrolled ? 'border-stone-200/20 dark:border-stone-700/20' : 'border-white/20'
+          }`}>
+            <div className="space-y-2">
+              <button
+                onClick={() => handleNavClick("home")}
+                className={`block w-full text-left px-4 py-3 rounded-xl transition-all duration-300 font-medium ${
+                  scrolled 
+                    ? 'text-gray-700 dark:text-gray-200 hover:text-amber-800 hover:bg-amber-50 dark:hover:bg-amber-900/20' 
+                    : 'text-white/90 hover:text-white hover:bg-white/10'
+                }`}
+              >
+                {t("home")}
+              </button>
+              <button
+                onClick={() => handleNavClick("program")}
+                className={`block w-full text-left px-4 py-3 rounded-xl transition-all duration-300 font-medium ${
+                  scrolled 
+                    ? 'text-gray-700 dark:text-gray-200 hover:text-amber-800 hover:bg-amber-50 dark:hover:bg-amber-900/20' 
+                    : 'text-white/90 hover:text-white hover:bg-white/10'
+                }`}
+              >
+                {t("program")}
+              </button>
+              <button
+                onClick={() => handleNavClick("activities")}
+                className={`block w-full text-left px-4 py-3 rounded-xl transition-all duration-300 font-medium ${
+                  scrolled 
+                    ? 'text-gray-700 dark:text-gray-200 hover:text-amber-800 hover:bg-amber-50 dark:hover:bg-amber-900/20' 
+                    : 'text-white/90 hover:text-white hover:bg-white/10'
+                }`}
+              >
+                {t("activities")}
+              </button>
+              <button
+                onClick={() => handleNavClick("team")}
+                className={`block w-full text-left px-4 py-3 rounded-xl transition-all duration-300 font-medium ${
+                  scrolled 
+                    ? 'text-gray-700 dark:text-gray-200 hover:text-amber-800 hover:bg-amber-50 dark:hover:bg-amber-900/20' 
+                    : 'text-white/90 hover:text-white hover:bg-white/10'
+                }`}
+              >
+                Team
+              </button>
+              <button
+                onClick={() => handleNavClick("gallery")}
+                className={`block w-full text-left px-4 py-3 rounded-xl transition-all duration-300 font-medium ${
+                  scrolled 
+                    ? 'text-gray-700 dark:text-gray-200 hover:text-amber-800 hover:bg-amber-50 dark:hover:bg-amber-900/20' 
+                    : 'text-white/90 hover:text-white hover:bg-white/10'
+                }`}
+              >
+                {t("gallery")}
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </nav>
