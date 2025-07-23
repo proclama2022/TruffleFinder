@@ -216,4 +216,191 @@
   .navbar-shadow-dark {
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
   }
+  
+  /* 2025 Modern UX/UI Improvements */
+  
+  /* Advanced Typography */
+  .text-display {
+    font-variation-settings: "wght" 900;
+    letter-spacing: -0.04em;
+    line-height: 0.9;
+  }
+  
+  .text-kinetic {
+    background: linear-gradient(45deg, #8B5CF6, #3B82F6, #10B981, #F59E0B);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: kinetic-gradient 4s ease-in-out infinite;
+  }
+  
+  @keyframes kinetic-gradient {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  
+  /* Bento Grid Layout */
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    grid-auto-rows: minmax(200px, auto);
+  }
+  
+  .bento-item {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 2rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .bento-item:hover {
+    transform: translateY(-8px) scale(1.02);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  }
+  
+  .bento-large {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+  
+  .bento-tall {
+    grid-row: span 2;
+  }
+  
+  .bento-wide {
+    grid-column: span 2;
+  }
+  
+  /* Organic Shape Animations */
+  .organic-blob {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    animation: organic-morph 8s ease-in-out infinite;
+    background: linear-gradient(45deg, rgba(139, 92, 246, 0.1), rgba(59, 130, 246, 0.1));
+  }
+  
+  @keyframes organic-morph {
+    0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+    25% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+    50% { border-radius: 50% 60% 30% 60% / 30% 60% 70% 40%; }
+    75% { border-radius: 60% 40% 60% 30% / 60% 30% 60% 70%; }
+  }
+  
+  /* Advanced Micro-interactions */
+  .interactive-card {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  
+  .interactive-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.6s ease;
+  }
+  
+  .interactive-card:hover::before {
+    left: 100%;
+  }
+  
+  /* Scroll-triggered animations */
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .scroll-reveal-left {
+    opacity: 0;
+    transform: translateX(-60px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .scroll-reveal-left.revealed {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .scroll-reveal-right {
+    opacity: 0;
+    transform: translateX(60px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .scroll-reveal-right.revealed {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  /* Custom Cursor Effects */
+  .cursor-magnetic {
+    position: relative;
+    transition: transform 0.2s ease;
+  }
+  
+  .cursor-magnetic:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Gaming-inspired UI Elements */
+  .neon-border {
+    border: 2px solid transparent;
+    background: linear-gradient(45deg, rgba(139, 92, 246, 0.2), rgba(59, 130, 246, 0.2)) padding-box,
+                linear-gradient(45deg, #8B5CF6, #3B82F6) border-box;
+    border-radius: 12px;
+  }
+  
+  .holographic {
+    background: linear-gradient(135deg, 
+      rgba(139, 92, 246, 0.1) 0%,
+      rgba(59, 130, 246, 0.1) 25%,
+      rgba(16, 185, 129, 0.1) 50%,
+      rgba(245, 158, 11, 0.1) 75%,
+      rgba(139, 92, 246, 0.1) 100%);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Accessibility improvements */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+  
+  /* Focus indicators */
+  .focus-ring:focus {
+    outline: 2px solid rgba(139, 92, 246, 0.6);
+    outline-offset: 2px;
+    border-radius: 8px;
+  }
+  
+  /* Improved dark mode */
+  .dark .glass-enhanced {
+    background: rgba(17, 24, 39, 0.8);
+    backdrop-filter: blur(24px);
+    border: 1px solid rgba(75, 85, 99, 0.3);
+  }
+  
+  /* Performance optimizations */
+  .gpu-accelerated {
+    transform: translateZ(0);
+    will-change: transform;
+  }
 }

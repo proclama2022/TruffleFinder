@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import { useLanguage } from "@/hooks/use-language";
 import { scrollToElement } from "@/lib/utils";
+import { useScrollReveal, useMagneticEffect, useKineticText } from "@/hooks/use-scroll-reveal";
 
 export function HeroSection() {
   const { t } = useLanguage();
   const [animated, setAnimated] = useState(false);
+  const magneticRef = useMagneticEffect();
+  const kineticTitle = useKineticText();
 
   useEffect(() => {
     const timer = setTimeout(() => setAnimated(true), 500);
@@ -47,9 +50,13 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* Title */}
+        {/* Enhanced Title with Modern Typography */}
         <div className={`mb-8 transition-all duration-1000 delay-300 ${animated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <h1 className="text-7xl md:text-9xl font-black text-white mb-4 leading-tight">
+          <h1 
+            className={`text-display text-7xl md:text-9xl font-black mb-4 leading-tight cursor-magnetic transition-colors duration-300 ${kineticTitle.isHovered ? 'text-kinetic' : 'text-white'}`}
+            onMouseEnter={kineticTitle.onMouseEnter}
+            onMouseLeave={kineticTitle.onMouseLeave}
+          >
             <span className="bg-gradient-to-r from-yellow-200 via-amber-200 to-yellow-100 bg-clip-text text-transparent">
               Lagotto
             </span>
@@ -58,7 +65,11 @@ export function HeroSection() {
               Truffle Week
             </span>
           </h1>
-          <div className="w-24 h-1 bg-gradient-to-r from-amber-600 to-stone-500 mx-auto rounded-full"></div>
+          
+          {/* Organic accent line */}
+          <div className="relative mx-auto w-32 h-2 mt-6">
+            <div className="absolute inset-0 organic-blob bg-gradient-to-r from-amber-600/80 to-stone-500/80"></div>
+          </div>
         </div>
 
         <p className={`text-xl md:text-2xl text-stone-100 mb-12 max-w-3xl mx-auto leading-relaxed transition-all duration-1000 delay-500 ${animated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
@@ -87,25 +98,32 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* Modern CTA Buttons */}
-        <div className={`flex flex-col sm:flex-row gap-4 justify-center transition-all duration-1000 delay-1000 ${animated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        {/* Enhanced Modern CTA Buttons */}
+        <div className={`flex flex-col sm:flex-row gap-6 justify-center transition-all duration-1000 delay-1000 ${animated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          {/* Primary CTA with advanced micro-interactions */}
           <button
             onClick={handleBookNow}
-            className="group relative bg-gradient-to-r from-amber-800 to-amber-700 text-white px-8 py-4 rounded-2xl font-semibold hover:scale-105 transition-all duration-300 shadow-2xl overflow-hidden"
+            className="group relative interactive-card neon-border bg-gradient-to-r from-amber-700 via-amber-600 to-amber-700 text-white px-10 py-5 rounded-3xl font-bold text-lg shadow-2xl hover:shadow-amber-500/25 hover:scale-105 active:scale-95 transition-all duration-300 gpu-accelerated focus-ring"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-amber-900 to-amber-800 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            <span className="relative flex items-center">
+            <div className="absolute inset-0 bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl"></div>
+            <div className="absolute inset-0 holographic opacity-0 group-hover:opacity-30 transition-opacity duration-500 rounded-3xl"></div>
+            <span className="relative flex items-center justify-center gap-3">
+              <i className="fas fa-calendar-check text-xl"></i>
               {t("bookNow")}
-              <i className="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+              <i className="fas fa-arrow-right group-hover:translate-x-2 group-hover:scale-110 transition-all duration-300"></i>
             </span>
           </button>
+          
+          {/* Secondary CTA with glassmorphism */}
           <button
             onClick={handleDiscoverProgram}
-            className="group bg-white/10 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-2xl font-semibold hover:bg-white/20 transition-all duration-300"
+            className="group relative interactive-card bg-white/8 backdrop-blur-xl border border-white/20 text-white px-10 py-5 rounded-3xl font-semibold text-lg hover:bg-white/15 hover:border-white/30 hover:scale-105 active:scale-95 transition-all duration-300 gpu-accelerated focus-ring"
           >
-            <span className="flex items-center">
+            <div className="absolute inset-0 bg-gradient-to-r from-white/5 via-white/10 to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl"></div>
+            <span className="relative flex items-center justify-center gap-3">
+              <i className="fas fa-compass text-xl"></i>
               {t("discoverProgram")}
-              <i className="fas fa-chevron-down ml-2 group-hover:translate-y-1 transition-transform"></i>
+              <i className="fas fa-chevron-down group-hover:translate-y-1 group-hover:scale-110 transition-all duration-300"></i>
             </span>
           </button>
         </div>

@@ -1,11 +1,13 @@
 import { useEffect } from "react";
 import { Navigation } from "@/components/navigation";
 import { HeroSection } from "@/components/hero-section";
+import { FeaturesBento } from "@/components/features-bento";
 import { ProgramTimeline } from "@/components/program-timeline";
 import { ActivitiesGrid } from "@/components/activities-grid";
 import { TeamSection } from "@/components/team-section";
 import { Gallery } from "@/components/gallery";
 import { ContactSection } from "@/components/contact-section";
+import { ModernScrollIndicator } from "@/components/modern-scroll-indicator";
 import { useLanguage } from "@/hooks/use-language";
 import { updateScrollProgress, scrollToElement } from "@/lib/utils";
 
@@ -41,13 +43,12 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-truffle-50 dark:bg-gray-900">
-      {/* Scroll Progress Bar */}
-      <div className="fixed top-0 left-0 w-full z-50">
-        <div className="scroll-progress" id="scrollProgress"></div>
-      </div>
+      {/* Modern Scroll Indicators */}
+      <ModernScrollIndicator />
 
       <Navigation />
       <HeroSection />
+      <FeaturesBento />
       
       {/* Modern About Section */}
       <section className="py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
