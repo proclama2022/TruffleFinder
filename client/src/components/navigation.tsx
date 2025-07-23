@@ -7,16 +7,42 @@ export function Navigation() {
   const { theme, toggleTheme } = useTheme();
   const { language, setLanguage, t } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [hovered, setHovered] = useState(false);
 
   useEffect(() => {
+    let hideTimeout: NodeJS.Timeout;
+    
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      const currentScrollY = window.scrollY;
+      
+      setScrolled(currentScrollY > 50);
+      
+      // Clear any existing timeout
+      clearTimeout(hideTimeout);
+      
+      // Hide navbar when scrolling down, show when scrolling up
+      if (currentScrollY > lastScrollY && currentScrollY > 150) {
+        // Add small delay before hiding
+        hideTimeout = setTimeout(() => {
+          setHidden(true);
+          setMobileMenuOpen(false);
+        }, 150);
+      } else if (currentScrollY < lastScrollY || currentScrollY <= 100) {
+        setHidden(false);
+      }
+      
+      setLastScrollY(currentScrollY);
     };
 
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      clearTimeout(hideTimeout);
+    };
+  }, [lastScrollY]);
 
   const handleNavClick = (elementId: string) => {
     scrollToElement(elementId);
@@ -28,11 +54,25 @@ export function Navigation() {
   };
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
-      scrolled 
-        ? 'bg-white/95 dark:bg-gray-950/95 backdrop-blur-xl border-b border-stone-200/20 dark:border-stone-700/20 shadow-lg' 
-        : 'bg-transparent'
-    }`}>
+    <>
+      {/* Invisible hover trigger area */}
+      <div 
+        className="fixed top-0 left-0 right-0 h-16 z-30"
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+      />
+      
+      <nav 
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
+          (hidden && !hovered && !mobileMenuOpen) ? '-translate-y-full' : 'translate-y-0'
+        } ${
+          scrolled 
+            ? 'bg-white/95 dark:bg-gray-950/95 backdrop-blur-xl border-b border-stone-200/20 dark:border-stone-700/20 shadow-lg' 
+            : 'bg-transparent'
+        }`}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+      >
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-20">
           {/* Logo Section */}
@@ -220,5 +260,6 @@ export function Navigation() {
         </div>
       </div>
     </nav>
+    </>
   );
 }
