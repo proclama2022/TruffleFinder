@@ -7,12 +7,19 @@ import { useLanguage } from '../hooks/use-language';
 import { LanguageSelector } from '../components/language-selector';
 import logoImage from '../assets/images/logo.jpg';
 import nicolettaLogoImage from '../assets/images/nicoletta-logo.jpg';
+import backgroundImage from '../assets/images/background.jpg';
 
 export default function ComingSoon() {
   const { t } = useLanguage();
 
   return (
     <div className="min-h-screen bg-[#DDCDBB] relative overflow-hidden">
+      {/* Background image super leggero */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[0.03]"
+        style={{ backgroundImage: `url(${backgroundImage})` }}
+      ></div>
+      
       <LanguageSelector />
       {/* Autumn leaves background */}
       <div className="absolute inset-0 overflow-hidden">
