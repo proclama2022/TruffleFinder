@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import nicolettaLogoImage from '../assets/images/nicoletta-logo.jpg';
 
 interface ContactFormData {
   name: string;
@@ -81,6 +82,22 @@ export function ContactSection() {
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
             {t("contactDescription")}
           </p>
+          
+          {/* Nicoletta Conte Logo */}
+          <div className="mt-8 flex justify-center">
+            <div className="relative">
+              <div className="w-20 h-20 bg-gradient-to-br from-amber-600 to-amber-800 rounded-2xl flex items-center justify-center shadow-lg border-2 border-amber-500 overflow-hidden">
+                <img 
+                  src={nicolettaLogoImage} 
+                  alt="Nicoletta Conte" 
+                  className="w-16 h-16 object-cover rounded-xl"
+                />
+              </div>
+              <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-gradient-to-br from-amber-600 to-amber-800 rounded-full flex items-center justify-center">
+                <i className="fas fa-crown text-white text-xs"></i>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16 max-w-6xl mx-auto">

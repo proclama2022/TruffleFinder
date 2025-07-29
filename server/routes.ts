@@ -55,6 +55,15 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Site status endpoint
+  app.get("/api/status", (req, res) => {
+    const showComingSoon = process.env.SHOW_COMING_SOON === 'true';
+    res.json({ 
+      status: showComingSoon ? 'coming-soon' : 'live',
+      message: showComingSoon ? 'Site is in coming soon mode' : 'Site is live'
+    });
+  });
+
   const httpServer = createServer(app);
   return httpServer;
 }

@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lagotto & Truffle Week - L'Esperienza Unica per Te e il Tuo Cane</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        truffle: {
+                            50: '#FAF0E6',
+                            100: '#F5F5DC',
+                            500: '#DAA520',
+                            700: '#B8860B',
+                            900: '#8B4513'
+                        }
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                        'script': ['Dancing Script', 'cursive']
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s ease-in-out infinite',
+                        'bounce-slow': 'bounce 2s infinite'
+                    }
+                }
+            },
+            darkMode: 'class'
+        };
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .dark .glassmorphism {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #8B4513 0%, #DAA520 100%);
+        }
+        
+        .timeline-line {
+            background: linear-gradient(to bottom, #DAA520 0%, #8B4513 100%);
+        }
+        
+        .scroll-progress {
+            height: 4px;
+            background: linear-gradient(to right, #8B4513, #DAA520);
+            transform-origin: left;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+    </style>
+</head>
+<body class="font-inter bg-truffle-50 dark:bg-gray-900 transition-colors duration-300">
+    
+    <!-- Scroll Progress Bar -->
+    <div class="fixed top-0 left-0 w-full z-50">
+        <div class="scroll-progress" id="scrollProgress"></div>
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-4 left-1/2 transform -translate-x-1/2 z-40 glassmorphism rounded-full px-8 py-4 shadow-2xl">
+        <div class="flex items-center space-x-8">
+            <div class="flex items-center space-x-6">
+                <a href="#home" class="text-white hover:text-truffle-500 transition-colors font-medium">Home</a>
+                <a href="#program" class="text-white hover:text-truffle-500 transition-colors font-medium">Programma</a>
+                <a href="#activities" class="text-white hover:text-truffle-500 transition-colors font-medium">Attività</a>
+                <a href="#gallery" class="text-white hover:text-truffle-500 transition-colors font-medium">Gallery</a>
+                <a href="#contact" class="text-white hover:text-truffle-500 transition-colors font-medium">Contatti</a>
+            </div>
+            <div class="flex items-center space-x-4 border-l border-white/20 pl-6">
+                <button id="langToggle" class="text-white hover:text-truffle-500 transition-colors">
+                    <i class="fas fa-globe mr-1"></i>
+                    <span id="currentLang">IT</span>
+                </button>
+                <button id="themeToggle" class="text-white hover:text-truffle-500 transition-colors">
+                    <i class="fas fa-moon" id="themeIcon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center gradient-bg overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-20 left-20 w-16 h-16 animate-float">
+                <i class="fas fa-leaf text-4xl text-white"></i>
+            </div>
+            <div class="absolute top-40 right-32 w-12 h-12 animate-float" style="animation-delay: 2s;">
+                <i class="fas fa-leaf text-3xl text-white"></i>
+            </div>
+            <div class="absolute bottom-32 left-1/4 w-20 h-20 animate-float" style="animation-delay: 4s;">
+                <i class="fas fa-leaf text-5xl text-white"></i>
+            </div>
+        </div>
+        
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <!-- Logo -->
+            <div class="mb-8 animate-pulse-slow">
+                <div class="w-32 h-32 mx-auto bg-white/20 rounded-full flex items-center justify-center glassmorphism mb-6 hover:scale-105 transition-transform duration-300">
+                    <i class="fas fa-dog text-6xl text-white"></i>
+                </div>
+            </div>
+            
+            <!-- Title -->
+            <h1 class="text-6xl md:text-8xl font-bold text-white mb-6 opacity-0 animate-fade-in" style="animation-delay: 0.5s;">
+                <span class="font-script text-truffle-200">Lagotto</span> &<br>
+                <span class="bg-gradient-to-r from-truffle-200 to-white bg-clip-text text-transparent">Truffle Week</span>
+            </h1>
+            
+            <p class="text-xl md:text-2xl text-truffle-100 mb-8 max-w-3xl mx-auto opacity-0 animate-fade-in" style="animation-delay: 1s;" data-en="The unique experience for you and your dog">
+                L'esperienza unica per te e il tuo cane
+            </p>
+            
+            <!-- Stats Counter -->
+            <div class="flex justify-center space-x-12 mb-12 opacity-0 animate-fade-in" style="animation-delay: 1.5s;">
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-white" data-count="5">5</div>
+                    <div class="text-truffle-200" data-en="Days">Giorni</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-white" data-count="12">12</div>
+                    <div class="text-truffle-200" data-en="Activities">Attività</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-white" data-count="50">50+</div>
+                    <div class="text-truffle-200" data-en="Participants">Partecipanti</div>
+                </div>
+            </div>
+            
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center opacity-0 animate-fade-in" style="animation-delay: 2s;">
+                <button class="bg-white text-truffle-900 px-8 py-4 rounded-full font-semibold hover:bg-truffle-100 hover:scale-105 transition-all duration-300 shadow-2xl">
+                    <span data-en="Book Now">Prenota Ora</span>
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+                <button class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-truffle-900 transition-all duration-300">
+                    <span data-en="Discover Program">Scopri il Programma</span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce-slow">
+            <div class="w-6 h-10 border-2 border-white rounded-full flex justify-center">
+                <div class="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section class="py-20 bg-white dark:bg-gray-800 transition-colors duration-300">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-5xl font-bold text-truffle-900 dark:text-white mb-8">
+                    <span data-en="An Unforgettable Experience">Un'Esperienza Indimenticabile</span>
+                </h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 mb-12 leading-relaxed" data-en="Join us for five days of truffle hunting, training sessions, gourmet cooking, and unforgettable moments with your Lagotto Romagnolo in the beautiful hills of Portico di Romagna.">
+                    Unisciti a noi per cinque giorni di caccia al tartufo, sessioni di addestramento, cucina gourmet e momenti indimenticabili con il tuo Lagotto Romagnolo nelle splendide colline di Portico di Romagna.
+                </p>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="glassmorphism rounded-2xl p-8 shadow-xl hover:scale-105 transition-transform duration-300">
+                        <div class="w-16 h-16 bg-gradient-to-r from-truffle-500 to-truffle-700 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-search text-2xl text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-truffle-900 dark:text-white mb-4" data-en="Truffle Hunting">Caccia al Tartufo</h3>
+                        <p class="text-gray-600 dark:text-gray-300" data-en="Experience authentic truffle hunting with expert guides and your trained Lagotto.">
+                            Vivi l'autentica caccia al tartufo con guide esperte e il tuo Lagotto addestrato.
+                        </p>
+                    </div>
+                    
+                    <div class="glassmorphism rounded-2xl p-8 shadow-xl hover:scale-105 transition-transform duration-300">
+                        <div class="w-16 h-16 bg-gradient-to-r from-truffle-500 to-truffle-700 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-graduation-cap text-2xl text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-truffle-900 dark:text-white mb-4" data-en="Training Sessions">Sessioni di Addestramento</h3>
+                        <p class="text-gray-600 dark:text-gray-300" data-en="Professional training with official ENCI judges and expert handlers.">
+                            Addestramento professionale con giudici ufficiali ENCI e handler esperti.
+                        </p>
+                    </div>
+                    
+                    <div class="glassmorphism rounded-2xl p-8 shadow-xl hover:scale-105 transition-transform duration-300">
+                        <div class="w-16 h-16 bg-gradient-to-r from-truffle-500 to-truffle-700 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-utensils text-2xl text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-truffle-900 dark:text-white mb-4" data-en="Gourmet Experience">Esperienza Gourmet</h3>
+                        <p class="text-gray-600 dark:text-gray-300" data-en="Discover truffle cuisine with show cooking and gourmet dinners.">
+                            Scopri la cucina al tartufo con show cooking e cene gourmet.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Program Timeline -->
+    <section id="program" class="py-20 bg-truffle-50 dark:bg-gray-900 transition-colors duration-300">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold text-truffle-900 dark:text-white mb-8">
+                    <span data-en="Event Program">Programma Evento</span>
+                </h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto" data-en="Five days of activities, training, and unforgettable experiences with your Lagotto Romagnolo.">
+                    Cinque giorni di attività, addestramento ed esperienze indimenticabili con il tuo Lagotto Romagnolo.
+                </p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="relative">
+                    <!-- Timeline Line -->
+                    <div class="absolute left-8 md:left-1/2 top-0 bottom-0 w-1 timeline-line transform md:-translate-x-1/2"></div>
+                    
+                    <!-- Day 1 - Wednesday -->
+                    <div class="relative flex items-center mb-16">
+                        <div class="absolute left-4 md:left-1/2 w-8 h-8 bg-truffle-500 rounded-full transform md:-translate-x-1/2 flex items-center justify-center">
+                            <span class="text-white font-bold text-sm">15</span>
+                        </div>
+                        <div class="ml-16 md:ml-0 md:w-1/2 md:pr-12">
+                            <div class="glassmorphism rounded-2xl p-8 shadow-xl hover:scale-105 transition-transform duration-300">
+                                <h3 class="text-2xl font-bold text-truffle-900 dark:text-white mb-4">
+                                    <span data-en="Wednesday">Mercoledì</span>
+                                </h3>
+                                <div class="space-y-4">
+                                    <div class="flex items-start space-x-3">
+                                        <i class="fas fa-clock text-truffle-500 mt-1"></i>
+                                        <div>
+                                            <h4 class="font-semibold text-truffle-900 dark:text-white" data-en="Morning - Basic Training Session">Mattina - Lavoro training base</h4>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start space-x-3">
+                                        <i class="fas fa-search text-truffle-500 mt-1"></i>
+                                        <div>
+                                            <h4 class="font-semibold text-truffle-900 dark:text-white" data-en="Afternoon - White Truffle Experience">Pomeriggio - Truffle Experience su tartufo bianco</h4>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start space-x-3">
+                                        <i class="fas fa-utensils text-truffle-500 mt-1"></i>
+                                        <div>
+                                            <h4 class="font-semibold text-truffle-900 dark:text-white" data-en="Evening - Inauguration Dinner">Sera - Cena di inaugurazione presso Al Vecchio Convento</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Day 2 - Thursday -->
+                    <div class="relative flex items-center mb-16">
+                        <div class="absolute left-4 md:left-1/2 w-8 h-8 bg-truffle-500 rounded-full transform md:-translate-x-1/2 flex items-center justify-center">
+                            <span class="text-white font-bold text-sm">16</span>
+                        </div>
+                        <div class="ml-16 md:ml-0 md:w-1/2 md:pl-12 md:ml-auto">
+                            <div class="glassmorphism rounded-2xl p-8 shadow-xl hover:scale-105 transition-transform duration-300">
+                                <h3 class="text-2xl font-bold text-truffle-900 dark:text-white mb-4">
+                                    <span data-en="Thursday">Giovedì</span>
+                                </h3>
+                                <div class="space-y-4">
+                                    <div class="flex items-start space-x-3">
+                                        <i class="fas fa-cut text-truffle-500 mt-1"></i>
+                                        <div>
+                                            <h4 class="font-semibold text-truffle-900 dark:text-white" data-en="Morning - Handling and Grooming Workshop">Mattina - Laboratorio di Handling e Grooming con Daniele Tabarrini</h4>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start space-x-3">
+                                        <i class="fas fa-chef-hat text-truffle-500 mt-1"></i>
+                                        <div>
+                                            <h4 class="font-semibold text-truffle-900 dark:text-white" data-en="Afternoon - Show Cooking and Kitchen Lab">Pomeriggio - Show cooking e Laboratorio di cucina</h4>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start space-x-3">
+                                        <i class="fas fa-wine-glass text-truffle-500 mt-1"></i>
+                                        <div>
+                                            <h4 class="font-semibold text-truffle-900 dark:text-white" data-en="Evening - Aperitif">Sera - Apericena</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Day 3 - Friday -->
+                    <div class="relative flex items-center mb-16">
+                        <div class="absolute left-4 md:left-1/2 w-8 h-8 bg-truffle-500 rounded-full transform md:-translate-x-1/2 flex items-center justify-center">
+                            <span class="text-white font-bold text-sm">17</span>
+                        </div>
+                        <div class="ml-16 md:ml-0 md:w-1/2 md:pr-12">
+                            <div class="glassmorphism rounded-2xl p-8 shadow-xl hover:scale-105 transition-transform duration-300">
+                                <h3 class="text-2xl font-bold text-truffle-900 dark:text-white mb-4">
+                                    <span data-en="Friday">Venerdì</span>
+                                </h3>
+                                <div class="space-y-4">
+                                    <div class="flex items-start space-x-3">
+                                        <i class="fas fa-tree text-truffle-500 mt-1"></i>
+                                        <div>
+                                            <h4 class="font-semibold text-truffle-900 dark:text-white" data-en="All Day - Black Truffle Hunting">Tutto il giorno - Truffle Hunting su tartufo uncinato</h4>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start space-x-3">
+                                        <i class="fas fa-picnic text-truffle-500 mt-1"></i>
+                                        <div>
+                                            <h4 class="font-semibold text-truffle-900 dark:text-white" data-en="Lunch - Picnic by Al Vecchio Convento">Pranzo - Picnic a cura di Al Vecchio Convento</h4>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start space-x-3">
+                                        <i class="fas fa-heart text-truffle-500 mt-1"></i>
+                                        <div>
+                                            <h4 class="font-semibold text-truffle-900 dark:text-white" data-en="Evening - Charity Raffle">Sera - Riffa di beneficienza per un tesoro di lagotto rescue</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Day 4 - Saturday -->
+                    <div class="relative flex items-center mb-16">
+                        <div class="absolute left-4 md:left-1/2 w-8 h-8 bg-truffle-500 rounded-full transform md:-translate-x-1/2 flex items-center justify-center">
+                            <span class="text-white font-bold text-sm">18</span>
+                        </div>
+                        <div class="ml-16 md:ml-0 md:w-1/2 md:pl-12 md:ml-auto">
+                            <div class="glassmorphism rounded-2xl p-8 shadow-xl hover:scale-105 transition-transform duration-300">
+                                <h3 class="text-2xl font-bold text-truffle-900 dark:text-white mb-4">
+                                    <span data-en="Saturday">Sabato</span>
+                                </h3>
+                                <div class="space-y-4">
+                                    <div class="flex items-start space-x-3">
+                                        <i class="fas fa-trophy text-truffle-500 mt-1"></i>
+                                        <div>
+                                            <h4 class="font-semibold text-truffle-900 dark:text-white" data-en="Morning - Work Test Training with Official ENCI Judges">Mattina - Training prova di lavoro con giudici ufficiali ENCI</h4>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start space-x-3">
+                                        <i class="fas fa-microphone text-truffle-500 mt-1"></i>
+                                        <div>
+                                            <h4 class="font-semibold text-truffle-900 dark:text-white" data-en="Afternoon - Conference with Special Guest">Pomeriggio - Conferenza con ospite a sorpresa</h4>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start space-x-3">
+                                        <i class="fas fa-mountain text-truffle-500 mt-1"></i>
+                                        <div>
+                                            <h4 class="font-semibold text-truffle-900 dark:text-white" data-en="Evening - Dinner at Monte Busca">Sera - Cena presso Monte Busca</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Day 5 - Sunday -->
+                    <div class="relative flex items-center">
+                        <div class="absolute left-4 md:left-1/2 w-8 h-8 bg-truffle-500 rounded-full transform md:-translate-x-1/2 flex items-center justify-center">
+                            <span class="text-white font-bold text-sm">19</span>
+                        </div>
+                        <div class="ml-16 md:ml-0 md:w-1/2 md:pr-12">
+                            <div class="glassmorphism rounded-2xl p-8 shadow-xl hover:scale-105 transition-transform duration-300">
+                                <h3 class="text-2xl font-bold text-truffle-900 dark:text-white mb-4">
+                                    <span data-en="Sunday">Domenica</span>
+                                </h3>
+                                <div class="space-y-4">
+                                    <div class="flex items-start space-x-3">
+                                        <i class="fas fa-search text-truffle-500 mt-1"></i>
+                                        <div>
+                                            <h4 class="font-semibold text-truffle-900 dark:text-white" data-en="Morning - Black Truffle Hunting">Mattina - Truffle Hunting su tartufo nero</h4>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start space-x-3">
+                                        <i class="fas fa-gem text-truffle-500 mt-1"></i>
+                                        <div>
+                                            <h4 class="font-semibold text-truffle-900 dark:text-white" data-en="Afternoon - White Truffle Hunting">Pomeriggio - Truffle Hunting su tartufo bianco</h4>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start space-x-3">
+                                        <i class="fas fa-handshake text-truffle-500 mt-1"></i>
+                                        <div>
+                                            <h4 class="font-semibold text-truffle-900 dark:text-white" data-en="Evening - Farewell Lunch">Sera - Pranzo e saluti</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Activities Grid -->
+    <section id="activities" class="py-20 bg-white dark:bg-gray-800 transition-colors duration-300">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold text-truffle-900 dark:text-white mb-8">
+                    <span data-en="Our Activities">Le Nostre Attività</span>
+                </h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto" data-en="Discover all the exciting activities planned for the week.">
+                    Scopri tutte le emozionanti attività in programma per la settimana.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Activity 1 -->
+                <div class="group glassmorphism rounded-2xl overflow-hidden shadow-xl hover:scale-105 transition-all duration-300">
+                    <!-- Professional truffle hunting scene with dogs and handler in autumn forest -->
+                    <div class="relative h-64 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600');">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-truffle-500 text-white px-3 py-1 rounded-full text-sm font-semibold" data-en="Intermediate">Intermedio</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-truffle-900 dark:text-white mb-3" data-en="Truffle Hunting">Caccia al Tartufo</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4" data-en="Experience authentic truffle hunting with expert guides in the beautiful hills of Romagna.">
+                            Vivi l'autentica caccia al tartufo con guide esperte nelle splendide colline di Romagna.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400">
+                                <i class="fas fa-clock"></i>
+                                <span data-en="Full day">Intera giornata</span>
+                            </div>
+                            <button class="text-truffle-500 hover:text-truffle-700 font-semibold" data-en="Learn More">Scopri di più</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Activity 2 -->
+                <div class="group glassmorphism rounded-2xl overflow-hidden shadow-xl hover:scale-105 transition-all duration-300">
+                    <!-- Professional dog training session with Lagotto Romagnolo and trainer -->
+                    <div class="relative h-64 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1587300003388-59208cc962cb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600');">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold" data-en="Beginner">Principiante</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-truffle-900 dark:text-white mb-3" data-en="Professional Training">Addestramento Professionale</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4" data-en="Learn from certified ENCI judges and improve your dog's skills.">
+                            Impara da giudici ENCI certificati e migliora le abilità del tuo cane.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400">
+                                <i class="fas fa-clock"></i>
+                                <span data-en="Half day">Mezza giornata</span>
+                            </div>
+                            <button class="text-truffle-500 hover:text-truffle-700 font-semibold" data-en="Learn More">Scopri di più</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Activity 3 -->
+                <div class="group glassmorphism rounded-2xl overflow-hidden shadow-xl hover:scale-105 transition-all duration-300">
+                    <!-- Elegant gourmet truffle dish preparation in professional kitchen -->
+                    <div class="relative h-64 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1564671165093-20688ff1fffa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600');">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-yellow-500 text-white px-3 py-1 rounded-full text-sm font-semibold" data-en="All Levels">Tutti i livelli</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-truffle-900 dark:text-white mb-3" data-en="Cooking Workshop">Laboratorio di Cucina</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4" data-en="Learn to prepare delicious truffle dishes with expert chefs.">
+                            Impara a preparare deliziosi piatti al tartufo con chef esperti.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400">
+                                <i class="fas fa-clock"></i>
+                                <span data-en="3 hours">3 ore</span>
+                            </div>
+                            <button class="text-truffle-500 hover:text-truffle-700 font-semibold" data-en="Learn More">Scopri di più</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Activity 4 -->
+                <div class="group glassmorphism rounded-2xl overflow-hidden shadow-xl hover:scale-105 transition-all duration-300">
+                    <!-- Professional dog grooming session with Lagotto Romagnolo -->
+                    <div class="relative h-64 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1560807707-8cc77767d783?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600');">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-semibold" data-en="Beginner">Principiante</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-truffle-900 dark:text-white mb-3" data-en="Grooming Workshop">Laboratorio di Grooming</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4" data-en="Learn professional grooming techniques with expert Daniele Tabarrini.">
+                            Impara tecniche di grooming professionale con l'esperto Daniele Tabarrini.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400">
+                                <i class="fas fa-clock"></i>
+                                <span data-en="Half day">Mezza giornata</span>
+                            </div>
+                            <button class="text-truffle-500 hover:text-truffle-700 font-semibold" data-en="Learn More">Scopri di più</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Activity 5 -->
+                <div class="group glassmorphism rounded-2xl overflow-hidden shadow-xl hover:scale-105 transition-all duration-300">
+                    <!-- Beautiful autumn landscape in Italian countryside with hills -->
+                    <div class="relative h-64 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1499856871958-5b9627545d1a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600');">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold" data-en="Family">Famiglia</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-truffle-900 dark:text-white mb-3" data-en="Nature Walks">Passeggiate Naturalistiche</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4" data-en="Explore the beautiful hills of Romagna with your four-legged friend.">
+                            Esplora le splendide colline di Romagna con il tuo amico a quattro zampe.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400">
+                                <i class="fas fa-clock"></i>
+                                <span data-en="2 hours">2 ore</span>
+                            </div>
+                            <button class="text-truffle-500 hover:text-truffle-700 font-semibold" data-en="Learn More">Scopri di più</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Activity 6 -->
+                <div class="group glassmorphism rounded-2xl overflow-hidden shadow-xl hover:scale-105 transition-all duration-300">
+                    <!-- Elegant dinner setting in rustic Italian restaurant -->
+                    <div class="relative h-64 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600');">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-semibold" data-en="Premium">Premium</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-truffle-900 dark:text-white mb-3" data-en="Gourmet Dinners">Cene Gourmet</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4" data-en="Enjoy exclusive dinners at the finest restaurants in the region.">
+                            Goditi cene esclusive nei migliori ristoranti della regione.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400">
+                                <i class="fas fa-clock"></i>
+                                <span data-en="Evening">Sera</span>
+                            </div>
+                            <button class="text-truffle-500 hover:text-truffle-700 font-semibold" data-en="Learn More">Scopri di più</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-truffle-50 dark:bg-gray-900 transition-colors duration-300">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold text-truffle-900 dark:text-white mb-8">
+                    <span data-en="Gallery">Galleria</span>
+                </h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto" data-en="Discover the beauty of our events through these memorable moments.">
+                    Scopri la bellezza dei nostri eventi attraverso questi momenti memorabili.
+                </p>
+            </div>
+            
+            <!-- Filter Buttons -->
+            <div class="flex justify-center space-x-4 mb-12">
+                <button class="filter-btn active px-6 py-3 rounded-full font-semibold transition-all duration-300" data-filter="all" data-en="All">Tutti</button>
+                <button class="filter-btn px-6 py-3 rounded-full font-semibold transition-all duration-300" data-filter="dogs" data-en="Dogs">Cani</button>
+                <button class="filter-btn px-6 py-3 rounded-full font-semibold transition-all duration-300" data-filter="hunting" data-en="Hunting">Caccia</button>
+                <button class="filter-btn px-6 py-3 rounded-full font-semibold transition-all duration-300" data-filter="food" data-en="Food">Cibo</button>
+            </div>
+            
+            <!-- Masonry Gallery -->
+            <div class="columns-1 md:columns-2 lg:columns-3 xl:columns-4 gap-8 space-y-8">
+                <!-- Beautiful Lagotto Romagnolo dog portrait in autumn setting -->
+                <div class="gallery-item break-inside-avoid" data-category="dogs">
+                    <div class="glassmorphism rounded-2xl overflow-hidden shadow-xl hover:scale-105 transition-transform duration-300 cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=800" alt="Lagotto Romagnolo" class="w-full h-auto">
+                    </div>
+                </div>
+                
+                <!-- Fresh truffle collection displayed on rustic wooden table -->
+                <div class="gallery-item break-inside-avoid" data-category="hunting">
+                    <div class="glassmorphism rounded-2xl overflow-hidden shadow-xl hover:scale-105 transition-transform duration-300 cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=400" alt="Fresh Truffles" class="w-full h-auto">
+                    </div>
+                </div>
+                
+                <!-- Curly-haired Lagotto Romagnolo running through autumn forest -->
+                <div class="gallery-item break-inside-avoid" data-category="dogs">
+                    <div class="glassmorphism rounded-2xl overflow-hidden shadow-xl hover:scale-105 transition-transform duration-300 cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=900" alt="Lagotto in Forest" class="w-full h-auto">
+                    </div>
+                </div>
+                
+                <!-- Gourmet truffle pasta dish with elegant presentation -->
+                <div class="gallery-item break-inside-avoid" data-category="food">
+                    <div class="glassmorphism rounded-2xl overflow-hidden shadow-xl hover:scale-105 transition-transform duration-300 cursor-pointer">
+                        <img src="https://pixabay.com/get/gff840bb5f3a6f893016ecd632745218e551e54b153f5fb97836b1eb25b43079bd95e436281a5c8daf13b0de566b9401e1c2c727c9096db143f2e4e412a820f25_1280.jpg" alt="Truffle Pasta" class="w-full h-auto">
+                    </div>
+                </div>
+                
+                <!-- Professional truffle hunter with dog in Italian countryside -->
+                <div class="gallery-item break-inside-avoid" data-category="hunting">
+                    <div class="glassmorphism rounded-2xl overflow-hidden shadow-xl hover:scale-105 transition-transform duration-300 cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=700" alt="Truffle Hunter" class="w-full h-auto">
+                    </div>
+                </div>
+                
+                <!-- Group of happy Lagotto Romagnolo dogs in training session -->
+                <div class="gallery-item break-inside-avoid" data-category="dogs">
+                    <div class="glassmorphism rounded-2xl overflow-hidden shadow-xl hover:scale-105 transition-transform duration-300 cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=500" alt="Dog Training" class="w-full h-auto">
+                    </div>
+                </div>
+                
+                <!-- Elegant truffle risotto with wine pairing in restaurant setting -->
+                <div class="gallery-item break-inside-avoid" data-category="food">
+                    <div class="glassmorphism rounded-2xl overflow-hidden shadow-xl hover:scale-105 transition-transform duration-300 cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=600" alt="Truffle Risotto" class="w-full h-auto">
+                    </div>
+                </div>
+                
+                <!-- Scenic autumn landscape of Romagna hills with golden trees -->
+                <div class="gallery-item break-inside-avoid" data-category="hunting">
+                    <div class="glassmorphism rounded-2xl overflow-hidden shadow-xl hover:scale-105 transition-transform duration-300 cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=800" alt="Autumn Landscape" class="w-full h-auto">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white dark:bg-gray-800 transition-colors duration-300">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold text-truffle-900 dark:text-white mb-8">
+                    <span data-en="Contact & Booking">Contatti e Prenotazioni</span>
+                </h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto" data-en="Ready to join us? Get in touch to secure your spot for this unforgettable experience.">
+                    Pronto a unirti a noi? Mettiti in contatto per assicurarti il posto per questa esperienza indimenticabile.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-16 max-w-6xl mx-auto">
+                <!-- Contact Info -->
+                <div class="space-y-8">
+                    <div class="glassmorphism rounded-2xl p-8 shadow-xl">
+                        <h3 class="text-2xl font-bold text-truffle-900 dark:text-white mb-6" data-en="Event Information">Informazioni Evento</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-truffle-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-map-marker-alt text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-truffle-900 dark:text-white mb-1" data-en="Location">Sede</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">Portico di Romagna - Al Vecchio Convento</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-truffle-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-calendar text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-truffle-900 dark:text-white mb-1" data-en="Dates">Date</h4>
+                                    <p class="text-gray-600 dark:text-gray-300" data-en="October 15-19, 2025">15-19 Ottobre 2025</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-truffle-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-phone text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-truffle-900 dark:text-white mb-1" data-en="Phone">Telefono</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">Nicoletta: +39 334 750 0887</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-truffle-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-envelope text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-truffle-900 dark:text-white mb-1">Email</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">info@lagottotruffleweek.it</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-truffle-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-globe text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-truffle-900 dark:text-white mb-1">Website</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">www.lagottotruffleweek.it</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="glassmorphism rounded-2xl p-8 shadow-xl">
+                    <h3 class="text-2xl font-bold text-truffle-900 dark:text-white mb-6" data-en="Send us a Message">Inviaci un Messaggio</h3>
+                    
+                    <form class="space-y-6" id="contactForm">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-semibold text-truffle-900 dark:text-white mb-2" data-en="Name">Nome</label>
+                                <input type="text" name="name" required class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-600 focus:ring-2 focus:ring-truffle-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-all duration-300" data-placeholder-en="Your name" placeholder="Il tuo nome">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-truffle-900 dark:text-white mb-2" data-en="Surname">Cognome</label>
+                                <input type="text" name="surname" required class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-600 focus:ring-2 focus:ring-truffle-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-all duration-300" data-placeholder-en="Your surname" placeholder="Il tuo cognome">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-semibold text-truffle-900 dark:text-white mb-2">Email</label>
+                            <input type="email" name="email" required class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-600 focus:ring-2 focus:ring-truffle-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-all duration-300" data-placeholder-en="your.email@example.com" placeholder="la.tua.email@esempio.it">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-semibold text-truffle-900 dark:text-white mb-2" data-en="Phone">Telefono</label>
+                            <input type="tel" name="phone" class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-600 focus:ring-2 focus:ring-truffle-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-all duration-300" data-placeholder-en="Your phone number" placeholder="Il tuo numero di telefono">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-semibold text-truffle-900 dark:text-white mb-2" data-en="Dog's Name">Nome del Cane</label>
+                            <input type="text" name="dogName" class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-600 focus:ring-2 focus:ring-truffle-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-all duration-300" data-placeholder-en="Your dog's name" placeholder="Il nome del tuo cane">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-semibold text-truffle-900 dark:text-white mb-2" data-en="Message">Messaggio</label>
+                            <textarea name="message" rows="5" class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-600 focus:ring-2 focus:ring-truffle-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-all duration-300 resize-none" data-placeholder-en="Tell us about your interest in the event..." placeholder="Raccontaci del tuo interesse per l'evento..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full gradient-bg text-white font-semibold py-4 rounded-xl hover:scale-105 transition-all duration-300 shadow-xl">
+                            <span data-en="Send Message">Invia Messaggio</span>
+                            <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-truffle-900 text-white py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-12 h-12 bg-truffle-500 rounded-full flex items-center justify-center">
+                            <i class="fas fa-dog text-xl"></i>
+                        </div>
+                        <span class="text-2xl font-bold">Lagotto & Truffle Week</span>
+                    </div>
+                    <p class="text-truffle-200" data-en="The unique experience for you and your dog in the heart of Romagna.">
+                        L'esperienza unica per te e il tuo cane nel cuore della Romagna.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-semibold mb-6" data-en="Quick Links">Link Rapidi</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-truffle-200 hover:text-white transition-colors" data-en="Home">Home</a></li>
+                        <li><a href="#program" class="text-truffle-200 hover:text-white transition-colors" data-en="Program">Programma</a></li>
+                        <li><a href="#activities" class="text-truffle-200 hover:text-white transition-colors" data-en="Activities">Attività</a></li>
+                        <li><a href="#gallery" class="text-truffle-200 hover:text-white transition-colors" data-en="Gallery">Galleria</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-semibold mb-6" data-en="Contact">Contatti</h4>
+                    <ul class="space-y-3">
+                        <li class="text-truffle-200">+39 334 750 0887</li>
+                        <li class="text-truffle-200">info@lagottotruffleweek.it</li>
+                        <li class="text-truffle-200">Portico di Romagna</li>
+                        <li class="text-truffle-200">Al Vecchio Convento</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-semibold mb-6" data-en="Follow Us">Seguici</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-truffle-700 rounded-full flex items-center justify-center hover:bg-truffle-500 transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-truffle-700 rounded-full flex items-center justify-center hover:bg-truffle-500 transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-truffle-700 rounded-full flex items-center justify-center hover:bg-truffle-500 transition-colors">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-truffle-700 pt-8 text-center">
+                <p class="text-truffle-200" data-en="© 2025 Lagotto & Truffle Week. All rights reserved.">
+                    © 2025 Lagotto & Truffle Week. Tutti i diritti riservati.
+                </p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-8 right-8 w-14 h-14 gradient-bg text-white rounded-full shadow-2xl hover:scale-110 transition-all duration-300 opacity-0 pointer-events-none z-50">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="relative max-w-4xl max-h-full p-4">
+            <img id="lightboxImage" src="" alt="" class="max-w-full max-h-full object-contain rounded-2xl">
+            <button id="closeLightbox" class="absolute top-4 right-4 w-12 h-12 bg-white bg-opacity-20 text-white rounded-full hover:bg-opacity-30 transition-all duration-300">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Initialize immediately invoked function to avoid global scope pollution
+        (function() {
+            // Language Toggle
+            let currentLanguage = 'it';
+            const langButton = document.getElementById('langToggle');
+            const langSpan = document.getElementById('currentLang');
+            
+            function toggleLanguage() {
+                currentLanguage = currentLanguage === 'it' ? 'en' : 'it';
+                langSpan.textContent = currentLanguage.toUpperCase();
+                
+                // Update all translatable elements
+                document.querySelectorAll('[data-en]').forEach(element => {
+                    if (currentLanguage === 'en') {
+                        if (element.hasAttribute('data-placeholder-en')) {
+                            element.placeholder = element.getAttribute('data-placeholder-en');
+                        } else {
+                            element.textContent = element.getAttribute('data-en');
+                        }
+                    } else {
+                        if (element.hasAttribute('placeholder')) {
+                            // Reset to Italian placeholder (you could add data-it attributes)
+                            const italianPlaceholders = {
+                                'Your name': 'Il tuo nome',
+                                'Your surname': 'Il tuo cognome',
+                                'your.email@example.com': 'la.tua.email@esempio.it',
+                                'Your phone number': 'Il tuo numero di telefono',
+                                'Your dog\'s name': 'Il nome del tuo cane',
+                                'Tell us about your interest in the event...': 'Raccontaci del tuo interesse per l\'evento...'
+                            };
+                            const englishPlaceholder = element.getAttribute('data-placeholder-en');
+                            element.placeholder = italianPlaceholders[englishPlaceholder] || element.placeholder;
+                        } else {
+                            // Reset to original Italian text
+                            element.textContent = element.textContent; // This would need proper Italian text storage
+                        }
+                    }
+                });
+            }
+            
+            langButton.addEventListener('click', toggleLanguage);
+            
+            // Dark Mode Toggle
+            const themeButton = document.getElementById('themeToggle');
+            const themeIcon = document.getElementById('themeIcon');
+            let isDark = false;
+            
+            function toggleTheme() {
+                isDark = !isDark;
+                document.documentElement.classList.toggle('dark', isDark);
+                themeIcon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+                localStorage.setItem('darkMode', isDark);
+            }
+            
+            // Load saved theme
+            if (localStorage.getItem('darkMode') === 'true') {
+                toggleTheme();
+            }
+            
+            themeButton.addEventListener('click', toggleTheme);
+            
+            // Scroll Progress Bar
+            function updateScrollProgress() {
+                const scrollProgress = document.getElementById('scrollProgress');
+                const scrollTop = window.pageYOffset;
+                const docHeight = document.body.scrollHeight - window.innerHeight;
+                const scrollPercent = scrollTop / docHeight;
+                scrollProgress.style.transform = `scaleX(${scrollPercent})`;
+            }
+            
+            window.addEventListener('scroll', updateScrollProgress);
+            
+            // Smooth Scroll for Navigation
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // Back to Top Button
+            const backToTopButton = document.getElementById('backToTop');
+            
+            function toggleBackToTop() {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.remove('opacity-0', 'pointer-events-none');
+                } else {
+                    backToTopButton.classList.add('opacity-0', 'pointer-events-none');
+                }
+            }
+            
+            window.addEventListener('scroll', toggleBackToTop);
+            
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Gallery Filter
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => {
+                        btn.classList.remove('active', 'bg-truffle-500', 'text-white');
+                        btn.classList.add('bg-white', 'text-truffle-900', 'hover:bg-truffle-100');
+                    });
+                    
+                    // Add active class to clicked button
+                    button.classList.add('active', 'bg-truffle-500', 'text-white');
+                    button.classList.remove('bg-white', 'text-truffle-900', 'hover:bg-truffle-100');
+                    
+                    const filter = button.getAttribute('data-filter');
+                    
+                    galleryItems.forEach(item => {
+                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Set initial active state for filter
+            document.querySelector('.filter-btn[data-filter="all"]').classList.add('bg-truffle-500', 'text-white');
+            
+            // Lightbox
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightboxImage');
+            const closeLightbox = document.getElementById('closeLightbox');
+            
+            // Add click listeners to gallery images
+            document.querySelectorAll('.gallery-item img').forEach(img => {
+                img.addEventListener('click', () => {
+                    lightboxImage.src = img.src;
+                    lightboxImage.alt = img.alt;
+                    lightbox.classList.remove('opacity-0', 'pointer-events-none');
+                });
+            });
+            
+            closeLightbox.addEventListener('click', () => {
+                lightbox.classList.add('opacity-0', 'pointer-events-none');
+            });
+            
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) {
+                    lightbox.classList.add('opacity-0', 'pointer-events-none');
+                }
+            });
+            
+            // Contact Form
+            const contactForm = document.getElementById('contactForm');
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // TODO: Implement form submission logic, validation, and API integration
+                
+                // Show success message (placeholder)
+                alert(currentLanguage === 'en' ? 'Message sent successfully!' : 'Messaggio inviato con successo!');
+                
+                // Reset form
+                contactForm.reset();
+            });
+            
+            // Fade-in Animation on Scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Add fade-in animation to elements
+            document.querySelectorAll('.glassmorphism, .gallery-item').forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+                observer.observe(el);
+            });
+            
+            // Hero fade-in animations
+            const heroElements = document.querySelectorAll('.animate-fade-in');
+            heroElements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, 500 + (index * 500));
+            });
+            
+        })();
+    </script>
+</body>
+</html>

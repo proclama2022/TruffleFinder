@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useLanguage } from "@/hooks/use-language";
 import { scrollToElement } from "@/lib/utils";
 import { useScrollReveal, useMagneticEffect, useKineticText } from "@/hooks/use-scroll-reveal";
+import nicolettaLogoImage from '../assets/images/nicoletta-logo.jpg';
 
 export function HeroSection() {
   const { t } = useLanguage();
@@ -41,8 +42,8 @@ export function HeroSection() {
           <div className="relative inline-block">
             <div className="w-32 h-32 mx-auto bg-white/10 backdrop-blur-sm rounded-3xl flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-300 border border-white/20">
               <img 
-                src="/logo.jpg" 
-                alt="Lagotto & Truffle Week Logo" 
+                src={nicolettaLogoImage} 
+                alt="Nicoletta Conte - Lagotto & Truffle Week" 
                 className="w-24 h-24 rounded-2xl object-cover"
               />
             </div>

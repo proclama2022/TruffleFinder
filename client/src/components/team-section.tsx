@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useLanguage } from "@/hooks/use-language";
+import nicolettaLogoImage from '../assets/images/nicoletta-logo.jpg';
 
 const teamMembers = [
   {
@@ -7,7 +8,7 @@ const teamMembers = [
     name: "Nicoletta Conte",
     role: "nicolettaRole",
     description: "nicolettaDesc",
-    image: "https://images.unsplash.com/photo-1494790108755-2616c2e62e7c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&h=500",
+    image: nicolettaLogoImage,
     type: "founder",
     experience: "15+",
     specialty: "Truffle Training & Lagotto Breeding",

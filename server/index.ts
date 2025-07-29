@@ -47,6 +47,9 @@ app.use((req, res, next) => {
     throw err;
   });
 
+  // Check if we should show coming soon page
+  const SHOW_COMING_SOON = process.env.SHOW_COMING_SOON === 'true';
+  
   // importantly only setup vite in development and after
   // setting up all the other routes so the catch-all route
   // doesn't interfere with the other routes
@@ -56,10 +59,10 @@ app.use((req, res, next) => {
     serveStatic(app);
   }
 
-  // ALWAYS serve the app on port 5000
+  // ALWAYS serve the app on port 4000
   // this serves both the API and the client.
   // It is the only port that is not firewalled.
-  const port = 5000;
+  const port = 4000;
   server.listen({
     port,
     host: "0.0.0.0",
