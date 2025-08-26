@@ -11,6 +11,10 @@
   ],
   "routes": [
     {
+      "src": "/home",
+      "dest": "/index.html"
+    },
+    {
       "src": "/(.*)",
       "dest": "/$1"
     }

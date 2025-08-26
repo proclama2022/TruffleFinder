@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lagotto & Truffle Week</title>
+    <script>
+        // Client-side routing for SPA
+        const path = window.location.pathname;
+        if (path === '/home') {
+            // Redirect to index.html which will handle the /home route via client-side routing
+            window.location.href = '/';
+        } else {
+            // For other routes, redirect to main page
+            window.location.href = '/';
+        }
+    </script>
+</head>
+<body>
+    <p>Redirecting...</p>
+</body>
+</html>
