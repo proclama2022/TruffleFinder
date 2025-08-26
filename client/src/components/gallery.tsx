@@ -1,5 +1,7 @@
 import { useState } from "react";
+import leafPattern from '../assets/images/leaf-pattern.svg';
 import { useLanguage } from "@/hooks/use-language";
+import { Camera, X } from "lucide-react";
 
 const galleryImages = [
   {
@@ -56,6 +58,7 @@ export function Gallery() {
   const { t } = useLanguage();
   const [activeFilter, setActiveFilter] = useState("all");
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
+  const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set());
 
   const filteredImages = activeFilter === "all" 
     ? galleryImages 
@@ -69,6 +72,10 @@ export function Gallery() {
     setLightboxImage(null);
   };
 
+  const handleImageLoad = (imageId: number) => {
+    setLoadedImages(prev => new Set(prev).add(imageId));
+  };
+
   const filterButtons = [
     { key: "all", label: t("all") },
     { key: "dogs", label: t("dogs") },
@@ -77,18 +84,18 @@ export function Gallery() {
   ];
 
   return (
-    <section id="gallery" className="py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <section id="gallery" className="section-sep relative overflow-hidden bg-[var(--background)] transition-colors duration-300">
       <div className="container mx-auto px-6">
         {/* Modern Header */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-pink-100 to-purple-100 dark:from-pink-900/30 dark:to-purple-900/30 px-4 py-2 rounded-full mb-6">
-            <i className="fas fa-camera text-pink-600 dark:text-pink-400"></i>
-            <span className="text-pink-700 dark:text-pink-300 text-sm font-semibold tracking-wide uppercase">Visual Stories</span>
+          <div className="inline-flex items-center space-x-2 bg-[var(--primary)]/10 px-4 py-2 rounded-full mb-6">
+            <Camera className="w-4 h-4 text-[var(--primary)]" />
+            <span className="text-[var(--primary)] text-sm font-semibold tracking-wide uppercase">Visual Stories</span>
           </div>
-          <h2 className="text-6xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent mb-6">
+          <h2 className="text-6xl font-bold text-[var(--primary)] mb-6">
             Gallery
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-[var(--primary)]/80 max-w-2xl mx-auto leading-relaxed">
             {t("galleryDescription")}
           </p>
         </div>
@@ -99,55 +106,65 @@ export function Gallery() {
             <button
               key={button.key}
               onClick={() => setActiveFilter(button.key)}
-              className={`relative px-6 py-3 rounded-2xl font-medium transition-all duration-300 ${
-                activeFilter === button.key
-                  ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg scale-105"
-                  : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-600"
-              }`}
+              className={`relative transition-all duration-300 ${activeFilter === button.key ? 'btn-primary scale-105' : 'btn-secondary'}`}
             >
-              <span className="relative z-10">{button.label}</span>
-              {activeFilter === button.key && (
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-700 to-pink-700 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              )}
+              <span className="relative z-10 px-6 py-3 rounded-2xl font-medium">{button.label}</span>
             </button>
           ))}
         </div>
 
         {/* Modern Gallery Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-7xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8 max-w-7xl mx-auto cursor-leaf">
           {filteredImages.map((image, index) => (
-            <div key={image.id} className="group cursor-pointer">
-              <div className={`
-                relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 
-                ${index % 7 === 0 ? 'md:col-span-2 md:row-span-2' : ''}
-                ${index % 5 === 0 && index % 7 !== 0 ? 'col-span-2' : ''}
-              `}>
+            <div key={image.id} className="group cursor-pointer gallery-item">
+              <div
+                className={`
+                  relative image-overlay-soft overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl hover:shadow-[var(--primary)]/20 transition-all duration-500
+                  ${index % 7 === 0 ? 'md:col-span-2 md:row-span-2' : ''}
+                  ${index % 5 === 0 && index % 7 !== 0 ? 'col-span-2' : ''}
+                `}
+                role="button"
+                tabIndex={0}
+                aria-label={`Apri lightbox per l'immagine: ${image.alt}`}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    openLightbox(image.src);
+                  }
+                }}
+              >
+                {/* Low-quality image placeholder */}
+                {!loadedImages.has(image.id) && (
+                  <div className="absolute inset-0 bg-[var(--background)] filter blur-xl scale-110" />
+                )}
+                
+                {/* Optimized main image */}
                 <img
+                  loading="lazy"
                   src={image.src}
                   alt={image.alt}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  className={`
+                    w-full h-full object-cover group-hover:scale-110 transition-transform duration-700
+                    ${loadedImages.has(image.id) ? 'opacity-100' : 'opacity-0'}
+                  `}
                   onClick={() => openLightbox(image.src)}
+                  onLoad={() => handleImageLoad(image.id)}
+                  decoding="async"
+                  // Add srcset for responsive images
+                  srcSet={`
+                    ${image.src}&w=300 300w,
+                    ${image.src}&w=400 400w,
+                    ${image.src}&w=600 600w,
+                    ${image.src}&w=800 800w,
+                    ${image.src}&w=1000 1000w
+                  `}
+                  sizes={`
+                    (max-width: 640px) 50vw,
+                    (max-width: 1024px) 33vw,
+                    25vw
+                  `}
                 />
-                
-                {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <h4 className="text-white font-semibold text-sm mb-1">{image.alt}</h4>
-                    <div className="flex items-center space-x-2">
-                      <div className="w-6 h-6 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
-                        <i className="fas fa-expand-alt text-white text-xs"></i>
-                      </div>
-                      <span className="text-white/80 text-xs">Click to enlarge</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Category Badge */}
-                <div className="absolute top-3 left-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg px-2 py-1">
-                    <span className="text-white text-xs font-medium capitalize">{image.category}</span>
-                  </div>
-                </div>
+                 
               </div>
             </div>
           ))}
@@ -156,18 +173,41 @@ export function Gallery() {
 
       {/* Lightbox Modal */}
       {lightboxImage && (
-        <div className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4" onClick={closeLightbox}>
+        <div
+          className="fixed inset-0 bg-[var(--primary)]/95 z-50 flex items-center justify-center p-4"
+          onClick={closeLightbox}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Lightbox immagine"
+        >
           <div className="relative max-w-4xl max-h-full">
             <img
               src={lightboxImage}
               alt=""
               className="max-w-full max-h-full object-contain rounded-2xl"
+              loading="eager"
+              decoding="async"
+              // Add srcset for responsive lightbox image
+              srcSet={`
+                ${lightboxImage}&w=800 800w,
+                ${lightboxImage}&w=1200 1200w,
+                ${lightboxImage}&w=1600 1600w,
+                ${lightboxImage}&w=2000 2000w
+              `}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 80vw"
             />
             <button
               onClick={closeLightbox}
-              className="absolute top-4 right-4 w-12 h-12 bg-white bg-opacity-20 text-white rounded-full hover:bg-opacity-30 transition-all duration-300"
+              className="absolute top-4 right-4 w-12 h-12 bg-[var(--secondary)]/30 text-white rounded-full hover:bg-[var(--secondary)]/50 transition-all duration-300"
+              aria-label="Chiudi lightbox"
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  closeLightbox();
+                }
+              }}
             >
-              <i className="fas fa-times"></i>
+              <X className="w-5 h-5" aria-hidden="true" />
             </button>
           </div>
         </div>

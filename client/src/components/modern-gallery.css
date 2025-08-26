@@ -1,0 +1,180 @@
+/* Premium Gallery CSS - Minimal Elegant Design */
+
+/* Base styles for gallery container */
+#gallery {
+  scroll-margin-top: 100px;
+}
+
+/* Figure element styling - premium minimal */
+figure {
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  transition: all 0.4s ease-out;
+}
+
+/* Premium card styling */
+figure > div {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s ease-out;
+}
+
+/* Micro elevation on hover */
+figure:hover > div {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+/* Ensure aspect ratio is maintained */
+figure > div::before {
+  content: "";
+  display: block;
+  padding-bottom: calc(var(--aspect-ratio) * 100%);
+}
+
+/* Premium image styling */
+figure img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.4s ease-out;
+}
+
+/* Subtle brightness on hover */
+figure:hover img {
+  filter: brightness(1.05);
+}
+
+/* Responsive grid layout - premium spacing */
+#gallery .grid {
+  display: grid;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+/* Mobile: 1 column */
+@media (max-width: 639px) {
+  #gallery .grid {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
+  }
+}
+
+/* Tablet: 2 columns */
+@media (min-width: 640px) and (max-width: 1023px) {
+  #gallery .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+/* Desktop: 3-4 columns */
+@media (min-width: 1024px) {
+  #gallery .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  #gallery .grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+/* Premium lightbox */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.lightbox.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.lightbox img,
+.lightbox video {
+  max-width: 95vw;
+  max-height: 95vh;
+  object-fit: contain;
+  border-radius: 0;
+}
+
+/* Premium navigation buttons */
+.lightbox button {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.lightbox button:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Focus styles for accessibility */
+figure:focus-within {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Reduce motion preference */
+@media (prefers-reduced-motion: reduce) {
+  figure,
+  figure > div,
+  figure img {
+    transition: none;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  figure > div {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  figure:hover > div {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  }
+}
+
+/* Video specific styling */
+figure[data-type="video"] > div {
+  position: relative;
+}
+
+/* Video hover effect */
+figure[data-type="video"]:hover img {
+  filter: brightness(0.95);
+}
+
+/* Remove all captions and text elements */
+figure figcaption,
+figure .badge,
+figure .text-overlay {
+  display: none;
+}

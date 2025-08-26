@@ -28,38 +28,12 @@ export function LanguageSelector() {
           size="sm"
           onClick={() => setLanguage('en')}
           className={`text-xs font-medium transition-all duration-200 ${
-            language === 'en' 
-              ? 'bg-[#8B4513] text-white hover:bg-[#A0522D]' 
+            language === 'en'
+              ? 'bg-[#8B4513] text-white hover:bg-[#A0522D]'
               : 'text-[#8B4513] hover:bg-[#F5F5DC]'
           }`}
         >
           EN
-        </Button>
-        <div className="w-px h-4 bg-[#8B4513] opacity-30"></div>
-        <Button
-          variant={language === 'de' ? 'default' : 'ghost'}
-          size="sm"
-          onClick={() => setLanguage('de')}
-          className={`text-xs font-medium transition-all duration-200 ${
-            language === 'de' 
-              ? 'bg-[#8B4513] text-white hover:bg-[#A0522D]' 
-              : 'text-[#8B4513] hover:bg-[#F5F5DC]'
-          }`}
-        >
-          DE
-        </Button>
-        <div className="w-px h-4 bg-[#8B4513] opacity-30"></div>
-        <Button
-          variant={language === 'fr' ? 'default' : 'ghost'}
-          size="sm"
-          onClick={() => setLanguage('fr')}
-          className={`text-xs font-medium transition-all duration-200 ${
-            language === 'fr' 
-              ? 'bg-[#8B4513] text-white hover:bg-[#A0522D]' 
-              : 'text-[#8B4513] hover:bg-[#F5F5DC]'
-          }`}
-        >
-          FR
         </Button>
       </div>
     </div>

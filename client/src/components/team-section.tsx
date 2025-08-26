@@ -1,225 +1,166 @@
-import { useState } from "react";
-import { useLanguage } from "@/hooks/use-language";
-import nicolettaLogoImage from '../assets/images/nicoletta-logo.jpg';
+import React from 'react';
+import { useLanguage } from '../hooks/use-language';
+import { FaInstagram, FaEnvelope, FaPaw, FaStar, FaHeart, FaAward } from 'react-icons/fa';
+import nicolettaLogoImage from '/images/gallery/nicoletta-logo.jpg';
 
-const teamMembers = [
-  {
-    id: 1,
-    name: "Nicoletta Conte",
-    role: "nicolettaRole",
-    description: "nicolettaDesc",
-    image: nicolettaLogoImage,
-    type: "founder",
-    experience: "15+",
-    specialty: "Truffle Training & Lagotto Breeding",
-    color: "from-amber-800 to-amber-700",
-    icon: "fas fa-crown"
-  },
-  {
-    id: 2,
-    name: "Virgilio Frabotta",
-    role: "virgilioRole",
-    description: "virgilioDesc",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&h=500",
-    type: "team",
-    experience: "10+",
-    specialty: "Canine Training & Event Management",
-    color: "from-amber-700 to-stone-600",
-    icon: "fas fa-users"
-  },
-  {
-    id: 3,
-    name: "Daniele Tabarrini",
-    role: "danieleRole",
-    description: "danieleDesc",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&h=500",
-    type: "expert",
-    experience: "20+",
-    specialty: "Professional Handling & Grooming",
-    color: "from-stone-700 to-amber-700",
-    icon: "fas fa-cut"
-  },
-  {
-    id: 4,
-    name: "Mystery Expert",
-    role: "surpriseGuestRole",
-    description: "surpriseGuestDesc",
-    image: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&h=500",
-    type: "mystery",
-    experience: "?",
-    specialty: "Coming Soon...",
-    color: "from-gray-400 to-gray-600",
-    icon: "fas fa-question"
-  }
-];
-
-const getTypeLabel = (type: string, t: any) => {
-  switch (type) {
-    case "founder": return "Founder & Lead Trainer";
-    case "team": return "Core Team";
-    case "expert": return "Expert Consultant";
-    case "mystery": return "Mystery Guest";
-    default: return "";
-  }
-};
-
-export function TeamSection() {
-  const { t } = useLanguage();
-  const [activeCard, setActiveCard] = useState<number | null>(null);
+const TeamSection: React.FC = () => {
+  const { currentTranslations } = useLanguage();
 
   return (
-    <section id="team" className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
+    <section id="team" className="py-24 bg-gradient-to-br from-amber-50 via-orange-50 to-red-50 dark:from-gray-900 dark:via-amber-900/20 dark:to-red-900/20 transition-colors duration-300">
       <div className="container mx-auto px-6">
-        {/* Modern Header */}
-        <div className="text-center mb-20">
-          <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900/30 dark:to-pink-900/30 px-4 py-2 rounded-full mb-6">
-            <i className="fas fa-users text-purple-600 dark:text-purple-400"></i>
-            <span className="text-purple-700 dark:text-purple-300 text-sm font-semibold tracking-wide uppercase">Meet Our Team</span>
+        {/* Header */}
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 px-6 py-3 rounded-full mb-8">
+            <FaStar className="w-5 h-5 text-amber-600 dark:text-amber-400" />
+            <span className="text-amber-700 dark:text-amber-300 text-sm font-semibold tracking-wide uppercase font-subtitle">
+              {currentTranslations.teamSection.title}
+            </span>
           </div>
-          <h2 className="text-6xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent mb-6">
-            The Dream Team
+          <h2 className="text-5xl lg:text-7xl font-headline bg-gradient-to-r from-amber-700 via-amber-600 to-orange-600 dark:from-amber-400 dark:to-orange-400 bg-clip-text text-transparent mb-6">
+            {currentTranslations.meetTheExpert}
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
-            Passionate experts dedicated to creating extraordinary experiences for you and your Lagotto
+          <p className="text-xl lg:text-2xl text-stone-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed font-body">
+            {currentTranslations.heartAndSoul}
           </p>
         </div>
 
-        {/* Team Cards Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto mb-16">
-          {teamMembers.map((member, index) => (
-            <div 
-              key={member.id} 
-              className={`group cursor-pointer ${member.type === 'founder' ? 'lg:col-span-2' : ''}`}
-              onMouseEnter={() => setActiveCard(member.id)}
-              onMouseLeave={() => setActiveCard(null)}
-            >
-              <div className={`
-                relative bg-white dark:bg-gray-800 rounded-3xl p-6 shadow-lg hover:shadow-2xl 
-                transition-all duration-500 border border-gray-200 dark:border-gray-700
-                ${activeCard === member.id ? 'transform -translate-y-2 scale-105' : ''}
-                ${member.type === 'founder' ? 'lg:p-8' : ''}
-              `}>
-                
-                {/* Gradient Background Effect */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${member.color} opacity-0 group-hover:opacity-5 rounded-3xl transition-opacity duration-500`}></div>
-                
-                {/* Header with Avatar and Badge */}
-                <div className="flex items-start justify-between mb-6">
-                  <div className="flex items-center space-x-4">
-                    <div className="relative">
-                      <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${member.color} p-0.5 ${member.type === 'founder' ? 'lg:w-20 lg:h-20' : ''}`}>
-                        <img 
-                          src={member.image} 
-                          alt={member.name}
-                          className="w-full h-full rounded-2xl object-cover"
+        {/* Main Content */}
+        <div className="max-w-6xl mx-auto">
+          <div className="relative">
+            {/* Background Decorations */}
+            <div className="absolute inset-0 overflow-hidden">
+              <div className="absolute -top-20 -left-20 w-40 h-40 bg-gradient-to-br from-amber-400 to-orange-400 rounded-full opacity-20 blur-3xl"></div>
+              <div className="absolute -bottom-20 -right-20 w-40 h-40 bg-gradient-to-br from-orange-400 to-red-400 rounded-full opacity-20 blur-3xl"></div>
+            </div>
+
+            {/* Card Container */}
+            <div className="relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-3xl shadow-2xl border border-amber-200/50 dark:border-amber-700/30 overflow-hidden">
+              <div className="grid lg:grid-cols-2 gap-0">
+                {/* Left: Enhanced Image Section */}
+                <div className="relative p-8 lg:p-12 bg-gradient-to-br from-amber-100/50 to-orange-100/50 dark:from-amber-900/20 dark:to-orange-900/20">
+                  <div className="relative group">
+                    {/* Main Image */}
+                    <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+                      <img
+                        src="/images/gallery/nicoletta.jpg"
+                        alt="Nicoletta Conte"
+                        className="w-full h-96 lg:h-[500px] object-cover transform transition-transform duration-700 group-hover:scale-105"
+                      />
+                      
+                      {/* Image Overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60"></div>
+                      
+                      {/* Experience Badge */}
+                      <div className="absolute top-6 left-6 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-4 py-2 rounded-full shadow-lg flex items-center space-x-2">
+                        <FaAward className="w-4 h-4" />
+                        <span className="text-sm font-bold">{currentTranslations.yearsExperience}</span>
+                      </div>
+
+                      {/* Logo Badge */}
+                      <div className="absolute bottom-6 right-6 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm p-3 rounded-full shadow-xl border-2 border-amber-200">
+                        <img
+                          src={nicolettaLogoImage}
+                          alt="Nicoletta Logo"
+                          className="w-12 h-12 object-cover rounded-full"
                         />
                       </div>
-                      <div className={`absolute -bottom-2 -right-2 w-8 h-8 bg-gradient-to-br ${member.color} rounded-xl flex items-center justify-center`}>
-                        <i className={`${member.icon} text-white text-sm`}></i>
+                    </div>
+
+                    {/* Decorative Elements */}
+                    <div className="absolute -bottom-4 -left-4 w-8 h-8 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full opacity-80"></div>
+                    <div className="absolute -top-4 -right-4 w-6 h-6 bg-gradient-to-br from-orange-400 to-red-500 rounded-full opacity-60"></div>
+                  </div>
+                </div>
+
+                {/* Right: Enhanced Bio Section */}
+                <div className="p-8 lg:p-12">
+                  <div className="h-full flex flex-col justify-between">
+                    {/* Header */}
+                    <div className="mb-8">
+                      <div className="flex items-center space-x-3 mb-4">
+                        <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-500 rounded-2xl flex items-center justify-center shadow-lg">
+                          <FaPaw className="w-6 h-6 text-white" />
+                        </div>
+                        <h3 className="text-4xl lg:text-5xl font-headline bg-gradient-to-r from-stone-800 to-stone-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent font-bold">
+                          Nicoletta Conte
+                        </h3>
+                      </div>
+                      
+                      <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 px-4 py-2 rounded-full mb-6">
+                        <FaStar className="w-4 h-4 text-amber-600 dark:text-amber-400" />
+                        <span className="text-amber-700 dark:text-amber-300 text-lg font-semibold">
+                          {currentTranslations.teamSection.nicolettaRole}
+                        </span>
                       </div>
                     </div>
-                    {member.type === 'founder' && (
-                      <div className="hidden lg:block">
-                        <div className="flex space-x-2">
-                          <a href="#" className="w-8 h-8 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center hover:bg-purple-100 dark:hover:bg-purple-900/30 transition-colors">
-                            <i className="fab fa-instagram text-gray-600 dark:text-gray-400 text-sm"></i>
-                          </a>
-                          <a href="#" className="w-8 h-8 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center hover:bg-purple-100 dark:hover:bg-purple-900/30 transition-colors">
-                            <i className="fab fa-linkedin text-gray-600 dark:text-gray-400 text-sm"></i>
-                          </a>
-                          <a href="mailto:info@lagottotruffleweek.it" className="w-8 h-8 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center hover:bg-purple-100 dark:hover:bg-purple-900/30 transition-colors">
-                            <i className="fas fa-envelope text-gray-600 dark:text-gray-400 text-sm"></i>
-                          </a>
+
+                    {/* Description */}
+                    <div className="mb-8">
+                      <p className="text-lg lg:text-xl text-stone-600 dark:text-gray-300 leading-relaxed font-body mb-6">
+                        {currentTranslations.teamSection.nicolettaDescription}
+                      </p>
+                    </div>
+
+                    {/* Specializations */}
+                    <div className="bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 p-6 rounded-2xl border border-amber-200/50 dark:border-amber-700/30 mb-8">
+                      <div className="flex items-center mb-4">
+                        <div className="w-3 h-3 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full mr-3"></div>
+                        <h4 className="text-xl font-semibold text-amber-800 dark:text-amber-300">{currentTranslations.expertise}</h4>
+                      </div>
+                      <div className="grid grid-cols-1 gap-3">
+                        <div className="flex items-center space-x-3">
+                          <FaHeart className="w-4 h-4 text-amber-500 flex-shrink-0" />
+                          <span className="text-stone-700 dark:text-gray-300">{currentTranslations.professionalTraining}</span>
+                        </div>
+                        <div className="flex items-center space-x-3">
+                          <FaPaw className="w-4 h-4 text-orange-500 flex-shrink-0" />
+                          <span className="text-stone-700 dark:text-gray-300">{currentTranslations.advancedTechniques}</span>
+                        </div>
+                        <div className="flex items-center space-x-3">
+                          <FaStar className="w-4 h-4 text-red-500 flex-shrink-0" />
+                          <span className="text-stone-700 dark:text-gray-300">{currentTranslations.behavioralConsulting}</span>
                         </div>
                       </div>
-                    )}
-                  </div>
-                  
-                  {/* Type Badge */}
-                  <div className={`px-3 py-1 bg-gradient-to-r ${member.color} rounded-full`}>
-                    <span className="text-white text-xs font-bold tracking-wide">
-                      {getTypeLabel(member.type, t)}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="space-y-4">
-                  <div>
-                    <h3 className={`font-bold text-gray-900 dark:text-white ${member.type === 'founder' ? 'text-2xl lg:text-3xl' : 'text-xl'}`}>
-                      {member.name}
-                    </h3>
-                    <p className={`text-gray-600 dark:text-gray-400 font-medium ${member.type === 'founder' ? 'text-lg' : 'text-sm'}`}>
-                      {member.specialty}
-                    </p>
-                  </div>
-                  
-                  <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                    {t(member.description as any)}
-                  </p>
-                  
-                  {/* Experience Badge */}
-                  <div className="flex items-center justify-between pt-4 border-t border-gray-100 dark:border-gray-700">
-                    <div className="flex items-center space-x-2">
-                      <i className="fas fa-award text-gray-400 text-xs"></i>
-                      <span className="text-gray-500 dark:text-gray-400 text-xs font-medium">
-                        {member.experience} years experience
-                      </span>
                     </div>
-                    
-                    {member.type === 'mystery' && (
-                      <div className="animate-pulse">
-                        <div className="w-2 h-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"></div>
-                      </div>
-                    )}
+
+                    {/* Contact Buttons */}
+                    <div className="flex flex-col sm:flex-row gap-4">
+                      <a
+                        href="mailto:info@lagottotruffleweek.it"
+                        className="flex items-center justify-center space-x-2 px-8 py-4 bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-700 hover:to-amber-800 text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                      >
+                        <FaEnvelope className="w-5 h-5" />
+                        <span>{currentTranslations.contactNicoletta}</span>
+                      </a>
+                      <a
+                        href="https://www.instagram.com/nicoletta_truffle/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center space-x-2 px-8 py-4 bg-gradient-to-r from-pink-600 to-pink-700 hover:from-pink-700 hover:to-pink-800 text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                      >
+                        <FaInstagram className="w-5 h-5" />
+                        <span>{currentTranslations.followInstagram}</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          ))}
+          </div>
         </div>
 
-        {/* Stats Section */}
-        <div className="mt-20">
-          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <div className="text-center p-6 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-2xl border border-purple-100 dark:border-purple-800">
-              <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <i className="fas fa-award text-white text-xl"></i>
-              </div>
-              <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
-                Certified Experts
-              </h4>
-              <p className="text-gray-600 dark:text-gray-400 text-sm">
-                ENCI certified trainers with national recognition
-              </p>
-            </div>
-            
-            <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 rounded-2xl border border-blue-100 dark:border-blue-800">
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <i className="fas fa-heart text-white text-xl"></i>
-              </div>
-              <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
-                Authentic Passion
-              </h4>
-              <p className="text-gray-600 dark:text-gray-400 text-sm">
-                Genuine love for Lagotto and truffle traditions
-              </p>
-            </div>
-            
-            <div className="text-center p-6 bg-gradient-to-br from-green-50 to-teal-50 dark:from-green-900/20 dark:to-teal-900/20 rounded-2xl border border-green-100 dark:border-green-800">
-              <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-teal-500 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <i className="fas fa-users text-white text-xl"></i>
-              </div>
-              <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
-                Continuous Support
-              </h4>
-              <p className="text-gray-600 dark:text-gray-400 text-sm">
-                We're with you every step of the journey
-              </p>
-            </div>
+        {/* Decorative Footer */}
+        <div className="text-center mt-16">
+          <div className="inline-flex items-center space-x-2 text-amber-600 dark:text-amber-400">
+            <FaHeart className="w-4 h-4" />
+            <span className="text-sm font-medium">{currentTranslations.passionateAbout}</span>
+            <FaHeart className="w-4 h-4" />
           </div>
         </div>
       </div>
     </section>
   );
-}
+};
+
+export default TeamSection;

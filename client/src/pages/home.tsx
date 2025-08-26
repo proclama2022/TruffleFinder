@@ -1,15 +1,18 @@
 import { useEffect } from "react";
-import { Navigation } from "@/components/navigation";
-import { HeroSection } from "@/components/hero-section";
-import { FeaturesBento } from "@/components/features-bento";
-import { ProgramTimeline } from "@/components/program-timeline";
-import { ActivitiesGrid } from "@/components/activities-grid";
-import { TeamSection } from "@/components/team-section";
-import { Gallery } from "@/components/gallery";
-import { ContactSection } from "@/components/contact-section";
-import { ModernScrollIndicator } from "@/components/modern-scroll-indicator";
-import { useLanguage } from "@/hooks/use-language";
-import { updateScrollProgress, scrollToElement } from "@/lib/utils";
+import logoImage from "/images/gallery/logo.jpg";
+import { NavigationMUI } from "../components/navigation-mui";
+import { HeroSectionMUI } from "@/components/hero-section-mui";
+import { AboutSection } from "../components/about-section";
+import { ProgramTimelineNew } from "../components/program-timeline-new";
+import { LanguageSelector } from "../components/language-selector";
+import { ModernGalleryMUI } from "../components/modern-gallery-mui";
+
+import { UnifiedContactSection } from "../components/unified-contact-section";
+import { ModernScrollIndicator } from "../components/modern-scroll-indicator";
+import TeamSection from '../components/team-section';
+import { useLanguage } from "../hooks/use-language";
+import { updateScrollProgress, scrollToElement } from "../lib/utils";
+import { Facebook, Instagram, Youtube, Dog, Phone, Mail, MapPin, ArrowUp } from "lucide-react";
 
 export default function Home() {
   const { t } = useLanguage();
@@ -42,193 +45,148 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-truffle-50 dark:bg-gray-900">
+    <div className="min-h-screen bg-gradient-to-br from-[var(--forest-light)] via-[var(--forest-cream)] to-[var(--misty-morning)]">
       {/* Modern Scroll Indicators */}
       <ModernScrollIndicator />
 
-      <Navigation />
-      <HeroSection />
-      <FeaturesBento />
+      {/* Language Selector */}
+      <LanguageSelector />
       
-      {/* Modern About Section */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
-        <div className="container mx-auto px-6">
-          <div className="max-w-6xl mx-auto">
-            {/* Header */}
-            <div className="text-center mb-16">
-              <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-indigo-100 to-purple-100 dark:from-indigo-900/30 dark:to-purple-900/30 px-4 py-2 rounded-full mb-6">
-                <i className="fas fa-sparkles text-indigo-600 dark:text-indigo-400"></i>
-                <span className="text-indigo-700 dark:text-indigo-300 text-sm font-semibold tracking-wide uppercase">Why Choose Us</span>
-              </div>
-              <h2 className="text-6xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent mb-6">
-                The Experience
-              </h2>
-              <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
-                {t("aboutDescription")}
-              </p>
-            </div>
-            
-            {/* Features Cards */}
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="group">
-                <div className="relative bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-200 dark:border-gray-700 hover:-translate-y-2">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                    <i className="fas fa-search text-2xl text-white"></i>
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 text-center">
-                    {t("truffleHunting")}
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-400 text-center leading-relaxed">
-                    {t("truffleHuntingDesc")}
-                  </p>
-                  
-                  {/* Decorative Element */}
-                  <div className="absolute top-4 right-4 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
-                    <i className="fas fa-leaf text-4xl text-blue-500"></i>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="group">
-                <div className="relative bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-200 dark:border-gray-700 hover:-translate-y-2">
-                  <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                    <i className="fas fa-graduation-cap text-2xl text-white"></i>
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 text-center">
-                    {t("trainingSessions")}
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-400 text-center leading-relaxed">
-                    {t("trainingSessionsDesc")}
-                  </p>
-                  
-                  {/* Decorative Element */}
-                  <div className="absolute top-4 right-4 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
-                    <i className="fas fa-medal text-4xl text-purple-500"></i>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="group">
-                <div className="relative bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-200 dark:border-gray-700 hover:-translate-y-2">
-                  <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-teal-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                    <i className="fas fa-utensils text-2xl text-white"></i>
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 text-center">
-                    {t("gourmetExperience")}
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-400 text-center leading-relaxed">
-                    {t("gourmetExperienceDesc")}
-                  </p>
-                  
-                  {/* Decorative Element */}
-                  <div className="absolute top-4 right-4 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
-                    <i className="fas fa-utensils text-4xl text-green-500"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <NavigationMUI />
+      <HeroSectionMUI />
+      <AboutSection />
       
-      <ProgramTimeline />
-      <ActivitiesGrid />
+      <ProgramTimelineNew />
+      {/* Graphic Separator */}
+      <div className="w-full h-1 bg-gradient-to-r from-amber-500 to-amber-300 my-12"></div>
       <TeamSection />
-      <Gallery />
-      <ContactSection />
+
+      <ModernGalleryMUI />
+      <UnifiedContactSection />
       
-      {/* Modern Footer */}
-      <footer className="bg-gray-900 dark:bg-black text-white py-20">
-        <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-4 gap-12 mb-16">
-            {/* Brand Section */}
-            <div className="md:col-span-2">
+      {/* Redesigned Footer - Differentiated from Navigation */}
+      <footer className="bg-gradient-to-br from-[var(--primary)] via-[var(--primary)]/95 to-[var(--secondary)]/20 text-white py-16 relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+          }}></div>
+        </div>
+        
+        {/* Decorative Logo Watermark */}
+        <img src={logoImage} alt="" className="absolute top-8 right-8 opacity-5 w-32 h-32 pointer-events-none" />
+        
+        <div className="container mx-auto px-6 relative z-10">
+          {/* Main Footer Content */}
+          <div className="grid lg:grid-cols-3 gap-12 mb-12">
+            
+            {/* Brand & Story Section */}
+            <div className="lg:col-span-1">
               <div className="flex items-center space-x-3 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-amber-800 to-amber-700 rounded-2xl flex items-center justify-center">
-                  <i className="fas fa-dog text-xl text-white"></i>
+                <div className="w-14 h-14 bg-gradient-to-br from-[var(--accent)] to-[var(--secondary)] rounded-2xl flex items-center justify-center shadow-lg">
+                  <Dog className="w-7 h-7 text-[var(--primary)]" />
                 </div>
-                <span className="text-2xl font-bold bg-gradient-to-r from-amber-700 to-amber-600 bg-clip-text text-transparent">
-                  Lagotto & Truffle Week
-                </span>
+                <div>
+                  <h3 className="text-h5 text-white font-bold">{t('lagottoTruffleWeek')}</h3>
+                  <p className="text-caption text-white/70">{t('eventLocation')} 2025</p>
+                </div>
               </div>
-              <p className="text-gray-400 text-lg leading-relaxed mb-6 max-w-md">
-                {t("heroTitle")}
+              <p className="text-body text-white/80 leading-relaxed mb-6">
+                {t('uniqueExperience')}
               </p>
-              <div className="flex space-x-4">
-                <a href="#" className="group w-12 h-12 bg-gray-800 hover:bg-gradient-to-br hover:from-purple-600 hover:to-pink-600 rounded-xl flex items-center justify-center transition-all duration-300">
-                  <i className="fab fa-facebook-f text-gray-400 group-hover:text-white"></i>
-                </a>
-                <a href="#" className="group w-12 h-12 bg-gray-800 hover:bg-gradient-to-br hover:from-purple-600 hover:to-pink-600 rounded-xl flex items-center justify-center transition-all duration-300">
-                  <i className="fab fa-instagram text-gray-400 group-hover:text-white"></i>
-                </a>
-                <a href="#" className="group w-12 h-12 bg-gray-800 hover:bg-gradient-to-br hover:from-purple-600 hover:to-pink-600 rounded-xl flex items-center justify-center transition-all duration-300">
-                  <i className="fab fa-youtube text-gray-400 group-hover:text-white"></i>
-                </a>
+              
+              {/* Event Highlight */}
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/20">
+                <div className="flex items-center space-x-3 mb-2">
+                  <div className="w-3 h-3 bg-[var(--accent)] rounded-full animate-pulse"></div>
+                  <span className="text-body-small font-semibold text-white">{t('nextEvent')}</span>
+                </div>
+                <p className="text-h6 text-[var(--accent)] font-bold">{t('eventDate')}</p>
               </div>
             </div>
             
-            {/* Quick Links */}
-            <div>
-              <h4 className="text-lg font-bold mb-6 text-white">Quick Links</h4>
-              <ul className="space-y-3">
-                {[
-                  { key: "home", label: t("home") },
-                  { key: "program", label: t("program") },
-                  { key: "activities", label: t("activities") },
-                  { key: "team", label: "Team" },
-                  { key: "gallery", label: t("gallery") }
-                ].map((link) => (
-                  <li key={link.key}>
-                    <button
-                      onClick={() => scrollToElement(link.key)}
-                      className="text-gray-400 hover:text-purple-400 transition-colors duration-300 hover:translate-x-1 transform inline-block"
-                    >
-                      {link.label}
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            
-            {/* Contact Info */}
-            <div>
-              <h4 className="text-lg font-bold mb-6 text-white">Contact Info</h4>
+            {/* Contact & Info Section */}
+            <div className="lg:col-span-1">
+              <h4 className="text-h5 text-white font-bold mb-6">{t('contactInfo')}</h4>
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <i className="fas fa-phone text-white text-xs"></i>
+                  <div className="w-10 h-10 bg-[var(--accent)]/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
+                    <Phone className="w-5 h-5 text-[var(--accent)]" />
                   </div>
-                  <span className="text-gray-400">+39 334 750 0887</span>
+                  <div>
+                    <p className="text-body-small text-white/90 font-medium">{t('phoneNumber')}</p>
+                    <p className="text-caption text-white/60">{t('monFriHours')}</p>
+                  </div>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-gradient-to-br from-green-500 to-teal-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <i className="fas fa-envelope text-white text-xs"></i>
+                  <div className="w-10 h-10 bg-[var(--accent)]/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
+                    <Mail className="w-5 h-5 text-[var(--accent)]" />
                   </div>
-                  <span className="text-gray-400">info@lagottotruffleweek.it</span>
+                  <div>
+                    <p className="text-body-small text-white/90 font-medium">{t('emailAddress')}</p>
+                    <p className="text-caption text-white/60">{t('responseWithin')}</p>
+                  </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <i className="fas fa-map-marker-alt text-white text-xs"></i>
+                  <div className="w-10 h-10 bg-[var(--accent)]/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
+                    <MapPin className="w-5 h-5 text-[var(--accent)]" />
                   </div>
-                  <div className="text-gray-400">
-                    <div>Portico di Romagna</div>
-                    <div>Al Vecchio Convento</div>
+                  <div>
+                    <p className="text-body-small text-white/90 font-medium">{t('alVecchioConvento')}</p>
+                    <p className="text-caption text-white/60">{t('porticoLocation')}</p>
                   </div>
                 </div>
+              </div>
+            </div>
+            
+            {/* Community & Social Section */}
+            <div className="lg:col-span-1">
+              <h4 className="text-h5 text-white font-bold mb-6">{t('joinCommunity')}</h4>
+              <p className="text-body text-white/80 mb-6">
+                {t('socialMediaText')}
+              </p>
+              
+              {/* Social Links */}
+              <div className="flex space-x-4 mb-6">
+                <a href="#" className="group w-12 h-12 bg-white/10 backdrop-blur-sm hover:bg-[var(--accent)] rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 border border-white/20">
+                  <Facebook className="w-5 h-5 text-white group-hover:text-[var(--primary)]" />
+                </a>
+                <a href="#" className="group w-12 h-12 bg-white/10 backdrop-blur-sm hover:bg-[var(--accent)] rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 border border-white/20">
+                  <Instagram className="w-5 h-5 text-white group-hover:text-[var(--primary)]" />
+                </a>
+                <a href="#" className="group w-12 h-12 bg-white/10 backdrop-blur-sm hover:bg-[var(--accent)] rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 border border-white/20">
+                  <Youtube className="w-5 h-5 text-white group-hover:text-[var(--primary)]" />
+                </a>
+              </div>
+              
+              {/* Quick Navigation */}
+              <div className="grid grid-cols-2 gap-2">
+                {[
+                  { key: "program", label: t('program') },
+                  
+                  { key: "gallery", label: t('gallery') },
+                  { key: "contact", label: t('contact') }
+                ].map((link) => (
+                  <button
+                    key={link.key}
+                    onClick={() => scrollToElement(link.key)}
+                    className="text-left text-body-small text-white/70 hover:text-[var(--accent)] transition-colors duration-300 py-1"
+                  >
+                    {link.label}
+                  </button>
+                ))}
               </div>
             </div>
           </div>
           
           {/* Bottom Section */}
-          <div className="border-t border-gray-800 pt-8">
+          <div className="border-t border-white/20 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-              <p className="text-gray-400 text-sm">
-                © 2025 Lagotto & Truffle Week. All rights reserved.
-              </p>
-              <div className="flex items-center space-x-6 text-sm text-gray-400">
-                <a href="#" className="hover:text-purple-400 transition-colors">Privacy Policy</a>
-                <a href="#" className="hover:text-purple-400 transition-colors">Terms of Service</a>
-                <a href="#" className="hover:text-purple-400 transition-colors">Cookie Policy</a>
+              <p className="text-body-small text-white/60">{t("allRightsReserved")}</p>
+              <div className="flex items-center space-x-6 text-body-small text-white/60">
+                <a href="#" className="hover:text-[var(--accent)] transition-colors">{t('privacyPolicy')}</a>
+                <a href="#" className="hover:text-[var(--accent)] transition-colors">{t('cookiePolicy')}</a>
+                <a href="#" className="hover:text-[var(--accent)] transition-colors">{t('terms')}</a>
               </div>
             </div>
           </div>
@@ -241,7 +199,7 @@ export default function Home() {
         onClick={scrollToTop}
         className="fixed bottom-8 right-8 w-14 h-14 bg-gradient-to-r from-amber-800 to-amber-700 text-white rounded-2xl shadow-2xl hover:shadow-amber-600/25 hover:scale-110 transition-all duration-300 opacity-0 pointer-events-none z-50"
       >
-        <i className="fas fa-arrow-up"></i>
+        <ArrowUp className="w-5 h-5" />
       </button>
     </div>
   );

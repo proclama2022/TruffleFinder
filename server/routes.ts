@@ -3,6 +3,7 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertBookingSchema, insertContactSchema } from "@shared/schema";
 import { z } from "zod";
+import { sendEmail } from './emailService';
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Booking endpoint
@@ -25,6 +26,17 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const contact = insertContactSchema.parse(req.body);
       const createdContact = await storage.createContact(contact);
+
+      // Send email notification
+      const emailSubject = `Nuovo messaggio dal sito web da ${contact.name}`;
+      const emailText = `Nome: ${contact.name}\nEmail: ${contact.email}\nMessaggio: ${contact.message}`;
+
+      await sendEmail({
+        to: process.env.NOTIFICATION_EMAIL || 'your-email@example.com', // Replace with your desired notification email
+        subject: emailSubject,
+        text: emailText,
+      });
+
       res.json(createdContact);
     } catch (error) {
       if (error instanceof z.ZodError) {

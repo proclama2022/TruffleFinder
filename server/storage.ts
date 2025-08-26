@@ -49,6 +49,9 @@ export class MemStorage implements IStorage {
     const booking: Booking = { 
       ...insertBooking, 
       id,
+      phone: insertBooking.phone ?? null,
+      dogName: insertBooking.dogName ?? null,
+      message: insertBooking.message ?? null,
       createdAt: new Date()
     };
     this.bookings.set(id, booking);
@@ -60,6 +63,8 @@ export class MemStorage implements IStorage {
     const contact: Contact = { 
       ...insertContact, 
       id,
+      phone: insertContact.phone ?? null,
+      dogName: insertContact.dogName ?? null,
       createdAt: new Date()
     };
     this.contacts.set(id, contact);

@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { useLanguage } from "@/hooks/use-language";
+import { useLanguage } from "../hooks/use-language";
 import { useMutation } from "@tanstack/react-query";
-import { useToast } from "@/hooks/use-toast";
-import { apiRequest } from "@/lib/queryClient";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import nicolettaLogoImage from '../assets/images/nicoletta-logo.jpg';
+import { useToast } from "../hooks/use-toast";
+import { apiRequest } from "../lib/queryClient";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
+import { Textarea } from "./ui/textarea";
+import { Label } from "./ui/label";
+import nicolettaLogoImage from '/images/gallery/nicoletta-logo.jpg';
 
 interface ContactFormData {
   name: string;
@@ -19,7 +19,7 @@ interface ContactFormData {
 }
 
 export function ContactSection() {
-  const { t } = useLanguage();
+  const { t, currentTranslations } = useLanguage();
   const { toast } = useToast();
   const [formData, setFormData] = useState<ContactFormData>({
     name: "",
@@ -208,7 +208,7 @@ export function ContactSection() {
                     required
                     value={formData.name}
                     onChange={(e) => handleInputChange("name", e.target.value)}
-                    placeholder={t("yourName")}
+                    placeholder={currentTranslations.formPlaceholders.yourName}
                     className="h-12 rounded-xl border-gray-200 dark:border-gray-600 focus:border-purple-500 dark:focus:border-purple-400 bg-gray-50 dark:bg-gray-700 transition-colors"
                   />
                 </div>
@@ -222,7 +222,7 @@ export function ContactSection() {
                     required
                     value={formData.surname}
                     onChange={(e) => handleInputChange("surname", e.target.value)}
-                    placeholder={t("yourSurname")}
+                    placeholder={currentTranslations.formPlaceholders.yourSurname}
                     className="h-12 rounded-xl border-gray-200 dark:border-gray-600 focus:border-purple-500 dark:focus:border-purple-400 bg-gray-50 dark:bg-gray-700 transition-colors"
                   />
                 </div>
@@ -238,7 +238,7 @@ export function ContactSection() {
                   required
                   value={formData.email}
                   onChange={(e) => handleInputChange("email", e.target.value)}
-                  placeholder={t("yourEmail")}
+                  placeholder={currentTranslations.formPlaceholders.yourEmail}
                   className="h-12 rounded-xl border-gray-200 dark:border-gray-600 focus:border-purple-500 dark:focus:border-purple-400 bg-gray-50 dark:bg-gray-700 transition-colors"
                 />
               </div>
@@ -253,7 +253,7 @@ export function ContactSection() {
                     type="tel"
                     value={formData.phone}
                     onChange={(e) => handleInputChange("phone", e.target.value)}
-                    placeholder={t("yourPhone")}
+                    placeholder={currentTranslations.formPlaceholders.yourPhone}
                     className="h-12 rounded-xl border-gray-200 dark:border-gray-600 focus:border-purple-500 dark:focus:border-purple-400 bg-gray-50 dark:bg-gray-700 transition-colors"
                   />
                 </div>
@@ -266,7 +266,7 @@ export function ContactSection() {
                     type="text"
                     value={formData.dogName}
                     onChange={(e) => handleInputChange("dogName", e.target.value)}
-                    placeholder={t("yourDogName")}
+                    placeholder={currentTranslations.formPlaceholders.yourDogName}
                     className="h-12 rounded-xl border-gray-200 dark:border-gray-600 focus:border-purple-500 dark:focus:border-purple-400 bg-gray-50 dark:bg-gray-700 transition-colors"
                   />
                 </div>
@@ -281,7 +281,7 @@ export function ContactSection() {
                   required
                   value={formData.message}
                   onChange={(e) => handleInputChange("message", e.target.value)}
-                  placeholder={t("tellUsAbout")}
+                  placeholder={currentTranslations.formPlaceholders.tellUsAbout}
                   rows={5}
                   className="rounded-xl border-gray-200 dark:border-gray-600 focus:border-purple-500 dark:focus:border-purple-400 bg-gray-50 dark:bg-gray-700 resize-none transition-colors"
                 />

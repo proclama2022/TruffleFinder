@@ -1,5 +1,6 @@
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { useLanguage } from "@/hooks/use-language";
+import { GraduationCap, Search, Calendar, Users, Award, Star, Heart, TrendingUp, Headphones, ArrowRight } from "lucide-react";
 
 export function FeaturesBento() {
   const { t } = useLanguage();
@@ -10,7 +11,7 @@ export function FeaturesBento() {
       id: 1,
       title: "Expert Training",
       description: "Professional Lagotto trainers with 20+ years experience",
-      icon: "fas fa-user-graduate",
+      icon: GraduationCap,
       className: "bento-large",
       gradient: "from-amber-500/20 to-orange-500/20",
       delay: 0
@@ -19,7 +20,7 @@ export function FeaturesBento() {
       id: 2,
       title: "Truffle Hunting",
       description: "Real truffle hunting experiences in authentic locations",
-      icon: "fas fa-search",
+      icon: Search,
       className: "bento-tall",
       gradient: "from-emerald-500/20 to-teal-500/20",
       delay: 100
@@ -28,7 +29,7 @@ export function FeaturesBento() {
       id: 3,
       title: "5 Day Program",
       description: "Comprehensive curriculum spread across 5 intensive days",
-      icon: "far fa-calendar",
+      icon: Calendar,
       className: "",
       gradient: "from-blue-500/20 to-indigo-500/20",
       delay: 200
@@ -37,7 +38,7 @@ export function FeaturesBento() {
       id: 4,
       title: "Small Groups",
       description: "Maximum 12 participants for personalized attention",
-      icon: "fas fa-users",
+      icon: Users,
       className: "",
       gradient: "from-purple-500/20 to-pink-500/20",
       delay: 300
@@ -46,7 +47,7 @@ export function FeaturesBento() {
       id: 5,
       title: "Certificate",
       description: "Official completion certificate recognized nationwide",
-      icon: "fas fa-certificate",
+      icon: Award,
       className: "bento-wide",
       gradient: "from-rose-500/20 to-red-500/20",
       delay: 400
@@ -59,7 +60,7 @@ export function FeaturesBento() {
         {/* Modern Section Header */}
         <div className="text-center mb-20">
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-6 py-2 rounded-full border border-white/20 mb-6">
-            <i className="fas fa-star text-amber-400"></i>
+            <Star className="w-4 h-4 text-amber-400" />
             <span className="text-white/80 font-medium">Why Choose Us</span>
           </div>
           
@@ -96,7 +97,7 @@ export function FeaturesBento() {
                 {/* Icon */}
                 <div className="mb-6">
                   <div className="w-16 h-16 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
-                    <i className={`${feature.icon} text-2xl text-white group-hover:text-amber-300 transition-colors duration-300`}></i>
+                    <feature.icon className="w-8 h-8 text-white group-hover:text-amber-300 transition-colors duration-300" />
                   </div>
                 </div>
                 
@@ -114,7 +115,7 @@ export function FeaturesBento() {
                 <div className="mt-auto pt-6">
                   <div className="flex items-center text-amber-300 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
                     <span className="text-sm font-medium mr-2">Learn more</span>
-                    <i className="fas fa-arrow-right text-xs"></i>
+                    <ArrowRight className="w-3 h-3" />
                   </div>
                 </div>
               </div>
@@ -126,15 +127,15 @@ export function FeaturesBento() {
         <div className="mt-24 text-center">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
             {[
-              { number: "200+", label: "Happy Clients", icon: "fas fa-heart" },
-              { number: "15", label: "Years Experience", icon: "fas fa-award" },
-              { number: "95%", label: "Success Rate", icon: "fas fa-chart-line" },
-              { number: "24/7", label: "Support", icon: "fas fa-headset" }
+              { number: "200+", label: "Happy Clients", icon: Heart },
+              { number: "15", label: "Years Experience", icon: Award },
+              { number: "95%", label: "Success Rate", icon: TrendingUp },
+              { number: "24/7", label: "Support", icon: Headphones }
             ].map((stat, index) => (
               <div key={index} className="group">
                 <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all duration-300 hover:scale-105">
                   <div className="mb-3">
-                    <i className={`${stat.icon} text-2xl text-amber-400 group-hover:scale-110 transition-transform duration-300`}></i>
+                    <stat.icon className="w-6 h-6 text-amber-400 group-hover:scale-110 transition-transform duration-300" />
                   </div>
                   <div className="text-3xl font-bold text-white mb-2">{stat.number}</div>
                   <div className="text-gray-400 text-sm font-medium">{stat.label}</div>
