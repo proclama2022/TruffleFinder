@@ -45,7 +45,8 @@ const TeamSection: React.FC = () => {
                       <img
                         src="/images/gallery/nicoletta.jpg"
                         alt="Nicoletta Conte"
-                        className="w-full h-96 lg:h-[500px] object-cover transform transition-transform duration-700 group-hover:scale-105"
+                        className="w-full h-96 lg:h-[540px] xl:h-[600px] object-cover transform transition-transform duration-700 group-hover:scale-105"
+                        style={{ objectPosition: '70% 20%' }}
                       />
                       
                       {/* Image Overlay */}
