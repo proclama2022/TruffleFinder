@@ -14,7 +14,7 @@ interface ContactFormData {
   surname: string;
   email: string;
   phone: string;
-  dogName: string;
+  dog_name: string;
   message: string;
 }
 
@@ -26,7 +26,7 @@ export function ContactSection() {
     surname: "",
     email: "",
     phone: "",
-    dogName: "",
+    dog_name: "",
     message: "",
   });
 
@@ -45,14 +45,24 @@ export function ContactSection() {
         surname: "",
         email: "",
         phone: "",
-        dogName: "",
+        dog_name: "",
         message: "",
       });
     },
-    onError: () => {
+    onError: (error: any) => {
+      console.error('Errore invio contatto:', error);
+      let errorMessage = "Si è verificato un errore durante l'invio del messaggio.";
+      
+      // Se l'errore contiene informazioni specifiche dal server
+      if (error?.message) {
+        errorMessage = error.message;
+      } else if (error?.response?.status === 400) {
+        errorMessage = "Dati del form non validi. Controlla che tutti i campi obbligatori siano compilati correttamente.";
+      }
+      
       toast({
         title: t("errorOccurred"),
-        description: "Si è verificato un errore durante l'invio del messaggio.",
+        description: errorMessage,
         variant: "destructive",
       });
     },
@@ -60,6 +70,37 @@ export function ContactSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Validazione frontend
+    const errors: string[] = [];
+    
+    if (!formData.name.trim()) {
+      errors.push("Il nome è obbligatorio");
+    }
+    
+    if (!formData.surname.trim()) {
+      errors.push("Il cognome è obbligatorio");
+    }
+    
+    if (!formData.email.trim()) {
+      errors.push("L'email è obbligatoria");
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      errors.push("L'email non è valida");
+    }
+    
+    if (!formData.message.trim()) {
+      errors.push("Il messaggio è obbligatorio");
+    }
+    
+    if (errors.length > 0) {
+      toast({
+        title: "Errori nel form",
+        description: errors.join(", "),
+        variant: "destructive",
+      });
+      return;
+    }
+    
     contactMutation.mutate(formData);
   };
 
@@ -197,7 +238,7 @@ export function ContactSection() {
             </h3>
 
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <Label htmlFor="name" className="text-gray-700 dark:text-gray-300 font-medium text-sm">
                     {t("name")} *
@@ -243,7 +284,7 @@ export function ContactSection() {
                 />
               </div>
 
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <Label htmlFor="phone" className="text-gray-700 dark:text-gray-300 font-medium text-sm">
                     {t("phone")}
@@ -264,8 +305,8 @@ export function ContactSection() {
                   <Input
                     id="dogName"
                     type="text"
-                    value={formData.dogName}
-                    onChange={(e) => handleInputChange("dogName", e.target.value)}
+                    value={formData.dog_name}
+                    onChange={(e) => handleInputChange("dog_name", e.target.value)}
                     placeholder={currentTranslations.formPlaceholders.yourDogName}
                     className="h-12 rounded-xl border-gray-200 dark:border-gray-600 focus:border-purple-500 dark:focus:border-purple-400 bg-gray-50 dark:bg-gray-700 transition-colors"
                   />

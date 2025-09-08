@@ -4,7 +4,7 @@ import { NavigationMUI } from "../components/navigation-mui";
 import { HeroSectionMUI } from "@/components/hero-section-mui";
 import { AboutSection } from "../components/about-section";
 import { ProgramTimelineNew } from "../components/program-timeline-new";
-import { LanguageSelector } from "../components/language-selector";
+// import { LanguageSelector } from "../components/language-selector";
 import { ModernGalleryMUI } from "../components/modern-gallery-mui";
 
 import { UnifiedContactSection } from "../components/unified-contact-section";
@@ -49,8 +49,7 @@ export default function Home() {
       {/* Modern Scroll Indicators */}
       <ModernScrollIndicator />
 
-      {/* Language Selector */}
-      <LanguageSelector />
+      {/* Language Selector rimosso: ora è nella navbar/Drawer */}
       
       <NavigationMUI />
       <HeroSectionMUI />

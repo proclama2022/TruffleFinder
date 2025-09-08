@@ -43,6 +43,7 @@ const bounce = keyframes`
 // Componenti stilizzati
 const HeroContainer = styled(Box)(({ theme }) => ({
   position: 'relative',
+  width: '100%',
   minHeight: '100vh',
   display: 'flex',
   alignItems: 'center',
@@ -196,22 +197,28 @@ export function HeroSectionMUI() {
               <FloatingCard elevation={12}>
                 <CardContent sx={{ p: { xs: 3, md: 5 } }}>
                   <Stack spacing={2} alignItems="center">
-                    <Typography
-                      variant={isMobile ? "h2" : "h1"}
-                      component="h1"
-                      fontWeight="900"
-                      textAlign="center"
-                      sx={{
-                        background: `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
-                        backgroundClip: 'text',
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent',
-                        fontSize: { xs: '2.5rem', md: '4rem', lg: '5rem' },
-                        lineHeight: 1.1
-                      }}
-                    >
-                      Lagotto
-                    </Typography>
+                    {/* Titolo con logo inline */}
+                    <Stack direction="row" spacing={2} alignItems="center">
+                      <Typography
+                        variant={isMobile ? "h2" : "h1"}
+                        component="h1"
+                        fontWeight="900"
+                        textAlign="center"
+                        sx={{
+                          background: `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
+                          backgroundClip: 'text',
+                          WebkitBackgroundClip: 'text',
+                          WebkitTextFillColor: 'transparent',
+                          fontSize: { xs: '2.5rem', md: '4rem', lg: '5rem' },
+                          lineHeight: 1.15,
+                          pb: 0.25
+                        }}
+                      >
+                        Lagotto
+                      </Typography>
+                      {/* Logo accanto al titolo */}
+                      <Box component="img" src={"/images/gallery/logo.jpg"} alt="Lagotto & Truffle Week" sx={{ width: { xs: 40, md: 56 }, height: { xs: 40, md: 56 }, borderRadius: 2, boxShadow: 2 }} />
+                    </Stack>
                     
                     <Stack direction="row" spacing={2} alignItems="center">
                       <Box sx={{ width: { xs: 40, md: 60 }, height: 3, bgcolor: 'secondary.main', borderRadius: 2 }} />
@@ -227,7 +234,9 @@ export function HeroSectionMUI() {
                       color="primary.main"
                       sx={{
                         fontSize: { xs: '1.8rem', md: '3rem', lg: '3.5rem' },
-                        fontStyle: 'italic'
+                        fontStyle: 'italic',
+                        lineHeight: 1.15,
+                        pb: 0.2
                       }}
                     >
                       & Truffle Week

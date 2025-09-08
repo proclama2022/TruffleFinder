@@ -14,8 +14,8 @@ import CssBaseline from "@mui/material/CssBaseline";
 function Router() {
   return (
     <Switch>
-      <Route path="/" component={ComingSoon} />
-      <Route path="/home" component={Home} />
+      <Route path="/" component={Home} />
+      <Route path="/coming-soon" component={ComingSoon} />
       <Route component={NotFound} />
     </Switch>
   );

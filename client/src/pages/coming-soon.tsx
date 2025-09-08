@@ -4,7 +4,6 @@ import { Button } from '../components/ui/button';
 import { Badge } from '../components/ui/badge';
 import { Calendar, MapPin, Clock, Mail, Phone, Star, Heart, Dog, ChefHat, Mountain, Wine, Globe, User } from 'lucide-react';
 import { useLanguage } from '../hooks/use-language';
-import { LanguageSelector } from '../components/language-selector';
 import logoImage from '/images/gallery/logo.jpg';
 import nicolettaLogoImage from '/images/gallery/nicoletta-logo.jpg';
 import backgroundImage from '/images/gallery/background.jpg';
@@ -20,7 +19,8 @@ export default function ComingSoon() {
         style={{ backgroundImage: `url(${backgroundImage})` }}
       ></div>
       
-      <LanguageSelector />
+      {/* LanguageSelector spostato nella Navbar/Drawer su mobile */}
+      {/* <LanguageSelector /> */}
       {/* Autumn leaves background */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Large autumn leaves */}
@@ -271,4 +271,4 @@ export default function ComingSoon() {
       </div>
     </div>
   );
-} 
+}
