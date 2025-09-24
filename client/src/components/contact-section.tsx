@@ -33,7 +33,7 @@ export function ContactSection() {
   const contactMutation = useMutation({
     mutationFn: async (data: ContactFormData) => {
       try {
-        const response = await apiRequest("POST", "/api/contacts", data);
+        const response = await apiRequest("POST", "/api/contacts-email", data);
         return response.json();
       } catch (error: any) {
         // Migliore gestione degli errori per evitare problemi di parsing JSON
