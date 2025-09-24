@@ -14,7 +14,7 @@ interface ContactFormData {
   surname: string;
   email: string;
   phone: string;
-  dog_name: string;
+  dogName: string;
   message: string;
 }
 
@@ -26,7 +26,7 @@ export function ContactSection() {
     surname: "",
     email: "",
     phone: "",
-    dog_name: "",
+    dogName: "",
     message: "",
   });
 
@@ -305,8 +305,8 @@ export function ContactSection() {
                   <Input
                     id="dogName"
                     type="text"
-                    value={formData.dog_name}
-                    onChange={(e) => handleInputChange("dog_name", e.target.value)}
+                    value={formData.dogName}
+                  onChange={(e) => setFormData({ ...formData, dogName: e.target.value })}
                     placeholder={currentTranslations.formPlaceholders.yourDogName}
                     className="h-12 rounded-xl border-gray-200 dark:border-gray-600 focus:border-purple-500 dark:focus:border-purple-400 bg-gray-50 dark:bg-gray-700 transition-colors"
                   />
