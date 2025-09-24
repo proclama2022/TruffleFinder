@@ -1,7 +1,16 @@
-import { insertContactSchema } from "../shared/schema";
 import { z } from "zod";
 import sgMail from '@sendgrid/mail';
 import type { VercelRequest, VercelResponse } from '@vercel/node';
+
+// Schema inline per evitare problemi di import su Vercel
+const insertContactSchema = z.object({
+  name: z.string().min(1),
+  surname: z.string().optional(),
+  email: z.string().email(),
+  phone: z.string().optional(),
+  dog_name: z.string().optional(),
+  message: z.string().min(1),
+});
 
 // Configura SendGrid
 sgMail.setApiKey(process.env.SENDGRID_API_KEY || '');
