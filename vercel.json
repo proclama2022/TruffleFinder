@@ -26,5 +26,10 @@
       "src": "/(.*)",
       "dest": "/dist/index.html"
     }
-  ]
+  ],
+  "functions": {
+    "server/index.ts": {
+      "includeFiles": "**"
+    }
+  }
 }
