@@ -36,20 +36,30 @@ export function ContactForm() {
 
   const onSubmit = async (values: ContactFormValues) => {
     try {
-      const response = await fetch('/api/contacts', {
+      // Usa l'endpoint send-webhook che gestisce meglio le risposte
+      const response = await fetch('/api/send-webhook', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(values),
+        body: JSON.stringify({
+          name: values.name,
+          surname: values.surname,
+          email: values.email,
+          phone: values.phone || '',
+          dog_name: values.dogName || '',
+          message: values.message
+        }),
       });
 
       if (response.ok) {
+        const result = await response.json();
         alert('Messaggio inviato con successo!');
         form.reset();
       } else {
         const errorData = await response.json();
-        alert(`Errore nell'invio del messaggio: ${errorData.message || response.statusText}`);
+        console.error('Errore API:', errorData);
+        alert(`Errore nell'invio del messaggio: ${errorData.error || errorData.message || response.statusText}`);
       }
     } catch (error) {
       console.error('Errore durante l\'invio del modulo:', error);

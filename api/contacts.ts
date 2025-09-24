@@ -37,28 +37,59 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     const response = await fetch(webhookUrl, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { 
+        "Content-Type": "application/json",
+        "User-Agent": "TruffleFinder/1.0"
+      },
       body: JSON.stringify(contact),
     });
 
+    console.log("Risposta webhook status:", response.status);
+    console.log("Risposta webhook headers:", Object.fromEntries(response.headers.entries()));
+
     if (!response.ok) {
-      const errorText = await response.text();
-      console.error("Errore webhook Make:", response.status, errorText);
+      let errorText = '';
+      try {
+        errorText = await response.text();
+        console.error("Errore webhook Make - Response body:", errorText);
+      } catch (e) {
+        console.error("Impossibile leggere response body:", e);
+        errorText = `HTTP ${response.status} ${response.statusText}`;
+      }
+      
       return res.status(502).json({ 
         message: `Webhook Make ha risposto ${response.status}`,
-        details: errorText
+        details: errorText,
+        success: false
       });
     }
 
+    // Prova a leggere la risposta come testo prima
+    let responseText = '';
+    try {
+      responseText = await response.text();
+      console.log("Risposta webhook Make:", responseText);
+    } catch (e) {
+      console.error("Errore lettura risposta webhook:", e);
+    }
+
     console.log("Webhook Make inviato con successo");
-    return res.status(200).json({ success: true, message: "Messaggio inviato" });
+    return res.status(200).json({ 
+      success: true, 
+      message: "Messaggio inviato",
+      webhookResponse: responseText 
+    });
   } catch (error: any) {
     if (error instanceof z.ZodError) {
       console.error("Errore validazione:", error.errors);
       return res.status(400).json({ message: "Dati non validi", errors: error.errors });
     }
     console.error("Errore webhook Make:", error);
-    return res.status(500).json({ message: "Errore interno", error: error.message });
+    return res.status(500).json({ 
+      message: "Errore interno", 
+      error: error.message,
+      success: false 
+    });
   }
 }
 
