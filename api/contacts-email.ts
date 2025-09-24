@@ -1,11 +1,12 @@
 import { insertContactSchema } from "../shared/schema";
 import { z } from "zod";
 import sgMail from '@sendgrid/mail';
+import type { VercelRequest, VercelResponse } from '@vercel/node';
 
 // Configura SendGrid
 sgMail.setApiKey(process.env.SENDGRID_API_KEY || '');
 
-export default async function handler(req: any, res: any) {
+export default async function handler(req: VercelRequest, res: VercelResponse) {
   // Abilita CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
