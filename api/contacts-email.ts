@@ -1,17 +1,9 @@
 import { insertContactSchema } from "../shared/schema";
 import { z } from "zod";
-import nodemailer from 'nodemailer';
+import sgMail from '@sendgrid/mail';
 
-// Configura il trasportatore Nodemailer
-const transporter = nodemailer.createTransport({
-  host: "mail.proclama.co",
-  port: 465,
-  secure: true, // true for 465, false for other ports
-  auth: {
-    user: process.env.EMAIL_USER, // Il tuo indirizzo email
-    pass: process.env.EMAIL_PASS, // La tua password
-  },
-});
+// Configura SendGrid
+sgMail.setApiKey(process.env.SENDGRID_API_KEY || '');
 
 export default async function handler(req: any, res: any) {
   // Abilita CORS
@@ -37,10 +29,10 @@ export default async function handler(req: any, res: any) {
 
     const contact = insertContactSchema.parse(body);
 
-    // Verifica configurazione email
-    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
-      console.error("Configurazione email mancante");
-      return res.status(500).json({ message: "Configurazione email non trovata" });
+    // Verifica configurazione SendGrid
+    if (!process.env.SENDGRID_API_KEY) {
+      console.error("SENDGRID_API_KEY non configurato");
+      return res.status(500).json({ message: "Configurazione SendGrid non trovata" });
     }
 
     console.log("Invio email per contatto:", contact.name);
@@ -68,20 +60,29 @@ Messaggio: ${contact.message}
 Inviato dal sito Lagotto Truffle Week
     `;
 
-    const emailTo = process.env.EMAIL_TO || process.env.EMAIL_USER;
+    const emailTo = process.env.SENDGRID_TO_EMAIL || process.env.SENDGRID_FROM_EMAIL;
     if (!emailTo) {
-      const errorMsg = "Nessun destinatario email configurato. Imposta EMAIL_TO o EMAIL_USER.";
+      const errorMsg = "Nessun destinatario email configurato. Imposta SENDGRID_TO_EMAIL.";
       console.error(errorMsg);
       return res.status(500).json({ message: errorMsg });
     }
 
-    await transporter.sendMail({
-      from: process.env.EMAIL_USER,
-      to: emailTo, // Nodemailer gestisce stringhe con virgole
+    const fromEmail = process.env.SENDGRID_FROM_EMAIL;
+    if (!fromEmail) {
+      const errorMsg = "Email mittente non configurata. Imposta SENDGRID_FROM_EMAIL.";
+      console.error(errorMsg);
+      return res.status(500).json({ message: errorMsg });
+    }
+
+    const msg = {
+      to: emailTo,
+      from: fromEmail,
       subject: `Nuovo contatto da ${contact.name} - Lagotto Truffle Week`,
       text: textContent,
       html: htmlContent,
-    });
+    };
+
+    await sgMail.send(msg);
 
     console.log("Email inviata con successo");
     return res.status(200).json({ 

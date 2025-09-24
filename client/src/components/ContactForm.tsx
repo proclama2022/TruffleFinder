@@ -36,7 +36,7 @@ export function ContactForm() {
 
   const onSubmit = async (values: ContactFormValues) => {
     try {
-      // Usa l'endpoint contacts-email per l'invio delle email
+      // Usa l'endpoint contacts-email per l'invio delle email (aggiornato)
       const response = await fetch('/api/contacts-email', {
         method: 'POST',
         headers: {
