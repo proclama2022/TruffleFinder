@@ -15,6 +15,10 @@
       "dest": "/dist/assets/$1"
     },
     {
+      "src": "/home",
+      "dest": "/dist/index.html"
+    },
+    {
       "src": "/(.*)",
       "dest": "/dist/index.html"
     }
@@ -23,12 +27,5 @@
     "server/index.ts": {
       "includeFiles": "**"
     }
-  },
-  "redirects": [
-    {
-      "source": "/home",
-      "destination": "/",
-      "permanent": false
-    }
-  ]
+  }
 }
