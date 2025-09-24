@@ -68,9 +68,16 @@ Messaggio: ${contact.message}
 Inviato dal sito Lagotto Truffle Week
     `;
 
+    const emailTo = process.env.EMAIL_TO || process.env.EMAIL_USER;
+    if (!emailTo) {
+      const errorMsg = "Nessun destinatario email configurato. Imposta EMAIL_TO o EMAIL_USER.";
+      console.error(errorMsg);
+      return res.status(500).json({ message: errorMsg });
+    }
+
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_TO || process.env.EMAIL_USER, // Email di destinazione
+      to: emailTo, // Nodemailer gestisce stringhe con virgole
       subject: `Nuovo contatto da ${contact.name} - Lagotto Truffle Week`,
       text: textContent,
       html: htmlContent,
@@ -81,16 +88,18 @@ Inviato dal sito Lagotto Truffle Week
       success: true, 
       message: "Messaggio inviato con successo"
     });
-  } catch (error: any) {
+  } catch (error) {
+    console.error("Errore API:", error);
+
     if (error instanceof z.ZodError) {
-      console.error("Errore validazione:", error.errors);
-      return res.status(400).json({ message: "Dati non validi", errors: error.errors });
+      return res.status(400).json({ message: "Dati inviati non validi", errors: error.errors });
     }
-    console.error("Errore invio email:", error);
+
+    // Assicura che la risposta sia sempre JSON
+    const errorMessage = error instanceof Error ? error.message : "Errore sconosciuto";
     return res.status(500).json({ 
-      message: "Errore durante l'invio dell'email", 
-      error: error.message,
-      success: false 
+      message: "Errore interno del server durante l'invio dell'email.", 
+      error: errorMessage 
     });
   }
 }
