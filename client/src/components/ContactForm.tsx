@@ -36,8 +36,8 @@ export function ContactForm() {
 
   const onSubmit = async (values: ContactFormValues) => {
     try {
-      // Usa l'endpoint send-webhook che gestisce meglio le risposte
-      const response = await fetch('/api/send-webhook', {
+      // Usa l'endpoint contacts-email per l'invio delle email
+      const response = await fetch('/api/contacts-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
