@@ -14,11 +14,7 @@ interface ContactFormData {
   surname: string;
   email: string;
   phone: string;
-<<<<<<< HEAD
   dogName: string;
-=======
-  dog_name: string;
->>>>>>> 53c7d0dc6cb5df58fd4d9436887fe7ab0a7d34f5
   message: string;
 }
 
@@ -30,24 +26,19 @@ export function ContactSection() {
     surname: "",
     email: "",
     phone: "",
-<<<<<<< HEAD
     dogName: "",
-=======
-    dog_name: "",
->>>>>>> 53c7d0dc6cb5df58fd4d9436887fe7ab0a7d34f5
     message: "",
   });
 
   const contactMutation = useMutation({
     mutationFn: async (data: ContactFormData) => {
-<<<<<<< HEAD
       try {
         const response = await apiRequest("POST", "/api/contacts-email", data);
         return response.json();
       } catch (error: any) {
         // Migliore gestione degli errori per evitare problemi di parsing JSON
         console.error('API Request error:', error);
-        
+
         // Se l'errore contiene informazioni dal server, le estraiamo
         if (error.message && error.message.includes(':')) {
           const parts = error.message.split(': ');
@@ -61,14 +52,9 @@ export function ContactSection() {
             }
           }
         }
-        
+
         throw error;
       }
-=======
-      // Usa direttamente l'API per inviare l'email
-      const response = await apiRequest("POST", "/api/contacts-email", data);
-      return response.json();
->>>>>>> 53c7d0dc6cb5df58fd4d9436887fe7ab0a7d34f5
     },
     onSuccess: () => {
       toast({
@@ -80,33 +66,21 @@ export function ContactSection() {
         surname: "",
         email: "",
         phone: "",
-<<<<<<< HEAD
         dogName: "",
-=======
-        dog_name: "",
->>>>>>> 53c7d0dc6cb5df58fd4d9436887fe7ab0a7d34f5
         message: "",
       });
     },
     onError: (error: any) => {
       console.error('Errore invio contatto:', error);
       let errorMessage = "Si è verificato un errore durante l'invio del messaggio.";
-      
-<<<<<<< HEAD
+
       // Gestione migliorata degli errori
       if (error?.message) {
         errorMessage = error.message;
       } else if (typeof error === 'string') {
         errorMessage = error;
-=======
-      // Se l'errore contiene informazioni specifiche dal server
-      if (error?.message) {
-        errorMessage = error.message;
-      } else if (error?.response?.status === 400) {
-        errorMessage = "Dati del form non validi. Controlla che tutti i campi obbligatori siano compilati correttamente.";
->>>>>>> 53c7d0dc6cb5df58fd4d9436887fe7ab0a7d34f5
       }
-      
+
       toast({
         title: t("errorOccurred"),
         description: errorMessage,
@@ -117,28 +91,28 @@ export function ContactSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Validazione frontend
     const errors: string[] = [];
-    
+
     if (!formData.name.trim()) {
       errors.push("Il nome è obbligatorio");
     }
-    
+
     if (!formData.surname.trim()) {
       errors.push("Il cognome è obbligatorio");
     }
-    
+
     if (!formData.email.trim()) {
       errors.push("L'email è obbligatoria");
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       errors.push("L'email non è valida");
     }
-    
+
     if (!formData.message.trim()) {
       errors.push("Il messaggio è obbligatorio");
     }
-    
+
     if (errors.length > 0) {
       toast({
         title: "Errori nel form",
@@ -147,7 +121,7 @@ export function ContactSection() {
       });
       return;
     }
-    
+
     contactMutation.mutate(formData);
   };
 
@@ -170,14 +144,14 @@ export function ContactSection() {
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
             {t("contactDescription")}
           </p>
-          
+
           {/* Nicoletta Conte Logo */}
           <div className="mt-8 flex justify-center">
             <div className="relative">
               <div className="w-20 h-20 bg-gradient-to-br from-amber-600 to-amber-800 rounded-2xl flex items-center justify-center shadow-lg border-2 border-amber-500 overflow-hidden">
-                <img 
-                  src={nicolettaLogoImage} 
-                  alt="Nicoletta Conte" 
+                <img
+                  src={nicolettaLogoImage}
+                  alt="Nicoletta Conte"
                   className="w-16 h-16 object-cover rounded-xl"
                 />
               </div>
@@ -352,13 +326,8 @@ export function ContactSection() {
                   <Input
                     id="dogName"
                     type="text"
-<<<<<<< HEAD
                     value={formData.dogName}
-                  onChange={(e) => setFormData({ ...formData, dogName: e.target.value })}
-=======
-                    value={formData.dog_name}
-                    onChange={(e) => handleInputChange("dog_name", e.target.value)}
->>>>>>> 53c7d0dc6cb5df58fd4d9436887fe7ab0a7d34f5
+                    onChange={(e) => handleInputChange("dogName", e.target.value)}
                     placeholder={currentTranslations.formPlaceholders.yourDogName}
                     className="h-12 rounded-xl border-gray-200 dark:border-gray-600 focus:border-purple-500 dark:focus:border-purple-400 bg-gray-50 dark:bg-gray-700 transition-colors"
                   />
