@@ -2,18 +2,16 @@ import { insertContactSchema } from "../shared/schema";
 import { z } from "zod";
 import nodemailer from 'nodemailer';
 
-// Configurazione nodemailer per Vercel
-const createTransporter = () => {
-  return nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 587,
-    secure: false,
-    auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS, // App Password di Gmail
-    },
-  });
-};
+// Configura il trasportatore Nodemailer
+const transporter = nodemailer.createTransport({
+  host: "mail.proclama.co",
+  port: 465,
+  secure: true, // true for 465, false for other ports
+  auth: {
+    user: process.env.EMAIL_USER, // Il tuo indirizzo email
+    pass: process.env.EMAIL_PASS, // La tua password
+  },
+});
 
 export default async function handler(req: any, res: any) {
   // Abilita CORS
@@ -46,8 +44,6 @@ export default async function handler(req: any, res: any) {
     }
 
     console.log("Invio email per contatto:", contact.name);
-
-    const transporter = createTransporter();
 
     // Email HTML formattata
     const htmlContent = `

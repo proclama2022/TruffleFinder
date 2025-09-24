@@ -32,16 +32,9 @@ export function ContactSection() {
 
   const contactMutation = useMutation({
     mutationFn: async (data: ContactFormData) => {
-      try {
-        // Usa la nuova API route send-webhook che gestisce meglio le risposte
-        const response = await apiRequest("POST", "/api/send-webhook", data);
-        return response.json();
-      } catch (error) {
-        console.log('Webhook fallito, provo con email diretta:', error);
-        // Fallback: usa l'API email diretta
-        const emailResponse = await apiRequest("POST", "/api/contacts-email", data);
-        return emailResponse.json();
-      }
+      // Usa direttamente l'API per inviare l'email
+      const response = await apiRequest("POST", "/api/contacts-email", data);
+      return response.json();
     },
     onSuccess: () => {
       toast({

@@ -1,7 +1,8 @@
 import { insertContactSchema } from "../shared/schema";
 import { z } from "zod";
+import type { VercelRequest, VercelResponse } from '@vercel/node';
 
-export default async function handler(req: any, res: any) {
+export default async function handler(req: VercelRequest, res: VercelResponse) {
   // Abilita CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -96,7 +97,7 @@ export default async function handler(req: any, res: any) {
     console.error("Errore interno:", error);
     return res.status(500).json({ 
       error: "Errore interno del server",
-      details: error.message
+      details: error instanceof Error ? error.message : String(error)
     });
   }
 }
