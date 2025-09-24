@@ -1,0 +1,28 @@
+/* Program section overrides - Clean and consistent styling */
+
+/* Scope everything to #program to avoid global side-effects */
+#program .group {
+  transition: transform 200ms ease, box-shadow 200ms ease;
+  will-change: transform, box-shadow;
+}
+
+/* Subtle hover effects */
+#program .group:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 8px 25px rgba(var(--primary-rgb), 0.15);
+}
+
+/* Ensure images maintain quality */
+#program .group img {
+  transition: transform 200ms ease;
+  backface-visibility: hidden;
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  #program .group,
+  #program .group img {
+    transition: none !important;
+    transform: none !important;
+  }
+}
