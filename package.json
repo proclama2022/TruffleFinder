@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "type": "module",
   "license": "MIT",
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
     "dev": "NODE_ENV=development SHOW_COMING_SOON=false tsx server/index.ts",
     "dev:7000": "PORT=7000 NODE_ENV=development SHOW_COMING_SOON=false tsx server/index.ts",
