@@ -32,8 +32,29 @@ export function ContactSection() {
 
   const contactMutation = useMutation({
     mutationFn: async (data: ContactFormData) => {
-      const response = await apiRequest("POST", "/api/contacts", data);
-      return response.json();
+      try {
+        const response = await apiRequest("POST", "/api/contacts", data);
+        return response.json();
+      } catch (error: any) {
+        // Migliore gestione degli errori per evitare problemi di parsing JSON
+        console.error('API Request error:', error);
+        
+        // Se l'errore contiene informazioni dal server, le estraiamo
+        if (error.message && error.message.includes(':')) {
+          const parts = error.message.split(': ');
+          if (parts.length > 1) {
+            try {
+              const errorData = JSON.parse(parts.slice(1).join(': '));
+              throw new Error(errorData.message || errorData.error || error.message);
+            } catch (parseError) {
+              // Se non riusciamo a parsare, usiamo il messaggio originale
+              throw new Error(parts.slice(1).join(': '));
+            }
+          }
+        }
+        
+        throw error;
+      }
     },
     onSuccess: () => {
       toast({
@@ -45,7 +66,7 @@ export function ContactSection() {
         surname: "",
         email: "",
         phone: "",
-        dog_name: "",
+        dogName: "",
         message: "",
       });
     },
@@ -53,11 +74,11 @@ export function ContactSection() {
       console.error('Errore invio contatto:', error);
       let errorMessage = "Si è verificato un errore durante l'invio del messaggio.";
       
-      // Se l'errore contiene informazioni specifiche dal server
+      // Gestione migliorata degli errori
       if (error?.message) {
         errorMessage = error.message;
-      } else if (error?.response?.status === 400) {
-        errorMessage = "Dati del form non validi. Controlla che tutti i campi obbligatori siano compilati correttamente.";
+      } else if (typeof error === 'string') {
+        errorMessage = error;
       }
       
       toast({
