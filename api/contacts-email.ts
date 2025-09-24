@@ -12,15 +12,19 @@ const insertContactSchema = z.object({
   message: z.string().min(1),
 });
 
-// Configura Nodemailer con il tuo server SMTP
+// Configura Nodemailer con mail.proclama.co SMTP
 const transporter = nodemailer.createTransport({
   host: process.env.EMAIL_HOST || "mail.proclama.co",
   port: parseInt(process.env.EMAIL_PORT || "465"),
-  secure: process.env.EMAIL_SECURE === 'true',
+  secure: process.env.EMAIL_SECURE === 'true', // true per 465 (SSL)
   auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
+    user: process.env.EMAIL_USER || "test@proclama.co",
+    pass: process.env.EMAIL_PASS || "Bianchetto2024!",
   },
+  tls: {
+    ciphers: 'SSLv3',
+    rejectUnauthorized: false
+  }
 });
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
