@@ -32,6 +32,15 @@ export function UnifiedContactSection() {
       color: "from-green-500 to-teal-500"
     },
     {
+<<<<<<< HEAD
+=======
+      icon: Mail,
+      title: "Contact Person",
+      value: "nico.conte76543@gmail.com",
+      color: "from-orange-500 to-red-500"
+    },
+    {
+>>>>>>> 53c7d0dc6cb5df58fd4d9436887fe7ab0a7d34f5
       icon: Calendar,
       title: "Dates",
       value: locationData.dates,

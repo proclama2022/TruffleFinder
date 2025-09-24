@@ -2,8 +2,27 @@ import { QueryClient, QueryFunction } from "@tanstack/react-query";
 
 async function throwIfResNotOk(res: Response) {
   if (!res.ok) {
+<<<<<<< HEAD
     const text = (await res.text()) || res.statusText;
     throw new Error(`${res.status}: ${text}`);
+=======
+    let text = '';
+    try {
+      text = await res.text();
+      // Prova a parsare come JSON se possibile
+      try {
+        const jsonError = JSON.parse(text);
+        if (jsonError.message) {
+          throw new Error(`${res.status}: ${jsonError.message}`);
+        }
+      } catch {
+        // Se non è JSON valido, usa il testo così com'è
+      }
+    } catch (parseError) {
+      text = res.statusText;
+    }
+    throw new Error(`${res.status}: ${text || 'Errore sconosciuto'}`);
+>>>>>>> 53c7d0dc6cb5df58fd4d9436887fe7ab0a7d34f5
   }
 }
 

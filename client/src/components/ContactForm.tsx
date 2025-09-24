@@ -36,20 +36,45 @@ export function ContactForm() {
 
   const onSubmit = async (values: ContactFormValues) => {
     try {
+<<<<<<< HEAD
       const response = await fetch('/api/contacts', {
+=======
+      // Usa l'endpoint contacts-email per l'invio delle email (aggiornato)
+      const response = await fetch('/api/contacts-email', {
+>>>>>>> 53c7d0dc6cb5df58fd4d9436887fe7ab0a7d34f5
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
+<<<<<<< HEAD
         body: JSON.stringify(values),
       });
 
       if (response.ok) {
+=======
+        body: JSON.stringify({
+          name: values.name,
+          surname: values.surname,
+          email: values.email,
+          phone: values.phone || '',
+          dog_name: values.dogName || '',
+          message: values.message
+        }),
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+>>>>>>> 53c7d0dc6cb5df58fd4d9436887fe7ab0a7d34f5
         alert('Messaggio inviato con successo!');
         form.reset();
       } else {
         const errorData = await response.json();
+<<<<<<< HEAD
         alert(`Errore nell'invio del messaggio: ${errorData.message || response.statusText}`);
+=======
+        console.error('Errore API:', errorData);
+        alert(`Errore nell'invio del messaggio: ${errorData.error || errorData.message || response.statusText}`);
+>>>>>>> 53c7d0dc6cb5df58fd4d9436887fe7ab0a7d34f5
       }
     } catch (error) {
       console.error('Errore durante l\'invio del modulo:', error);

@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "version": 2,
   "routes": [
     {
@@ -22,4 +23,15 @@
       "includeFiles": "**"
     }
   }
+=======
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist/public",
+  "redirects": [
+    {
+      "source": "/home",
+      "destination": "/",
+      "permanent": false
+    }
+  ]
+>>>>>>> 53c7d0dc6cb5df58fd4d9436887fe7ab0a7d34f5
 }

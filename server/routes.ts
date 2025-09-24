@@ -29,11 +29,15 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const webhookUrl = process.env.MAKE_WEBHOOK_URL;
       
       if (!webhookUrl) {
+<<<<<<< HEAD
         console.error('MAKE_WEBHOOK_URL not configured');
         return res.status(500).json({ 
           message: "Server configuration error", 
           error: "Webhook URL not configured" 
         });
+=======
+        throw new Error('MAKE_WEBHOOK_URL not configured');
+>>>>>>> 53c7d0dc6cb5df58fd4d9436887fe7ab0a7d34f5
       }
 
       const response = await fetch(webhookUrl, {
@@ -45,16 +49,21 @@ export async function registerRoutes(app: Express): Promise<Server> {
       });
 
       if (!response.ok) {
+<<<<<<< HEAD
         const errorText = await response.text().catch(() => 'Unknown error');
         console.error(`Webhook failed with status: ${response.status}, response: ${errorText}`);
         return res.status(500).json({ 
           message: "Failed to send message", 
           error: `Webhook error: ${response.status}` 
         });
+=======
+        throw new Error(`Webhook failed with status: ${response.status}`);
+>>>>>>> 53c7d0dc6cb5df58fd4d9436887fe7ab0a7d34f5
       }
 
       res.json({ message: "Message sent successfully", success: true });
     } catch (error) {
+<<<<<<< HEAD
       console.error('Contact endpoint error:', error);
       
       if (error instanceof z.ZodError) {
@@ -67,6 +76,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
           message: "Failed to send message",
           error: error instanceof Error ? error.message : 'Unknown error'
         });
+=======
+      if (error instanceof z.ZodError) {
+        res.status(400).json({ message: "Invalid contact data", errors: error.errors });
+      } else {
+        console.error('Webhook error:', error);
+        res.status(500).json({ message: "Failed to send message" });
+>>>>>>> 53c7d0dc6cb5df58fd4d9436887fe7ab0a7d34f5
       }
     }
   });

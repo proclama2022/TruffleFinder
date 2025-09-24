@@ -48,6 +48,7 @@ app.use((req, res, next) => {
     const status = err.status || err.statusCode || 500;
     const message = err.message || "Internal Server Error";
 
+<<<<<<< HEAD
     // Log the error for debugging
     console.error('Server error:', err);
     
@@ -58,6 +59,10 @@ app.use((req, res, next) => {
     
     // Don't throw the error again - this was causing the server to crash
     // and Vercel to return HTML error pages instead of JSON
+=======
+    res.status(status).json({ message });
+    throw err;
+>>>>>>> 53c7d0dc6cb5df58fd4d9436887fe7ab0a7d34f5
   });
 
   // Check if we should show coming soon page
@@ -78,6 +83,10 @@ app.use((req, res, next) => {
   server.listen({
     port,
     host: "0.0.0.0",
+<<<<<<< HEAD
+=======
+    reusePort: true,
+>>>>>>> 53c7d0dc6cb5df58fd4d9436887fe7ab0a7d34f5
   }, () => {
     log(`serving on port ${port}`);
   });
