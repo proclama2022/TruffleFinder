@@ -4,10 +4,6 @@
   "outputDirectory": "dist/public",
   "routes": [
     {
-      "src": "/api/(.*)",
-      "dest": "/server/index.ts"
-    },
-    {
       "src": "/assets/(.*)",
       "headers": {
         "cache-control": "public, max-age=31536000, immutable"
@@ -22,10 +18,5 @@
       "src": "/(.*)",
       "dest": "/dist/index.html"
     }
-  ],
-  "functions": {
-    "server/index.ts": {
-      "includeFiles": "**"
-    }
-  }
+  ]
 }
