@@ -172,11 +172,11 @@ export function ContactForm() {
 
           {/* Dog Name */}
           <div>
-            <Label htmlFor="dogName" className="text-lg font-body text-gray-700 dark:text-gray-300">{t('dogNameLabel')}</Label>
+            <Label htmlFor="dogName" className="text-lg font-body text-gray-700 dark:text-gray-300">{t('dogName')}</Label>
             <Input
               id="dogName"
               type="text"
-              placeholder={currentTranslations.formPlaceholders.dogName}
+              placeholder={currentTranslations.formPlaceholders.yourDogName}
               {...form.register('dogName')}
               className="mt-2 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-amber-500 focus:border-transparent"
             />
@@ -187,10 +187,10 @@ export function ContactForm() {
 
           {/* Message */}
           <div>
-            <Label htmlFor="message" className="text-lg font-body text-gray-700 dark:text-gray-300">{t('messageLabel')}</Label>
+            <Label htmlFor="message" className="text-lg font-body text-gray-700 dark:text-gray-300">{t('message')}</Label>
             <Textarea
               id="message"
-              placeholder={currentTranslations.formPlaceholders.yourMessage}
+              placeholder={currentTranslations.formPlaceholders.tellUsAbout}
               rows={5}
               {...form.register('message')}
               className="mt-2 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-amber-500 focus:border-transparent"
@@ -205,7 +205,7 @@ export function ContactForm() {
             type="submit"
             className="w-full py-4 px-6 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-body text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
           >
-            {t('sendMessageButton')}
+            {t('sendMessageBtn')}
           </Button>
         </form>
       </CardContent>
