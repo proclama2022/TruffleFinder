@@ -1,8 +1,8 @@
-import { z } from "zod";
-import nodemailer from 'nodemailer';
+import { Resend } from 'resend';
 import type { VercelRequest, VercelResponse } from '@vercel/node';
+import { z } from "zod";
 
-// Schema inline per evitare problemi di import su Vercel
+// Schema per validazione
 const insertContactSchema = z.object({
   name: z.string().min(1),
   surname: z.string().optional(),
@@ -12,20 +12,8 @@ const insertContactSchema = z.object({
   message: z.string().min(1),
 });
 
-// Configura Nodemailer con mail.proclama.co SMTP
-const transporter = nodemailer.createTransport({
-  host: process.env.EMAIL_HOST || "mail.proclama.co",
-  port: parseInt(process.env.EMAIL_PORT || "465"),
-  secure: process.env.EMAIL_SECURE === 'true', // true per 465 (SSL)
-  auth: {
-    user: process.env.EMAIL_USER || "test@proclama.co",
-    pass: process.env.EMAIL_PASS || "Bianchetto2024!",
-  },
-  tls: {
-    ciphers: 'SSLv3',
-    rejectUnauthorized: false
-  }
-});
+// Inizializza Resend con la API key
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   // Abilita CORS
@@ -51,9 +39,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     const contact = insertContactSchema.parse(body);
 
-    // Verifica configurazione email
-    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
-      console.error("Configurazione email mancante");
+    // Verifica configurazione Resend
+    if (!process.env.RESEND_API_KEY) {
+      console.error("RESEND_API_KEY non configurata");
       return res.status(500).json({ message: "Configurazione email non trovata" });
     }
 
@@ -117,26 +105,29 @@ ${contact.message}
 Inviato dal sito Lagotto Truffle Week - ${new Date().toLocaleString('it-IT')}
     `;
 
-    const emailTo = process.env.EMAIL_TO || process.env.EMAIL_USER;
+    const emailTo = process.env.EMAIL_TO || process.env.RESEND_EMAIL_FROM;
     if (!emailTo) {
-      const errorMsg = "Nessun destinatario email configurato. Imposta EMAIL_TO o EMAIL_USER.";
+      const errorMsg = "Nessun destinatario email configurato. Imposta EMAIL_TO o RESEND_EMAIL_FROM.";
       console.error(errorMsg);
       return res.status(500).json({ message: errorMsg });
     }
 
-    await transporter.sendMail({
-      from: process.env.EMAIL_FROM || process.env.EMAIL_USER,
-      to: emailTo,
+    // Invia email con Resend
+    const emailResponse = await resend.emails.send({
+      from: process.env.RESEND_EMAIL_FROM || 'Lagotto Truffle Week <noreply@lagottotruffleweek.it>',
+      to: [emailTo],
       subject: `Nuovo contatto da ${contact.name} - Lagotto Truffle Week`,
       text: textContent,
       html: htmlContent,
     });
 
-    console.log("Email inviata con successo");
+    console.log("Email inviata con successo:", emailResponse.data?.id);
     return res.status(200).json({
       success: true,
-      message: "Messaggio inviato con successo"
+      message: "Messaggio inviato con successo",
+      emailId: emailResponse.data?.id
     });
+
   } catch (error) {
     console.error("Errore API:", error);
 
@@ -144,11 +135,11 @@ Inviato dal sito Lagotto Truffle Week - ${new Date().toLocaleString('it-IT')}
       return res.status(400).json({ message: "Dati inviati non validi", errors: error.errors });
     }
 
-    // Gestione errori SMTP
+    // Gestione errori Resend
     if (error instanceof Error) {
-      if (error.message.includes('ECONNREFUSED') || error.message.includes('ENOTFOUND')) {
+      if (error.message.includes('API key')) {
         return res.status(500).json({
-          message: "Errore connessione SMTP. Verifica EMAIL_HOST e EMAIL_PORT.",
+          message: "Errore configurazione email. Verifica RESEND_API_KEY.",
           error: error.message
         });
       }

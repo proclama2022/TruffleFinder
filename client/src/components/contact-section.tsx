@@ -14,7 +14,7 @@ interface ContactFormData {
   surname: string;
   email: string;
   phone: string;
-  dog_name: string;
+  dogName: string;
   message: string;
 }
 
@@ -26,15 +26,35 @@ export function ContactSection() {
     surname: "",
     email: "",
     phone: "",
-    dog_name: "",
+    dogName: "",
     message: "",
   });
 
   const contactMutation = useMutation({
     mutationFn: async (data: ContactFormData) => {
-      // Usa direttamente l'API per inviare l'email
-      const response = await apiRequest("POST", "/api/contacts-email", data);
-      return response.json();
+      try {
+        const response = await apiRequest("POST", "/api/contacts-email", data);
+        return response.json();
+      } catch (error: any) {
+        // Migliore gestione degli errori per evitare problemi di parsing JSON
+        console.error('API Request error:', error);
+
+        // Se l'errore contiene informazioni dal server, le estraiamo
+        if (error.message && error.message.includes(':')) {
+          const parts = error.message.split(': ');
+          if (parts.length > 1) {
+            try {
+              const errorData = JSON.parse(parts.slice(1).join(': '));
+              throw new Error(errorData.message || errorData.error || error.message);
+            } catch (parseError) {
+              // Se non riusciamo a parsare, usiamo il messaggio originale
+              throw new Error(parts.slice(1).join(': '));
+            }
+          }
+        }
+
+        throw error;
+      }
     },
     onSuccess: () => {
       toast({
@@ -46,21 +66,21 @@ export function ContactSection() {
         surname: "",
         email: "",
         phone: "",
-        dog_name: "",
+        dogName: "",
         message: "",
       });
     },
     onError: (error: any) => {
       console.error('Errore invio contatto:', error);
       let errorMessage = "Si è verificato un errore durante l'invio del messaggio.";
-      
-      // Se l'errore contiene informazioni specifiche dal server
+
+      // Gestione migliorata degli errori
       if (error?.message) {
         errorMessage = error.message;
-      } else if (error?.response?.status === 400) {
-        errorMessage = "Dati del form non validi. Controlla che tutti i campi obbligatori siano compilati correttamente.";
+      } else if (typeof error === 'string') {
+        errorMessage = error;
       }
-      
+
       toast({
         title: t("errorOccurred"),
         description: errorMessage,
@@ -71,28 +91,28 @@ export function ContactSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Validazione frontend
     const errors: string[] = [];
-    
+
     if (!formData.name.trim()) {
       errors.push("Il nome è obbligatorio");
     }
-    
+
     if (!formData.surname.trim()) {
       errors.push("Il cognome è obbligatorio");
     }
-    
+
     if (!formData.email.trim()) {
       errors.push("L'email è obbligatoria");
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       errors.push("L'email non è valida");
     }
-    
+
     if (!formData.message.trim()) {
       errors.push("Il messaggio è obbligatorio");
     }
-    
+
     if (errors.length > 0) {
       toast({
         title: "Errori nel form",
@@ -101,7 +121,7 @@ export function ContactSection() {
       });
       return;
     }
-    
+
     contactMutation.mutate(formData);
   };
 
@@ -124,14 +144,14 @@ export function ContactSection() {
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
             {t("contactDescription")}
           </p>
-          
+
           {/* Nicoletta Conte Logo */}
           <div className="mt-8 flex justify-center">
             <div className="relative">
               <div className="w-20 h-20 bg-gradient-to-br from-amber-600 to-amber-800 rounded-2xl flex items-center justify-center shadow-lg border-2 border-amber-500 overflow-hidden">
-                <img 
-                  src={nicolettaLogoImage} 
-                  alt="Nicoletta Conte" 
+                <img
+                  src={nicolettaLogoImage}
+                  alt="Nicoletta Conte"
                   className="w-16 h-16 object-cover rounded-xl"
                 />
               </div>
@@ -306,8 +326,8 @@ export function ContactSection() {
                   <Input
                     id="dogName"
                     type="text"
-                    value={formData.dog_name}
-                    onChange={(e) => handleInputChange("dog_name", e.target.value)}
+                    value={formData.dogName}
+                    onChange={(e) => handleInputChange("dogName", e.target.value)}
                     placeholder={currentTranslations.formPlaceholders.yourDogName}
                     className="h-12 rounded-xl border-gray-200 dark:border-gray-600 focus:border-purple-500 dark:focus:border-purple-400 bg-gray-50 dark:bg-gray-700 transition-colors"
                   />

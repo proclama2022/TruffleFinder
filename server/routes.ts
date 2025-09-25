@@ -24,12 +24,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.post("/api/contacts", async (req, res) => {
     try {
       const contact = insertContactSchema.parse(req.body);
-      
+
       // Send data to Make.com webhook
       const webhookUrl = process.env.MAKE_WEBHOOK_URL;
-      
+
       if (!webhookUrl) {
-        throw new Error('MAKE_WEBHOOK_URL not configured');
+        console.error('MAKE_WEBHOOK_URL not configured');
+        return res.status(500).json({
+          message: "Server configuration error",
+          error: "Webhook URL not configured"
+        });
       }
 
       const response = await fetch(webhookUrl, {
@@ -41,16 +45,28 @@ export async function registerRoutes(app: Express): Promise<Server> {
       });
 
       if (!response.ok) {
-        throw new Error(`Webhook failed with status: ${response.status}`);
+        const errorText = await response.text().catch(() => 'Unknown error');
+        console.error(`Webhook failed with status: ${response.status}, response: ${errorText}`);
+        return res.status(500).json({
+          message: "Failed to send message",
+          error: `Webhook error: ${response.status}`
+        });
       }
 
       res.json({ message: "Message sent successfully", success: true });
     } catch (error) {
+      console.error('Contact endpoint error:', error);
+
       if (error instanceof z.ZodError) {
-        res.status(400).json({ message: "Invalid contact data", errors: error.errors });
+        return res.status(400).json({
+          message: "Invalid contact data",
+          errors: error.errors
+        });
       } else {
-        console.error('Webhook error:', error);
-        res.status(500).json({ message: "Failed to send message" });
+        return res.status(500).json({
+          message: "Failed to send message",
+          error: error instanceof Error ? error.message : 'Unknown error'
+        });
       }
     }
   });

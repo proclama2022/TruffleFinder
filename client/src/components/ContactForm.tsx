@@ -155,38 +155,44 @@ export function ContactForm() {
             )}
           </div>
 
-          {/* Phone + Dog Name (optional) */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div>
-              <Label htmlFor="phone" className="text-lg font-body text-gray-700 dark:text-gray-300">{t('phone')}</Label>
-              <Input
-                id="phone"
-                type="tel"
-                placeholder={currentTranslations.formPlaceholders.yourPhone}
-                {...form.register('phone')}
-                className="mt-2 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-              />
-            </div>
-            <div>
-              <Label htmlFor="dogName" className="text-lg font-body text-gray-700 dark:text-gray-300">{t('dogName')}</Label>
-              <Input
-                id="dogName"
-                type="text"
-                placeholder={currentTranslations.formPlaceholders.yourDogName}
-                {...form.register('dogName')}
-                className="mt-2 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-              />
-            </div>
+          {/* Phone */}
+          <div>
+            <Label htmlFor="phone" className="text-lg font-body text-gray-700 dark:text-gray-300">{t('phone')}</Label>
+            <Input
+              id="phone"
+              type="tel"
+              placeholder={currentTranslations.formPlaceholders.yourPhone}
+              {...form.register('phone')}
+              className="mt-2 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+            />
+            {form.formState.errors.phone && (
+              <p className="text-red-500 text-sm mt-1">{form.formState.errors.phone.message}</p>
+            )}
+          </div>
+
+          {/* Dog Name */}
+          <div>
+            <Label htmlFor="dogName" className="text-lg font-body text-gray-700 dark:text-gray-300">{t('dogNameLabel')}</Label>
+            <Input
+              id="dogName"
+              type="text"
+              placeholder={currentTranslations.formPlaceholders.dogName}
+              {...form.register('dogName')}
+              className="mt-2 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+            />
+            {form.formState.errors.dogName && (
+              <p className="text-red-500 text-sm mt-1">{form.formState.errors.dogName.message}</p>
+            )}
           </div>
 
           {/* Message */}
           <div>
-            <Label htmlFor="message" className="text-lg font-body text-gray-700 dark:text-gray-300">{t('contactFormMessageLabel')}</Label>
+            <Label htmlFor="message" className="text-lg font-body text-gray-700 dark:text-gray-300">{t('messageLabel')}</Label>
             <Textarea
               id="message"
-              {...form.register('message')}
+              placeholder={currentTranslations.formPlaceholders.yourMessage}
               rows={5}
-              placeholder={currentTranslations.formPlaceholders.tellUsAbout}
+              {...form.register('message')}
               className="mt-2 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-amber-500 focus:border-transparent"
             />
             {form.formState.errors.message && (
@@ -194,11 +200,12 @@ export function ContactForm() {
             )}
           </div>
 
+          {/* Submit Button */}
           <Button
             type="submit"
-            className="w-full py-3 rounded-lg bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold text-lg hover:from-amber-600 hover:to-orange-600 transition-all duration-300 shadow-lg"
+            className="w-full py-4 px-6 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-body text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
           >
-            {t('contactFormSubmitButton')}
+            {t('sendMessageButton')}
           </Button>
         </form>
       </CardContent>
