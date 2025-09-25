@@ -8,7 +8,7 @@ export function UnifiedContactSection() {
     address: "Portico di Romagna, Al Vecchio Convento",
     coordinates: { lat: 44.0612, lng: 11.8657 },
     phone: "+39 334 750 0887",
-    email: "info@lagottotruffleweek.it",
+    email: "nico.conte76543@gmail.com",
     dates: "15-19 October 2025"
   };
 

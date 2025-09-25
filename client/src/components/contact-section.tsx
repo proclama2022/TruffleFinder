@@ -225,7 +225,7 @@ export function ContactSection() {
                     <div>
                       <h4 className="font-semibold text-gray-900 dark:text-white mb-1">Email</h4>
                       <p className="text-gray-600 dark:text-gray-400">
-                        info@lagottotruffleweek.it
+                        nico.conte76543@gmail.com
                       </p>
                     </div>
                   </div>

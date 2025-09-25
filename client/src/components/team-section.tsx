@@ -128,7 +128,7 @@ const TeamSection: React.FC = () => {
                     {/* Contact Buttons */}
                     <div className="flex flex-col sm:flex-row gap-4">
                       <a
-                        href="mailto:info@lagottotruffleweek.it"
+                        href="mailto:nico.conte76543@gmail.com"
                         className="flex items-center justify-center space-x-2 px-8 py-4 bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-700 hover:to-amber-800 text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
                       >
                         <FaEnvelope className="w-5 h-5" />
