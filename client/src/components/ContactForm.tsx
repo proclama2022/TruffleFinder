@@ -50,10 +50,10 @@ export function ContactForm() {
       };
 
       console.log('📤 Payload to send:', JSON.stringify(payload, null, 2));
-      console.log('🔗 Endpoint: /api/send-webhook');
+      console.log('🔗 Endpoint: /api/submit');
 
-      // Usa l'endpoint send-webhook per inviare direttamente a Make.com
-      const response = await fetch('/api/send-webhook', {
+      // Usa l'endpoint submit per inviare direttamente a Make.com
+      const response = await fetch('/api/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

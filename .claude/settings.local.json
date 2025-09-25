@@ -10,7 +10,9 @@
       "Bash(git push:*)",
       "Bash(git pull:*)",
       "Bash(npm run check:*)",
-      "Bash(npx tsc:*)"
+      "Bash(npx tsc:*)",
+      "WebSearch",
+      "mcp__perplexity-mcp__perplexity_ask"
     ],
     "deny": [],
     "ask": []
