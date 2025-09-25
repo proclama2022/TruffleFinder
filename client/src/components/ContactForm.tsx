@@ -36,34 +36,72 @@ export function ContactForm() {
 
   const onSubmit = async (values: ContactFormValues) => {
     try {
-      // Usa l'endpoint contacts-email per l'invio delle email (aggiornato)
-      const response = await fetch('/api/contacts-email', {
+      console.log('=== FORM SUBMISSION START ===');
+      console.log('📋 Form values:', values);
+
+      // Prepara i dati per l'invio
+      const payload = {
+        name: values.name,
+        surname: values.surname,
+        email: values.email,
+        phone: values.phone || '',
+        dogName: values.dogName || '',
+        message: values.message
+      };
+
+      console.log('📤 Payload to send:', JSON.stringify(payload, null, 2));
+      console.log('🔗 Endpoint: /api/send-webhook');
+
+      // Usa l'endpoint send-webhook per inviare direttamente a Make.com
+      const response = await fetch('/api/send-webhook', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          name: values.name,
-          surname: values.surname,
-          email: values.email,
-          phone: values.phone || '',
-          dog_name: values.dogName || '',
-          message: values.message
-        }),
+        body: JSON.stringify(payload),
       });
 
+      console.log('📡 Response status:', response.status);
+      console.log('📡 Response headers:', Object.fromEntries(response.headers.entries()));
+
+      const responseText = await response.text();
+      console.log('📡 Response text:', responseText);
+
       if (response.ok) {
-        const result = await response.json();
-        alert('Messaggio inviato con successo!');
+        let result;
+        try {
+          result = JSON.parse(responseText);
+        } catch (e) {
+          result = { rawResponse: responseText };
+        }
+
+        console.log('✅ Success response:', result);
+        console.log('=== FORM SUBMISSION SUCCESS ===');
+        alert('✅ Messaggio inviato con successo!');
         form.reset();
       } else {
-        const errorData = await response.json();
-        console.error('Errore API:', errorData);
-        alert(`Errore nell'invio del messaggio: ${errorData.error || errorData.message || response.statusText}`);
+        let errorData;
+        try {
+          errorData = JSON.parse(responseText);
+        } catch (e) {
+          errorData = { rawResponse: responseText };
+        }
+
+        console.error('❌ Errore API:', errorData);
+        console.error('❌ Status:', response.status);
+        console.error('❌ Status text:', response.statusText);
+        console.error('=== FORM SUBMISSION FAILED ===');
+        alert(`❌ Errore nell'invio del messaggio: ${errorData.error || errorData.message || response.statusText}\n\nDettagli: ${JSON.stringify(errorData, null, 2)}`);
       }
     } catch (error) {
-      console.error('Errore durante l\'invio del modulo:', error);
-      alert('Si è verificato un errore inaspettato. Riprova più tardi.');
+      console.error('💥 Errore durante l\'invio del modulo:', error);
+      console.error('💥 Error details:', {
+        name: error.name,
+        message: error.message,
+        stack: error.stack
+      });
+      console.error('=== FORM SUBMISSION CRASHED ===');
+      alert(`💥 Si è verificato un errore inaspettato: ${error.message}\n\nControlla la console per i dettagli.`);
     }
   };
 

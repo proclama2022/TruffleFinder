@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/martha2022/Library/Mobile/**)",
+      "mcp__perplexity-mcp__perplexity_reason",
+      "Bash(npm run dev:*)",
+      "Bash(curl:*)",
+      "Bash(git add:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
