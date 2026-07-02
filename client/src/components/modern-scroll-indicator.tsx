@@ -30,7 +30,7 @@ export function ModernScrollIndicator() {
       }`}>
         <button
           onClick={scrollToTop}
-          className="group relative w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 hover:bg-white/20 hover:scale-110 transition-all duration-300 focus-ring"
+          className="group relative w-14 h-14 rounded-2xl bg-[var(--primary)]/90 backdrop-blur-xl border border-[var(--secondary)]/40 shadow-lg hover:bg-[var(--primary)] hover:scale-110 transition-all duration-300 focus-ring"
         >
           {/* Progress ring */}
           <svg className="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 56 56">
@@ -56,8 +56,8 @@ export function ModernScrollIndicator() {
             />
             <defs>
               <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#F59E0B" />
-                <stop offset="100%" stopColor="#D97706" />
+                <stop offset="0%" stopColor="#A9822E" />
+                <stop offset="100%" stopColor="#5B4636" />
               </linearGradient>
             </defs>
           </svg>
@@ -70,9 +70,9 @@ export function ModernScrollIndicator() {
       </div>
 
       {/* Top progress bar */}
-      <div className="fixed top-0 left-0 w-full h-1 bg-gray-900/20 backdrop-blur-sm z-50">
-        <div 
-          className="h-full bg-gradient-to-r from-amber-600 to-amber-500 transition-all duration-300 ease-out"
+      <div className="fixed top-0 left-0 w-full h-1 bg-[var(--primary)]/15 backdrop-blur-sm z-50">
+        <div
+          className="h-full bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] transition-all duration-300 ease-out"
           style={{ width: `${scrollProgress}%` }}
         />
       </div>

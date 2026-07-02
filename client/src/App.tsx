@@ -21,16 +21,18 @@ function Router() {
   );
 }
 
-// Simplified MUI theme without dark mode
+// MUI theme aligned with the site's "elegant autumn" truffle palette
 const muiTheme = responsiveFontSizes(createTheme({
   palette: {
     mode: "light",
-    primary: { main: "#d97706" }, // amber 600-like
-    secondary: { main: "#0ea5e9" }, // sky 500-like
+    primary: { main: "#5B4636" }, // deep truffle brown
+    secondary: { main: "#A9822E" }, // bronze/gold
+    background: { default: "#FBF6EC", paper: "#FFFDF8" },
+    text: { primary: "#3A2A1E" },
   },
   typography: {
     fontFamily: [
-      "Satoshi",
+      "Work Sans",
       "ui-sans-serif",
       "system-ui",
       "-apple-system",
@@ -41,6 +43,12 @@ const muiTheme = responsiveFontSizes(createTheme({
       "Noto Sans",
       "sans-serif",
     ].join(","),
+    h1: { fontFamily: "'Fraunces', serif", fontWeight: 600 },
+    h2: { fontFamily: "'Fraunces', serif", fontWeight: 600 },
+    h3: { fontFamily: "'Fraunces', serif", fontWeight: 600 },
+    h4: { fontFamily: "'Fraunces', serif", fontWeight: 600 },
+    h5: { fontFamily: "'Fraunces', serif", fontWeight: 600 },
+    h6: { fontFamily: "'Fraunces', serif", fontWeight: 600 },
   },
   shape: { borderRadius: 12 },
   components: {

@@ -154,7 +154,7 @@ export function HeroSectionMUI() {
 
   // Countdown timer logic
   const calculateTimeLeft = () => {
-    const eventDate = new Date("2025-10-15T00:00:00").getTime();
+    const eventDate = new Date("2026-10-14T00:00:00").getTime();
     const now = new Date().getTime();
     const diff = eventDate - now;
     if (diff <= 0) {

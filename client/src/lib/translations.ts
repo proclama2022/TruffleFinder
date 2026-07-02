@@ -225,6 +225,16 @@ type TranslationStructure = {
   lastWhiteTruffleHuntingDescription: string;
   lunchGreetings: string;
   finalLunchDescription: string;
+  truffleTrainingLagottoCorner: string;
+  lagottoCornerDescription: string;
+  truffleTrainingMountain: string;
+  mountainTrainingDescription: string;
+  seminarKatrienVanGemert: string;
+  puppyLitterDescription: string;
+  conferenceGilbertoGrandi: string;
+  gilbertoGrandiDescription: string;
+  monteBuscaFireStories: string;
+  fireStoriesDescription: string;
   nextEvent: string;
   contactInfo: string;
   monFriHours: string;
@@ -257,6 +267,17 @@ type TranslationStructure = {
   solidarityAndSupport: string;
   charityDonationDescription: string;
   discoverOurStory: string;
+
+  // Unified Contact Section
+  locationContactTitle: string;
+  locationContactSubtitle: string;
+  practicalInformationTitle: string;
+  howToArriveTitle: string;
+  howToArriveDesc: string;
+  whereToSleepTitle: string;
+  whereToSleepDesc: string;
+  whatToBringTitle: string;
+  whatToBringDesc: string;
 };
 
 console.log("DEBUG: TranslationStructure type defined");
@@ -272,7 +293,7 @@ const itTranslations: TranslationStructure = {
   
   // Hero Section
   heroTitle: "L'esperienza unica per te e il tuo cane",
-  eventDate: "15-19 ottobre 2025",
+  eventDate: "14-18 ottobre 2026",
   eventSubtitle: "L'Esperienza Unica per Te e il Tuo Cane",
   days: "Giorni",
   activities_count: "Attività",
@@ -419,7 +440,7 @@ const itTranslations: TranslationStructure = {
   // Footer
   quickLinks: "Link Rapidi",
   followUs: "Seguici",
-  allRightsReserved: "© 2025 Lagotto & Truffle Week. Tutti i diritti riservati.",
+  allRightsReserved: "© 2026 Lagotto & Truffle Week. Tutti i diritti riservati.",
   
   // Messages
   messageSent: "Messaggio inviato con successo!",
@@ -445,46 +466,56 @@ const itTranslations: TranslationStructure = {
   comingSoonRightsReserved: "Tutti i diritti riservati.",
   
   // Additional English-specific keys (Italian placeholders)
-  workTrainingBase: "Lavoro di addestramento di base",
+  workTrainingBase: "Training cerca del tartufo base",
   trainingCenter: "Centro di addestramento",
-  lagottoTrainingDescription: "Sessione di addestramento di base per cani Lagotto",
-  functionalTraining: "Addestramento funzionale per cani da tartufo",
+  lagottoTrainingDescription: "Sessione di training di base sulla cerca del tartufo per cani Lagotto",
+  functionalTraining: "Functional training per cani da tartufo con Elisa Mengozzi",
   trainingArea: "Area di addestramento",
   truffleTrainingDescription: "Addestramento specializzato per la caccia al tartufo",
-  truffleExperienceWhite: "Esperienza tartufo bianco",
+  truffleExperienceWhite: "Truffle Experience su tartufo bianco",
   truffleWood: "Bosco da tartufo",
   whiteTruffleHuntingDescription: "Esperienza pratica di caccia al tartufo bianco",
-  inaugurationDinner: "Cena di inaugurazione",
+  inaugurationDinner: "Cena di inaugurazione presso Al Vecchio Convento",
   oldConvent: "Al Vecchio Convento",
   gourmetDinnerDescription: "Cena gourmet di benvenuto con specialità locali",
   handlingGrooming: "Workshop di handling e toelettatura",
   workshopRoom: "Sala workshop",
   groomingTechniquesDescription: "Tecniche professionali di toelettatura e presentazione",
-  showCooking: "Show cooking e workshop di cucina",
+  showCooking: "Show cooking e laboratorio di cucina",
   professionalKitchen: "Cucina professionale",
   truffleCookingDescription: "Cucina creativa con il tartufo come protagonista",
   aperitifDinner: "Apericena",
   panoramicTerrace: "Terrazza panoramica",
   localProductsDescription: "Aperitivo con degustazione di prodotti locali",
-  truffleHuntingUncinato: "Caccia al tartufo uncinato",
+  truffleHuntingUncinato: "Truffle training alla scoperta del tartufo uncinato",
   oakWood: "Bosco di querce",
-  hookedTruffleHuntingDescription: "Caccia al tartufo uncinato con guide esperte",
-  picnicOldConvent: "Pic-nic presso Al Vecchio Convento",
+  hookedTruffleHuntingDescription: "Training in montagna alla scoperta del tartufo uncinato, con shooting fotografico e picnic a cura di Al Vecchio Convento",
+  picnicOldConvent: "Picnic a cura di Al Vecchio Convento",
   picnicArea: "Area picnic",
   outdoorLunchDescription: "Pranzo all'aperto con specialità locali",
-  charityRaffle: "Lotteria di beneficenza",
+  charityRaffle: "Riffa di beneficenza",
   eventsHall: "Sala eventi",
-  lagottoRescueEventDescription: "Evento di beneficenza per sostenere Lagotto Rescue",
-  officialTraining: "Prova di lavoro di addestramento",
+  lagottoRescueEventDescription: "Riffa di beneficenza per un tesoro di Lagotto Rescue",
+  officialTraining: "Training prova di lavoro con giudici ufficiali ENCI",
   workField: "Campo di lavoro",
-  enciJudgesDescription: "Prove ufficiali con giudici ENCI qualificati",
-  conferenceSurpriseGuest: "Conferenza con ospite a sorpresa",
+  enciJudgesDescription: "Prova di lavoro con giudici ufficiali ENCI",
+  conferenceSurpriseGuest: "Conferenza con Gilberto Grandi",
   monteBusca: "Monte Busca",
-  specialEveningDescription: "Serata speciale con ospite a sorpresa e cena gourmet",
-  truffleHuntingWhite: "Caccia al tartufo bianco",
-  lastWhiteTruffleHuntingDescription: "Ultima caccia al tartufo bianco della settimana",
+  specialEveningDescription: "Conferenza con Gilberto Grandi sul mondo della cerca del tartufo",
+  truffleHuntingWhite: "Truffle Hunting su tartufo bianco",
+  lastWhiteTruffleHuntingDescription: "Ultima caccia al tartufo bianco della settimana, su campo naturale",
   lunchGreetings: "Pranzo e saluti",
   finalLunchDescription: "Pranzo finale e saluti con tutti i partecipanti",
+  truffleTrainingLagottoCorner: "Training sul tartufo e corner gestione del Lagotto Romagnolo",
+  lagottoCornerDescription: "Sessione di training sulla cerca del tartufo con corner dedicato alla gestione del Lagotto Romagnolo",
+  truffleTrainingMountain: "Truffle training in montagna",
+  mountainTrainingDescription: "Alla scoperta del tartufo uncinato, con shooting fotografico e picnic a cura di Al Vecchio Convento",
+  seminarKatrienVanGemert: "Seminario con Katrien Van Gemert",
+  puppyLitterDescription: "Il cucciolo e la gestione della cucciolata",
+  conferenceGilbertoGrandi: "Conferenza con Gilberto Grandi",
+  gilbertoGrandiDescription: "Un momento di approfondimento sul mondo della cerca del tartufo",
+  monteBuscaFireStories: "Intorno al fuoco del Monte Busca",
+  fireStoriesDescription: "Storie di lagotti e tartufi, in un'atmosfera conviviale attorno al fuoco",
   nextEvent: "Prossimo evento",
   contactInfo: "Contatto & Informazioni",
   monFriHours: "Lun-Ven 9:00-18:00",
@@ -516,7 +547,18 @@ const itTranslations: TranslationStructure = {
   eventActivitiesDescription: "L'evento propone sessioni di addestramento con istruttori esperti come Nicoletta Conte, laboratori di cucina gourmet al tartufo, prove di lavoro ENCI, conferenze e attività a sostegno del rescue \"Un tesoro di Lagotto\".",
   solidarityAndSupport: "Solidarietà e supporto alla comunità",
   charityDonationDescription: "Parte dei ricavati dell'evento è destinata al supporto del rescue Lagotto, rendendo la settimana non solo un'occasione formativa e di divertimento, ma anche di solidarietà.",
-  discoverOurStory: "Vieni a scoprire la storia che scriviamo insieme, anno dopo anno, tra boschi, tartufi e sorrisi."
+  discoverOurStory: "Vieni a scoprire la storia che scriviamo insieme, anno dopo anno, tra boschi, tartufi e sorrisi.",
+
+  // Unified Contact Section
+  locationContactTitle: "Dove Siamo & Contatti",
+  locationContactSubtitle: "Scopri la nostra location e mettiti in contatto per un'esperienza indimenticabile",
+  practicalInformationTitle: "Informazioni Pratiche",
+  howToArriveTitle: "Come Arrivare",
+  howToArriveDesc: "Dall'autostrada A14 uscita Cesena, SS9 verso Portico (30 min)",
+  whereToSleepTitle: "Dove Dormire",
+  whereToSleepDesc: "Hotel e agriturismi consigliati nelle vicinanze",
+  whatToBringTitle: "Cosa Portare",
+  whatToBringDesc: "Scarpe comode, abbigliamento a strati, guinzaglio e museruola"
 };
 
 console.log("DEBUG: Italian translations defined");
@@ -532,7 +574,7 @@ const enTranslations: TranslationStructure = {
   
   // Hero Section
   heroTitle: "The unique experience for you and your dog",
-  eventDate: "October 15-19, 2025",
+  eventDate: "October 14-18, 2026",
   eventSubtitle: "The Unique Experience for You and Your Dog",
   days: "Days",
   activities_count: "Activities",
@@ -679,7 +721,7 @@ const enTranslations: TranslationStructure = {
   // Footer
   quickLinks: "Quick Links",
   followUs: "Follow Us",
-  allRightsReserved: "© 2025 Lagotto & Truffle Week. All rights reserved.",
+  allRightsReserved: "© 2026 Lagotto & Truffle Week. All rights reserved.",
   
   // Messages
   messageSent: "Message sent successfully!",
@@ -705,46 +747,56 @@ const enTranslations: TranslationStructure = {
   comingSoonRightsReserved: "All rights reserved.",
   
   // Additional English-specific keys
-  workTrainingBase: "Basic Training Work",
+  workTrainingBase: "Basic truffle hunting training",
   trainingCenter: "Training Center",
-  lagottoTrainingDescription: "Basic training session for Lagotto dogs",
+  lagottoTrainingDescription: "Basic truffle hunting training session for Lagotto dogs",
   functionalTraining: "Functional training for truffle dogs with Elisa Mengozzi",
   trainingArea: "Training Area",
   truffleTrainingDescription: "Specialized training for truffle hunting",
   truffleExperienceWhite: "White Truffle Experience",
   truffleWood: "Truffle Wood",
-  whiteTruffleHuntingDescription: "Practical experience of white truffle hunting",
+  whiteTruffleHuntingDescription: "Hands-on white truffle hunting experience",
   inaugurationDinner: "Inauguration Dinner at Al Vecchio Convento",
   oldConvent: "Al Vecchio Convento",
   gourmetDinnerDescription: "Welcome gourmet dinner with local specialties",
-  handlingGrooming: "Handling and Grooming Workshop with Daniele Tabarrini",
+  handlingGrooming: "Handling and Grooming Workshop",
   workshopRoom: "Workshop Room",
   groomingTechniquesDescription: "Professional grooming and presentation techniques",
-  showCooking: "Show cooking and Cooking Workshop",
+  showCooking: "Show cooking and cooking workshop",
   professionalKitchen: "Professional Kitchen",
   truffleCookingDescription: "Creative cooking with truffle as the protagonist",
   aperitifDinner: "Aperitif Dinner",
   panoramicTerrace: "Panoramic Terrace",
   localProductsDescription: "Aperitif with tasting of local products",
-  truffleHuntingUncinato: "Truffle Hunting for hooked truffle",
+  truffleHuntingUncinato: "Truffle training discovering the hooked (uncinato) truffle",
   oakWood: "Oak Wood",
-  hookedTruffleHuntingDescription: "Hooked truffle hunting with expert guides",
-  picnicOldConvent: "Picnic by Al Vecchio Convento",
+  hookedTruffleHuntingDescription: "Mountain truffle training to discover the hooked truffle, with photo shooting and picnic curated by Al Vecchio Convento",
+  picnicOldConvent: "Picnic curated by Al Vecchio Convento",
   picnicArea: "Picnic Area",
   outdoorLunchDescription: "Outdoor lunch with local specialties",
-  charityRaffle: "Charity raffle for a Lagotto Rescue treasure",
+  charityRaffle: "Charity raffle",
   eventsHall: "Events Hall",
-  lagottoRescueEventDescription: "Charity event to support Lagotto Rescue",
-  officialTraining: "Work training test with official ENCI judges",
+  lagottoRescueEventDescription: "Charity raffle for a Lagotto Rescue treasure",
+  officialTraining: "Working test training with official ENCI judges",
   workField: "Work Field",
-  enciJudgesDescription: "Official tests with qualified ENCI judges",
-  conferenceSurpriseGuest: "Conference with surprise guest and dinner at Monte Busca",
+  enciJudgesDescription: "Working test with official ENCI judges",
+  conferenceSurpriseGuest: "Conference with Gilberto Grandi",
   monteBusca: "Monte Busca",
-  specialEveningDescription: "Special evening with surprise guest and gourmet dinner",
+  specialEveningDescription: "Conference with Gilberto Grandi on the world of truffle hunting",
   truffleHuntingWhite: "White Truffle Hunting",
-  lastWhiteTruffleHuntingDescription: "Last white truffle hunt of the week",
+  lastWhiteTruffleHuntingDescription: "The week's final white truffle hunt, on natural ground",
   lunchGreetings: "Lunch and greetings",
   finalLunchDescription: "Final lunch and greetings with all participants",
+  truffleTrainingLagottoCorner: "Truffle training & Lagotto Romagnolo management corner",
+  lagottoCornerDescription: "Truffle training session with a corner dedicated to Lagotto Romagnolo management",
+  truffleTrainingMountain: "Truffle training in the mountains",
+  mountainTrainingDescription: "Discovering the hooked truffle, with photo shooting and picnic curated by Al Vecchio Convento",
+  seminarKatrienVanGemert: "Seminar with Katrien Van Gemert",
+  puppyLitterDescription: "The puppy and litter management",
+  conferenceGilbertoGrandi: "Conference with Gilberto Grandi",
+  gilbertoGrandiDescription: "An in-depth look into the world of truffle hunting",
+  monteBuscaFireStories: "Around the Monte Busca fire",
+  fireStoriesDescription: "Stories of Lagottos and truffles, in a convivial atmosphere around the fire",
   nextEvent: "Next Event",
   contactInfo: "Contact & Information",
   monFriHours: "Mon-Fri 9:00-18:00",
@@ -776,7 +828,18 @@ const enTranslations: TranslationStructure = {
   eventActivitiesDescription: "The event offers training sessions with expert instructors like Nicoletta Conte, gourmet truffle cooking workshops, ENCI work tests, conferences and activities in support of the \"A Treasure of Lagotto\" rescue.",
   solidarityAndSupport: "Solidarity and community support",
   charityDonationDescription: "Part of the event's proceeds are destined to support the Lagotto rescue, making the week not only an educational and fun opportunity, but also one of solidarity.",
-  discoverOurStory: "Come and discover the story we write together, year after year, among woods, truffles and smiles."
+  discoverOurStory: "Come and discover the story we write together, year after year, among woods, truffles and smiles.",
+
+  // Unified Contact Section
+  locationContactTitle: "Location & Contact",
+  locationContactSubtitle: "Discover our venue and get in touch for an unforgettable experience",
+  practicalInformationTitle: "Practical Information",
+  howToArriveTitle: "How to Get There",
+  howToArriveDesc: "From the A14 motorway, Cesena exit, then SS9 towards Portico (30 min)",
+  whereToSleepTitle: "Where to Stay",
+  whereToSleepDesc: "Recommended hotels and farmhouses nearby",
+  whatToBringTitle: "What to Bring",
+  whatToBringDesc: "Comfortable shoes, layered clothing, leash and muzzle"
 };
 
 console.log("DEBUG: English translations defined");

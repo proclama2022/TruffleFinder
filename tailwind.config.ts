@@ -85,9 +85,7 @@ export default {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       fontFamily: {
-        headline: ['Instrument Serif', 'serif'],
-        body: ['Instrument Serif', 'serif'],
-        display: ['Instrument Serif', 'serif'],
+        sans: ['Work Sans', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
     },
   },

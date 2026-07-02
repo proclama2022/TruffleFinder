@@ -1,24 +1,29 @@
 import { useLanguage } from "@/components/language-provider";
 import { useState, useEffect } from "react";
-import { Dog, Award, ChefHat, Gift, Users, Calendar as CalendarIcon, Sparkles, ArrowRight } from 'lucide-react';
+import { Dog, Award, ChefHat, Gift, Users, Flame, Sparkles, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export function ProgramTimelineNew() {
   const { t } = useLanguage();
   const [activeDay, setActiveDay] = useState(0);
 
-  // Program data following the design guide specifications
+  // Program data — Lagotto & Truffle Week, 14-18 ottobre 2026
   const programData = [
     {
-      day: 15,
+      day: 14,
       dayKey: "wednesday" as const,
-      date: `${t('wednesday')} 15 ${t('october')}`,
+      date: `${t('wednesday')} 14 ${t('october')}`,
       theme: "from-[var(--primary)] to-[var(--secondary)]",
       activities: [
         {
           name: t('workTrainingBase'),
           icon: <Dog className="w-6 h-6 text-white" />,
           description: t('lagottoTrainingDescription')
+        },
+        {
+          name: t('functionalTraining'),
+          icon: <Award className="w-6 h-6 text-white" />,
+          description: t('truffleTrainingDescription')
         },
         {
           name: t('truffleExperienceWhite'),
@@ -33,33 +38,20 @@ export function ProgramTimelineNew() {
       ]
     },
     {
-      day: 16,
+      day: 15,
       dayKey: "thursday" as const,
-      date: `${t('thursday')} 16 ${t('october')}`,
+      date: `${t('thursday')} 15 ${t('october')}`,
       theme: "from-[var(--secondary)] to-[var(--accent)]",
       activities: [
         {
-          name: t('handlingGrooming'),
-          icon: <Award className="w-6 h-6 text-white" />,
-          description: t('groomingTechniquesDescription')
+          name: t('truffleTrainingLagottoCorner'),
+          icon: <Dog className="w-6 h-6 text-white" />,
+          description: t('lagottoCornerDescription')
         },
         {
           name: t('showCooking'),
           icon: <ChefHat className="w-6 h-6 text-white" />,
           description: t('truffleCookingDescription')
-        }
-      ]
-    },
-    {
-      day: 17,
-      dayKey: "friday" as const,
-      date: `${t('friday')} 17 ${t('october')}`,
-      theme: "from-[var(--accent)] to-[var(--moss)]",
-      activities: [
-        {
-          name: t('truffleHuntingUncinato'),
-          icon: <Dog className="w-6 h-6 text-white" />,
-          description: t('hookedTruffleHuntingDescription')
         },
         {
           name: t('charityRaffle'),
@@ -69,9 +61,27 @@ export function ProgramTimelineNew() {
       ]
     },
     {
-      day: 18,
+      day: 16,
+      dayKey: "friday" as const,
+      date: `${t('friday')} 16 ${t('october')}`,
+      theme: "from-[var(--accent)] to-[var(--moss)]",
+      activities: [
+        {
+          name: t('truffleTrainingMountain'),
+          icon: <Dog className="w-6 h-6 text-white" />,
+          description: t('mountainTrainingDescription')
+        },
+        {
+          name: t('seminarKatrienVanGemert'),
+          icon: <Users className="w-6 h-6 text-white" />,
+          description: t('puppyLitterDescription')
+        }
+      ]
+    },
+    {
+      day: 17,
       dayKey: "saturday" as const,
-      date: `${t('saturday')} 18 ${t('october')}`,
+      date: `${t('saturday')} 17 ${t('october')}`,
       theme: "from-[var(--moss)] to-[var(--primary)]",
       activities: [
         {
@@ -80,16 +90,21 @@ export function ProgramTimelineNew() {
           description: t('enciJudgesDescription')
         },
         {
-          name: t('conferenceSurpriseGuest'),
+          name: t('conferenceGilbertoGrandi'),
           icon: <Users className="w-6 h-6 text-white" />,
-          description: t('specialEveningDescription')
+          description: t('gilbertoGrandiDescription')
+        },
+        {
+          name: t('monteBuscaFireStories'),
+          icon: <Flame className="w-6 h-6 text-white" />,
+          description: t('fireStoriesDescription')
         }
       ]
     },
     {
-      day: 19,
+      day: 18,
       dayKey: "sunday" as const,
-      date: `${t('sunday')} 19 ${t('october')}`,
+      date: `${t('sunday')} 18 ${t('october')}`,
       theme: "from-[var(--primary)] to-[var(--accent)]",
       activities: [
         {
@@ -143,7 +158,7 @@ export function ProgramTimelineNew() {
                   className={`px-6 py-4 rounded-2xl min-w-[120px] transition-all duration-300 ${
                     isActive
                       ? 'bg-[var(--accent)] text-[var(--primary)] font-bold shadow-lg'
-                      : 'bg-white text-[var(--primary)] hover:bg-[var(--accent)]/20'
+                      : 'bg-card text-[var(--primary)] hover:bg-[var(--accent)]/20'
                   } border border-[var(--secondary)]/40`}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -164,12 +179,12 @@ export function ProgramTimelineNew() {
         {/* Timeline Content - Centered Layout */}
         <div className="max-w-4xl mx-auto">
           {/* Day Content - Centered */}
-          <div className="bg-white rounded-3xl shadow-2xl border border-gray-200 p-8 mx-4">
+          <div className="bg-card rounded-3xl shadow-2xl border border-[var(--border)] p-8 mx-4">
             <div className="text-center mb-10">
               <h3 className="text-3xl font-headline text-[var(--primary)] mb-3">
-                {currentDay.dayKey.charAt(0).toUpperCase() + currentDay.dayKey.slice(1)}
+                {t(currentDay.dayKey)}
               </h3>
-              <p className="text-xl text-gray-600 font-body">
+              <p className="text-xl text-[var(--muted-foreground)] font-body">
                 {currentDay.date}
               </p>
             </div>
@@ -180,7 +195,7 @@ export function ProgramTimelineNew() {
                 {currentDay.activities.map((activity, activityIndex) => (
                   <motion.div
                     key={activityIndex}
-                    className="bg-gradient-to-br from-white to-gray-50 rounded-2xl p-6 border border-gray-100 shadow-md hover:shadow-lg w-full max-w-md"
+                    className="bg-gradient-to-br from-white to-[var(--muted)]/40 rounded-2xl p-6 border border-[var(--border)] shadow-md hover:shadow-lg w-full max-w-md"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
@@ -199,7 +214,7 @@ export function ProgramTimelineNew() {
                         <h4 className="text-lg font-semibold text-[var(--primary)] mb-3">
                           {activity.name}
                         </h4>
-                        <p className="text-gray-600 text-sm leading-relaxed">
+                        <p className="text-[var(--muted-foreground)] text-sm leading-relaxed">
                           {activity.description}
                         </p>
                       </div>

@@ -106,104 +106,104 @@ export function ContactForm() {
   };
 
   return (
-    <Card className="p-8 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-xl rounded-2xl border border-gray-200 dark:border-gray-700">
+    <Card className="p-8 bg-card backdrop-blur-sm shadow-xl rounded-2xl border border-[var(--border)]">
       <CardContent>
-        <h3 className="text-3xl font-headline text-gray-800 dark:text-white mb-6 text-center">{t('contactFormTitle')}</h3>
+        <h3 className="text-3xl font-headline text-[var(--primary)] mb-6 text-center">{t('contactFormTitle')}</h3>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
           {/* Name + Surname */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
-              <Label htmlFor="name" className="text-lg font-body text-gray-700 dark:text-gray-300">{t('contactFormNameLabel')}</Label>
+              <Label htmlFor="name" className="text-lg font-body text-[var(--foreground)]">{t('contactFormNameLabel')}</Label>
               <Input
                 id="name"
                 type="text"
                 placeholder={currentTranslations.formPlaceholders.yourName}
                 {...form.register('name')}
-                className="mt-2 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                className="mt-2 p-3 rounded-lg border border-[var(--border)] bg-background text-[var(--foreground)] focus:ring-2 focus:ring-[var(--accent)] focus:border-transparent"
               />
               {form.formState.errors.name && (
-                <p className="text-red-500 text-sm mt-1">{form.formState.errors.name.message}</p>
+                <p className="text-[var(--accent)] text-sm mt-1">{form.formState.errors.name.message}</p>
               )}
             </div>
             <div>
-              <Label htmlFor="surname" className="text-lg font-body text-gray-700 dark:text-gray-300">{t('surname')}</Label>
+              <Label htmlFor="surname" className="text-lg font-body text-[var(--foreground)]">{t('surname')}</Label>
               <Input
                 id="surname"
                 type="text"
                 placeholder={currentTranslations.formPlaceholders.yourSurname}
                 {...form.register('surname')}
-                className="mt-2 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                className="mt-2 p-3 rounded-lg border border-[var(--border)] bg-background text-[var(--foreground)] focus:ring-2 focus:ring-[var(--accent)] focus:border-transparent"
               />
               {form.formState.errors.surname && (
-                <p className="text-red-500 text-sm mt-1">{form.formState.errors.surname.message}</p>
+                <p className="text-[var(--accent)] text-sm mt-1">{form.formState.errors.surname.message}</p>
               )}
             </div>
           </div>
 
           {/* Email */}
           <div>
-            <Label htmlFor="email" className="text-lg font-body text-gray-700 dark:text-gray-300">{t('contactFormEmailLabel')}</Label>
+            <Label htmlFor="email" className="text-lg font-body text-[var(--foreground)]">{t('contactFormEmailLabel')}</Label>
             <Input
               id="email"
               type="email"
               placeholder={currentTranslations.formPlaceholders.yourEmail}
               {...form.register('email')}
-              className="mt-2 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+              className="mt-2 p-3 rounded-lg border border-[var(--border)] bg-background text-[var(--foreground)] focus:ring-2 focus:ring-[var(--accent)] focus:border-transparent"
             />
             {form.formState.errors.email && (
-              <p className="text-red-500 text-sm mt-1">{form.formState.errors.email.message}</p>
+              <p className="text-[var(--accent)] text-sm mt-1">{form.formState.errors.email.message}</p>
             )}
           </div>
 
           {/* Phone */}
           <div>
-            <Label htmlFor="phone" className="text-lg font-body text-gray-700 dark:text-gray-300">{t('phone')}</Label>
+            <Label htmlFor="phone" className="text-lg font-body text-[var(--foreground)]">{t('phone')}</Label>
             <Input
               id="phone"
               type="tel"
               placeholder={currentTranslations.formPlaceholders.yourPhone}
               {...form.register('phone')}
-              className="mt-2 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+              className="mt-2 p-3 rounded-lg border border-[var(--border)] bg-background text-[var(--foreground)] focus:ring-2 focus:ring-[var(--accent)] focus:border-transparent"
             />
             {form.formState.errors.phone && (
-              <p className="text-red-500 text-sm mt-1">{form.formState.errors.phone.message}</p>
+              <p className="text-[var(--accent)] text-sm mt-1">{form.formState.errors.phone.message}</p>
             )}
           </div>
 
           {/* Dog Name */}
           <div>
-            <Label htmlFor="dogName" className="text-lg font-body text-gray-700 dark:text-gray-300">{t('dogName')}</Label>
+            <Label htmlFor="dogName" className="text-lg font-body text-[var(--foreground)]">{t('dogName')}</Label>
             <Input
               id="dogName"
               type="text"
               placeholder={currentTranslations.formPlaceholders.yourDogName}
               {...form.register('dogName')}
-              className="mt-2 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+              className="mt-2 p-3 rounded-lg border border-[var(--border)] bg-background text-[var(--foreground)] focus:ring-2 focus:ring-[var(--accent)] focus:border-transparent"
             />
             {form.formState.errors.dogName && (
-              <p className="text-red-500 text-sm mt-1">{form.formState.errors.dogName.message}</p>
+              <p className="text-[var(--accent)] text-sm mt-1">{form.formState.errors.dogName.message}</p>
             )}
           </div>
 
           {/* Message */}
           <div>
-            <Label htmlFor="message" className="text-lg font-body text-gray-700 dark:text-gray-300">{t('message')}</Label>
+            <Label htmlFor="message" className="text-lg font-body text-[var(--foreground)]">{t('message')}</Label>
             <Textarea
               id="message"
               placeholder={currentTranslations.formPlaceholders.tellUsAbout}
               rows={5}
               {...form.register('message')}
-              className="mt-2 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+              className="mt-2 p-3 rounded-lg border border-[var(--border)] bg-background text-[var(--foreground)] focus:ring-2 focus:ring-[var(--accent)] focus:border-transparent"
             />
             {form.formState.errors.message && (
-              <p className="text-red-500 text-sm mt-1">{form.formState.errors.message.message}</p>
+              <p className="text-[var(--accent)] text-sm mt-1">{form.formState.errors.message.message}</p>
             )}
           </div>
 
           {/* Submit Button */}
           <Button
             type="submit"
-            className="w-full py-4 px-6 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-body text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+            className="w-full py-4 px-6 bg-[var(--primary)] hover:bg-[var(--accent)] text-white font-body text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
           >
             {t('sendMessageBtn')}
           </Button>

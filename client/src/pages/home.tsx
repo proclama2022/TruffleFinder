@@ -12,37 +12,15 @@ import { ModernScrollIndicator } from "../components/modern-scroll-indicator";
 import TeamSection from '../components/team-section';
 import { useLanguage } from "../hooks/use-language";
 import { updateScrollProgress, scrollToElement } from "../lib/utils";
-import { Facebook, Instagram, Youtube, Dog, Phone, Mail, MapPin, ArrowUp } from "lucide-react";
+import { Facebook, Instagram, Youtube, Dog, Phone, Mail, MapPin } from "lucide-react";
 
 export default function Home() {
   const { t } = useLanguage();
 
   useEffect(() => {
-    // Scroll progress handler
-    const handleScroll = () => {
-      updateScrollProgress();
-      
-      // Back to top button visibility
-      const backToTopButton = document.getElementById('backToTop');
-      if (backToTopButton) {
-        if (window.pageYOffset > 300) {
-          backToTopButton.classList.remove('opacity-0', 'pointer-events-none');
-        } else {
-          backToTopButton.classList.add('opacity-0', 'pointer-events-none');
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', updateScrollProgress);
+    return () => window.removeEventListener('scroll', updateScrollProgress);
   }, []);
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[var(--forest-light)] via-[var(--forest-cream)] to-[var(--misty-morning)]">
@@ -57,7 +35,7 @@ export default function Home() {
       
       <ProgramTimelineNew />
       {/* Graphic Separator */}
-      <div className="w-full h-1 bg-gradient-to-r from-amber-500 to-amber-300 my-12"></div>
+      <div className="w-full h-1 bg-gradient-to-r from-[var(--secondary)] to-[var(--accent)] my-12"></div>
       <TeamSection />
 
       <ModernGalleryMUI />
@@ -87,7 +65,7 @@ export default function Home() {
                 </div>
                 <div>
                   <h3 className="text-h5 text-white font-bold">{t('lagottoTruffleWeek')}</h3>
-                  <p className="text-caption text-white/70">{t('eventLocation')} 2025</p>
+                  <p className="text-caption text-white/70">{t('eventLocation')} 2026</p>
                 </div>
               </div>
               <p className="text-body text-white/80 leading-relaxed mb-6">
@@ -191,15 +169,6 @@ export default function Home() {
           </div>
         </div>
       </footer>
-      
-      {/* Modern Back to Top Button */}
-      <button
-        id="backToTop"
-        onClick={scrollToTop}
-        className="fixed bottom-8 right-8 w-14 h-14 bg-gradient-to-r from-amber-800 to-amber-700 text-white rounded-2xl shadow-2xl hover:shadow-amber-600/25 hover:scale-110 transition-all duration-300 opacity-0 pointer-events-none z-50"
-      >
-        <ArrowUp className="w-5 h-5" />
-      </button>
     </div>
   );
 }
