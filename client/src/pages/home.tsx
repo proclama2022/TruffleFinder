@@ -282,6 +282,8 @@ const TXT = {
       cta: "Prenota ora",
       subtitle: "L'esperienza unica per te e il tuo cane",
       alt: "Lagotto Romagnolo nel bosco d'autunno",
+      truffleAlt: "Tartufo bianco appena raccolto",
+      truffleCaption: "Il tartufo bianco",
     },
     marquee: "Caccia al tartufo — Prove ENCI — Show cooking — Lagotto Romagnolo — Al Vecchio Convento — Beneficenza Lagotto Rescue — ",
     storia: {
@@ -370,6 +372,8 @@ const TXT = {
       cta: "Book now",
       subtitle: "The unique experience for you and your dog",
       alt: "Lagotto Romagnolo in the autumn woods",
+      truffleAlt: "Freshly unearthed white truffle",
+      truffleCaption: "The white truffle",
     },
     marquee: "Truffle hunting — ENCI working tests — Show cooking — Lagotto Romagnolo — Al Vecchio Convento — Lagotto Rescue charity — ",
     storia: {
@@ -479,6 +483,9 @@ const CSS = `
   .ltw-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
   .ltw-team-name { margin-right: -140px; }
 
+  @media (max-width: 900px) {
+    .ltw-hero-truffle { display: none; }
+  }
   @media (max-width: 1024px) {
     .ltw-storia-grid, .ltw-contact-grid { grid-template-columns: 1fr; gap: 56px; }
     .ltw-program-grid, .ltw-footer-grid { grid-template-columns: 1fr 1fr; }
@@ -836,6 +843,39 @@ export default function Home() {
               {t.hero.subtitle}
             </p>
           </div>
+        </div>
+
+        {/* Tartufo accent */}
+        <div className="ltw-hero-truffle" style={{ position: "absolute", zIndex: 3, right: 40, bottom: 64 }}>
+          <div
+            style={{
+              width: 110,
+              height: 110,
+              borderRadius: 4,
+              overflow: "hidden",
+              border: "2px solid rgba(255,248,240,0.5)",
+              boxShadow: "0 14px 32px rgba(0,0,0,0.4)",
+            }}
+          >
+            <img
+              src={`${IMG}469330765_548666107967388_5542956395496543445_n.jpg`}
+              alt={t.hero.truffleAlt}
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            />
+          </div>
+          <p
+            style={{
+              margin: "10px 0 0",
+              textAlign: "center",
+              fontFamily: crimson,
+              fontStyle: "italic",
+              fontSize: 14,
+              color: CREAM,
+              textShadow: "0 1px 6px rgba(0,0,0,0.6)",
+            }}
+          >
+            {t.hero.truffleCaption}
+          </p>
         </div>
 
         {/* Marquee */}
