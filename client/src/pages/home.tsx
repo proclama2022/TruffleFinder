@@ -100,44 +100,55 @@ const STORIA = [
 
 const PROGRAMMA = [
   {
-    numero: 15,
+    numero: 14,
     nome: "Mercoledì",
     attivita: [
-      { nome: "Lavoro di addestramento di base", descrizione: "Sessione di addestramento di base per cani Lagotto" },
-      { nome: "Esperienza tartufo bianco", descrizione: "Esperienza pratica di caccia al tartufo bianco" },
-      { nome: "Cena di inaugurazione", descrizione: "Cena gourmet di benvenuto con specialità locali" },
+      { momento: "Mattina", nome: "Training cerca del tartufo base", descrizione: "Sessione di addestramento di base alla cerca del tartufo" },
+      { momento: "Mattina", nome: "Functional training for truffle dogs", descrizione: "Addestramento funzionale per cani da tartufo con Elisa Mengozzi" },
+      { momento: "Pomeriggio", nome: "Truffle Experience su tartufo bianco", descrizione: "Esperienza pratica di cerca sul pregiato tartufo bianco" },
+      { momento: "Sera", nome: "Cena di inaugurazione", descrizione: "Cena di benvenuto presso Al Vecchio Convento" },
+    ],
+  },
+  {
+    numero: 15,
+    nome: "Giovedì",
+    attivita: [
+      { momento: "Mattina", nome: "Training sul tartufo", descrizione: "Training sul tartufo e corner gestione del Lagotto Romagnolo" },
+      { momento: "Pomeriggio / Sera", nome: "Show cooking e Laboratorio di cucina", descrizione: "Cucina creativa con il tartufo come protagonista" },
+      { momento: "Pomeriggio / Sera", nome: "Riffa di beneficenza", descrizione: 'A sostegno del rescue "Un tesoro di Lagotto"' },
     ],
   },
   {
     numero: 16,
-    nome: "Giovedì",
+    nome: "Venerdì",
     attivita: [
-      { nome: "Workshop di handling e toelettatura", descrizione: "Tecniche professionali di toelettatura e presentazione" },
-      { nome: "Show cooking e workshop di cucina", descrizione: "Cucina creativa con il tartufo come protagonista" },
+      {
+        momento: "Tutto il giorno",
+        nome: "Truffle training in montagna",
+        descrizione: "Alla scoperta del tartufo uncinato, con shooting fotografico e picnic a cura di Al Vecchio Convento",
+      },
+      {
+        momento: "Sera",
+        nome: "Seminario di Katrien van Gemert",
+        descrizione: "Il cucciolo e la gestione della cucciolata",
+      },
     ],
   },
   {
     numero: 17,
-    nome: "Venerdì",
+    nome: "Sabato",
     attivita: [
-      { nome: "Caccia al tartufo uncinato", descrizione: "Caccia al tartufo uncinato con guide esperte" },
-      { nome: "Lotteria di beneficenza", descrizione: "Evento di beneficenza per sostenere Lagotto Rescue" },
+      { momento: "Mattina", nome: "Training prova di lavoro", descrizione: "Prova di lavoro con giudici ufficiali ENCI" },
+      { momento: "Pomeriggio", nome: "Conferenza con Gilberto Grandi", descrizione: "Incontro e approfondimento con Gilberto Grandi" },
+      { momento: "Pomeriggio", nome: "Intorno al fuoco del Monte Busca", descrizione: "Storie di lagotti e tartufi" },
     ],
   },
   {
     numero: 18,
-    nome: "Sabato",
-    attivita: [
-      { nome: "Prova di lavoro di addestramento", descrizione: "Prove ufficiali con giudici ENCI qualificati" },
-      { nome: "Conferenza con ospite a sorpresa", descrizione: "Serata speciale con ospite a sorpresa e cena gourmet" },
-    ],
-  },
-  {
-    numero: 19,
     nome: "Domenica",
     attivita: [
-      { nome: "Caccia al tartufo bianco", descrizione: "Ultima caccia al tartufo bianco della settimana" },
-      { nome: "Pranzo e saluti", descrizione: "Pranzo finale e saluti con tutti i partecipanti" },
+      { momento: "Tutto il giorno", nome: "Truffle Hunting su tartufo bianco", descrizione: "Caccia al tartufo bianco su campo naturale" },
+      { momento: "Tutto il giorno", nome: "Pranzo e saluti", descrizione: "Pranzo finale e saluti con tutti i partecipanti" },
     ],
   },
 ];
@@ -676,10 +687,10 @@ export default function Home() {
           </div>
 
           <div className="ltw-program-grid">
-            {giorno.attivita.map((att, i) => (
+            {giorno.attivita.map((att) => (
               <div key={att.nome} style={{ borderTop: "1px solid rgba(255,248,240,0.3)", paddingTop: 24 }}>
-                <span style={{ ...kicker, fontSize: 13 }}>
-                  {giorno.nome} — 0{i + 1}
+                <span style={{ ...kicker, fontSize: 13, textTransform: "uppercase", letterSpacing: 1.5 }}>
+                  {giorno.nome} {giorno.numero} — {att.momento}
                 </span>
                 <h4 style={{ margin: "14px 0 10px", fontFamily: crimson, fontWeight: 600, fontSize: 30, lineHeight: 1.1, color: CREAM }}>
                   {att.nome}
