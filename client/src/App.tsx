@@ -7,6 +7,9 @@ import { LanguageProvider } from "@/components/language-provider";
 import ComingSoon from "@/pages/coming-soon";
 import Home from "@/pages/home";
 import NotFound from "@/pages/not-found";
+import PrivacyPolicy from "@/pages/privacy-policy";
+import CookiePolicy from "@/pages/cookie-policy";
+import Terms from "@/pages/terms";
 // MUI Theme integration
 import { ThemeProvider as MuiThemeProvider, createTheme, responsiveFontSizes } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -16,6 +19,9 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/coming-soon" component={ComingSoon} />
+      <Route path="/privacy-policy" component={PrivacyPolicy} />
+      <Route path="/cookie-policy" component={CookiePolicy} />
+      <Route path="/termini-e-condizioni" component={Terms} />
       <Route component={NotFound} />
     </Switch>
   );

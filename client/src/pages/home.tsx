@@ -1,19 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
-
-// ————— Palette e font del design "Radice" —————
-const CREAM = "#FFF8F0";
-const INK = "#2C221A";
-const GOLD = "#E9C46A";
-const OLIVE = "#97A65F";
-const BROWN = "#5B4636";
-const DARKEST = "#1C140E";
-const SAND = "#F5EBDC";
-
-const grotesk = "'Space Grotesk', sans-serif";
-const crimson = "'Crimson Pro', serif";
-const satoshi = "'Satoshi', sans-serif";
+import { Link } from "wouter";
+import { CREAM, INK, GOLD, OLIVE, BROWN, DARKEST, SAND, grotesk, crimson, satoshi } from "@/lib/theme";
 
 const IMG = "/images/gallery/";
+
+const LEGAL_HREFS = ["/privacy-policy", "/cookie-policy", "/termini-e-condizioni"];
 
 type Lang = "it" | "en";
 
@@ -1604,10 +1595,15 @@ export default function Home() {
           >
             <p style={{ margin: 0, fontSize: 13.5, color: "rgba(255,248,240,0.45)" }}>{t.footer.copyright}</p>
             <div style={{ display: "flex", gap: 24 }}>
-              {t.footer.legal.map((voce) => (
-                <a key={voce} className="ltw-footlink" href="#" style={{ fontSize: 13.5, color: "rgba(255,248,240,0.45)", textDecoration: "none" }}>
+              {t.footer.legal.map((voce, i) => (
+                <Link
+                  key={voce}
+                  href={LEGAL_HREFS[i]}
+                  className="ltw-footlink"
+                  style={{ fontSize: 13.5, color: "rgba(255,248,240,0.45)", textDecoration: "none" }}
+                >
                   {voce}
-                </a>
+                </Link>
               ))}
             </div>
           </div>
