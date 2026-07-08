@@ -238,6 +238,7 @@ const PROGRAMMA: Record<Lang, Giorno[]> = {
 };
 
 const FOTO = [
+  { src: `${IMG}464948125_17957117483831393_1811134842718160966_n.jpg`, cat: "cani" },
   { src: `${IMG}464380933_17956502999831393_6501081485669265423_n.jpg`, cat: "cani" },
   { src: `${IMG}464469027_17956503017831393_2796787598014715018_n.jpg`, cat: "caccia" },
   { src: `${IMG}464824467_17957117315831393_3218779434772932755_n.jpg`, cat: "cani" },
@@ -271,12 +272,19 @@ const TXT = {
       date: "14–18 ottobre 2026",
       countdownLabel: "giorni all'evento",
       cta: "Prenota ora",
+      programCta: "Scopri il programma",
       subtitle: "L'esperienza unica per te e il tuo cane",
-      alt: "Lagotto Romagnolo nel bosco d'autunno",
+      alt: "Logo Lagotto & Truffle Week",
+      posterAlt: "Locandina Lagotto & Truffle Week — 14–18 ottobre 2026",
+      info: [
+        { label: "Quando", value: "14–18 ottobre 2026" },
+        { label: "Dove", value: "Portico di Romagna · Al Vecchio Convento" },
+        { label: "Cosa", value: "Caccia al tartufo, training, show cooking e beneficenza" },
+      ],
     },
     marquee: "Caccia al tartufo — Prove ENCI — Show cooking — Lagotto Romagnolo — Al Vecchio Convento — Beneficenza Lagotto Rescue — ",
     storia: {
-      num: "01",
+      num: "03",
       main: "Un'Esperienza",
       em: "Indimenticabile",
       intro:
@@ -288,14 +296,14 @@ const TXT = {
       ],
     },
     program: {
-      num: "02",
+      num: "01",
       main: "Un Viaggio",
       em: "di 5 Giorni",
       closing: "Cinque giorni di attività, addestramento ed esperienze indimenticabili.",
       contactCta: "Contattaci",
     },
     team: {
-      num: "03",
+      num: "04",
       main: "Incontra",
       em: "l'Esperta",
       role: "Fondatrice & Esperta di Lagotto · 15+ anni",
@@ -304,7 +312,7 @@ const TXT = {
       contactBtn: "Contatta Nicoletta",
       instagramBtn: "Instagram",
     },
-    gallery: { num: "04", main: "Momenti", em: "Indimenticabili", lightboxAlt: "Foto ingrandita" },
+    gallery: { num: "02", main: "Momenti", em: "Indimenticabili", lightboxAlt: "Foto ingrandita" },
     contact: {
       num: "05",
       main: "Pronto a",
@@ -359,12 +367,19 @@ const TXT = {
       date: "14–18 October 2026",
       countdownLabel: "days to go",
       cta: "Book now",
+      programCta: "Discover the program",
       subtitle: "The unique experience for you and your dog",
-      alt: "Lagotto Romagnolo in the autumn woods",
+      alt: "Lagotto & Truffle Week logo",
+      posterAlt: "Lagotto & Truffle Week poster — 14–18 October 2026",
+      info: [
+        { label: "When", value: "14–18 October 2026" },
+        { label: "Where", value: "Portico di Romagna · Al Vecchio Convento" },
+        { label: "What", value: "Truffle hunting, training, show cooking and charity" },
+      ],
     },
     marquee: "Truffle hunting — ENCI working tests — Show cooking — Lagotto Romagnolo — Al Vecchio Convento — Lagotto Rescue charity — ",
     storia: {
-      num: "01",
+      num: "03",
       main: "An Unforgettable",
       em: "Experience",
       intro:
@@ -376,14 +391,14 @@ const TXT = {
       ],
     },
     program: {
-      num: "02",
+      num: "01",
       main: "A",
       em: "5-Day Journey",
       closing: "Five days of activities, training and unforgettable experiences.",
       contactCta: "Contact us",
     },
     team: {
-      num: "03",
+      num: "04",
       main: "Meet",
       em: "the Expert",
       role: "Founder & Lagotto Expert · 15+ years",
@@ -392,7 +407,7 @@ const TXT = {
       contactBtn: "Contact Nicoletta",
       instagramBtn: "Instagram",
     },
-    gallery: { num: "04", main: "Unforgettable", em: "Moments", lightboxAlt: "Enlarged photo" },
+    gallery: { num: "02", main: "Unforgettable", em: "Moments", lightboxAlt: "Enlarged photo" },
     contact: {
       num: "05",
       main: "Ready to",
@@ -451,6 +466,8 @@ const CSS = `
   .ltw-btn-ink:hover { background: ${BROWN} !important; }
   .ltw-btn-outline { transition: border-color 0.25s, background 0.25s; }
   .ltw-btn-outline:hover { border-color: ${INK} !important; background: rgba(44,34,26,0.05) !important; }
+  .ltw-btn-outline-cream { transition: border-color 0.25s, background 0.25s; }
+  .ltw-btn-outline-cream:hover { border-color: ${GOLD} !important; background: rgba(233,196,106,0.12) !important; }
   .ltw-cell { transition: opacity 0.3s; }
   .ltw-cell:hover { opacity: 0.85; }
   .ltw-footlink { transition: color 0.25s, border-color 0.25s; }
@@ -468,9 +485,16 @@ const CSS = `
   .ltw-gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 210px; gap: 14px; }
   .ltw-footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 56px; margin-bottom: 52px; }
   .ltw-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .ltw-hero-grid { display: grid; grid-template-columns: 7fr 5fr; gap: 72px; align-items: center; width: 100%; }
+  .ltw-hero-poster { justify-self: center; width: 100%; max-width: 460px; }
+  .ltw-hero-info { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; width: 100%; max-width: 940px; border-top: 1px solid rgba(255,248,240,0.25); }
+  .ltw-hero-info > div { padding: 22px 28px 0; border-left: 1px solid rgba(255,248,240,0.25); }
+  .ltw-hero-info > div:first-child { border-left: none; }
   .ltw-team-name { margin-right: -140px; }
 
   @media (max-width: 1024px) {
+    .ltw-hero-grid { grid-template-columns: 1fr; gap: 44px; }
+    .ltw-hero-poster { max-width: 380px; }
     .ltw-storia-grid, .ltw-contact-grid { grid-template-columns: 1fr; gap: 56px; }
     .ltw-program-grid, .ltw-footer-grid { grid-template-columns: 1fr 1fr; }
     .ltw-gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 180px; }
@@ -480,6 +504,8 @@ const CSS = `
   }
   @media (max-width: 640px) {
     .ltw-navlinks a:not(.ltw-nav-cta) { display: none; }
+    .ltw-hero-info { grid-template-columns: 1fr; }
+    .ltw-hero-info > div { border-left: none; padding: 16px 0 0; }
     .ltw-brand-text { display: none; }
     .ltw-program-grid, .ltw-footer-grid, .ltw-form-row { grid-template-columns: 1fr; }
     .ltw-gallery-grid { grid-template-columns: 1fr; grid-auto-rows: 240px; }
@@ -499,7 +525,6 @@ function giorniAllEvento(now: number) {
 export default function Home() {
   const [lang, setLang] = useState<Lang>("it");
   const [accordion, setAccordion] = useState<string | null>("origini");
-  const [giornoAttivo, setGiornoAttivo] = useState(0);
   const [categoria, setCategoria] = useState("tutti");
   const [lightbox, setLightbox] = useState<number | null>(null);
   const [ora, setOra] = useState(() => Date.now());
@@ -544,7 +569,6 @@ export default function Home() {
   const storia = STORIA[lang];
   const programma = PROGRAMMA[lang];
   const cdGiorni = giorniAllEvento(ora);
-  const giorno = programma[giornoAttivo];
   const filtrate = useMemo(
     () => FOTO.filter((f) => categoria === "tutti" || f.cat === categoria),
     [categoria]
@@ -666,9 +690,9 @@ export default function Home() {
             </span>
           </a>
           <div className="ltw-navlinks" style={{ display: "flex", alignItems: "center", gap: 22 }}>
-            <a className="ltw-navlink" href="#about" style={navLinkStyle}>{t.nav.storia}</a>
             <a className="ltw-navlink" href="#program" style={navLinkStyle}>{t.nav.programma}</a>
             <a className="ltw-navlink" href="#gallery" style={navLinkStyle}>{t.nav.gallery}</a>
+            <a className="ltw-navlink" href="#about" style={navLinkStyle}>{t.nav.storia}</a>
             <div
               style={{
                 display: "flex",
@@ -727,105 +751,188 @@ export default function Home() {
       {/* ============ HERO ============ */}
       <section
         id="home"
-        style={{ position: "relative", minHeight: "100vh", display: "flex", flexDirection: "column", justifyContent: "flex-end", overflow: "hidden" }}
+        style={{
+          position: "relative",
+          minHeight: "100vh",
+          display: "flex",
+          flexDirection: "column",
+          background: `radial-gradient(ellipse at 50% 25%, ${INK} 0%, ${DARKEST} 78%)`,
+          overflow: "hidden",
+        }}
       >
-        <img
-          src={`${IMG}464948125_17957117483831393_1811134842718160966_n.jpg`}
-          alt={t.hero.alt}
-          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 38%" }}
-        />
         <div
+          className="ltw-section-pad"
           style={{
-            position: "absolute",
-            inset: 0,
-            background: "linear-gradient(to top, rgba(28,20,14,0.92) 0%, rgba(28,20,14,0.35) 45%, rgba(28,20,14,0.3))",
+            position: "relative",
+            zIndex: 2,
+            flex: 1,
+            display: "flex",
+            alignItems: "center",
+            padding: "110px 40px 56px",
+            maxWidth: 1320,
+            margin: "0 auto",
+            width: "100%",
           }}
-        />
-
-        <div className="ltw-section-pad" style={{ position: "relative", zIndex: 2, padding: "0 40px 20px", maxWidth: 1400, margin: "0 auto", width: "100%" }}>
-          <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 40, flexWrap: "wrap", marginBottom: 36 }}>
-            <div>
-              <p
+        >
+          <div className="ltw-hero-grid">
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                textAlign: "center",
+                gap: 20,
+              }}
+            >
+              <img
+                src={`${IMG}logo.jpg`}
+                alt={t.hero.alt}
                 style={{
-                  margin: "0 0 16px",
-                  fontFamily: grotesk,
-                  fontSize: 14,
-                  fontWeight: 600,
-                  letterSpacing: 4,
-                  textTransform: "uppercase",
-                  color: GOLD,
+                  width: "clamp(110px, 12vw, 150px)",
+                  height: "clamp(110px, 12vw, 150px)",
+                  borderRadius: "50%",
+                  objectFit: "cover",
+                  border: `4px solid ${GOLD}`,
+                  boxShadow: "0 20px 60px rgba(0,0,0,0.5)",
                 }}
-              >
-                {t.hero.kicker}
-              </p>
-              <h1
-                style={{
-                  margin: 0,
-                  fontFamily: crimson,
-                  fontWeight: 600,
-                  fontSize: "clamp(72px, 11vw, 160px)",
-                  lineHeight: 0.9,
-                  letterSpacing: "-0.03em",
-                  color: CREAM,
-                }}
-              >
-                Lagotto
-                <br />
-                <em style={{ fontWeight: 500, color: GOLD }}>&amp; Truffle Week</em>
-              </h1>
-            </div>
-            {MOSTRA_COUNTDOWN && (
-              <div style={{ textAlign: "right", flexShrink: 0 }}>
-                <div
-                  style={{
-                    fontFamily: crimson,
-                    fontWeight: 600,
-                    fontSize: "clamp(90px, 10vw, 150px)",
-                    lineHeight: 0.85,
-                    color: "transparent",
-                    WebkitTextStroke: `2px ${CREAM}`,
-                  }}
-                >
-                  {cdGiorni}
-                </div>
+              />
+              <div>
                 <p
                   style={{
-                    margin: "12px 0 0",
+                    margin: "0 0 14px",
                     fontFamily: grotesk,
-                    fontSize: 13,
+                    fontSize: 14,
                     fontWeight: 600,
-                    letterSpacing: 3,
+                    letterSpacing: 4,
                     textTransform: "uppercase",
                     color: "rgba(255,248,240,0.7)",
                   }}
                 >
-                  {t.hero.countdownLabel}
+                  {t.hero.kicker}
                 </p>
+                <h1
+                  style={{
+                    margin: 0,
+                    fontFamily: crimson,
+                    fontWeight: 600,
+                    fontSize: "clamp(48px, 6vw, 88px)",
+                    lineHeight: 0.95,
+                    letterSpacing: "-0.03em",
+                    color: CREAM,
+                  }}
+                >
+                  Lagotto <em style={{ fontWeight: 500, color: GOLD }}>&amp; Truffle Week</em>
+                </h1>
               </div>
-            )}
-          </div>
-          <div style={{ display: "flex", alignItems: "center", gap: 28, paddingBottom: 28, flexWrap: "wrap" }}>
-            <a
-              className="ltw-btn-gold"
-              href="#contact"
+              <div>
+                <p
+                  style={{
+                    margin: 0,
+                    fontFamily: crimson,
+                    fontStyle: "italic",
+                    fontWeight: 600,
+                    fontSize: "clamp(36px, 4.5vw, 60px)",
+                    lineHeight: 1,
+                    color: GOLD,
+                  }}
+                >
+                  {t.hero.date}
+                </p>
+                {MOSTRA_COUNTDOWN && (
+                  <p
+                    style={{
+                      margin: "18px 0 0",
+                      display: "inline-block",
+                      padding: "9px 22px",
+                      borderRadius: 999,
+                      border: "1px solid rgba(255,248,240,0.35)",
+                      fontFamily: grotesk,
+                      fontSize: 13,
+                      fontWeight: 600,
+                      letterSpacing: 2.5,
+                      textTransform: "uppercase",
+                      color: "rgba(255,248,240,0.85)",
+                    }}
+                  >
+                    −{cdGiorni} {t.hero.countdownLabel}
+                  </p>
+                )}
+              </div>
+              <div className="ltw-hero-info" style={{ marginTop: 10 }}>
+                {t.hero.info.map((voce) => (
+                  <div key={voce.label}>
+                    <p
+                      style={{
+                        margin: "0 0 6px",
+                        fontFamily: grotesk,
+                        fontSize: 12.5,
+                        fontWeight: 700,
+                        letterSpacing: 2.5,
+                        textTransform: "uppercase",
+                        color: GOLD,
+                      }}
+                    >
+                      {voce.label}
+                    </p>
+                    <p style={{ margin: 0, fontFamily: crimson, fontSize: 20, lineHeight: 1.35, color: CREAM }}>{voce.value}</p>
+                  </div>
+                ))}
+              </div>
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 18, marginTop: 14, flexWrap: "wrap" }}>
+                <a
+                  className="ltw-btn-gold"
+                  href="#program"
+                  style={{
+                    display: "inline-block",
+                    background: GOLD,
+                    color: INK,
+                    fontFamily: grotesk,
+                    fontWeight: 700,
+                    fontSize: 16,
+                    letterSpacing: 0.5,
+                    textDecoration: "none",
+                    padding: "18px 44px",
+                    borderRadius: 999,
+                  }}
+                >
+                  {t.hero.programCta}
+                </a>
+                <a
+                  className="ltw-btn-outline-cream"
+                  href="#contact"
+                  style={{
+                    display: "inline-block",
+                    background: "none",
+                    color: CREAM,
+                    fontFamily: grotesk,
+                    fontWeight: 700,
+                    fontSize: 16,
+                    letterSpacing: 0.5,
+                    textDecoration: "none",
+                    padding: "17px 44px",
+                    borderRadius: 999,
+                    border: "1px solid rgba(255,248,240,0.45)",
+                  }}
+                >
+                  {t.hero.cta}
+                </a>
+              </div>
+              <p style={{ margin: 0, fontSize: 18, fontStyle: "italic", fontFamily: crimson, color: "rgba(255,248,240,0.75)" }}>
+                {t.hero.subtitle}
+              </p>
+            </div>
+
+            <img
+              className="ltw-hero-poster"
+              src={`${IMG}locandina-2026.jpg`}
+              alt={t.hero.posterAlt}
               style={{
-                display: "inline-block",
-                background: GOLD,
-                color: INK,
-                fontFamily: grotesk,
-                fontWeight: 700,
-                fontSize: 16,
-                letterSpacing: 0.5,
-                textDecoration: "none",
-                padding: "18px 44px",
-                borderRadius: 999,
+                display: "block",
+                borderRadius: 10,
+                boxShadow: "0 30px 80px rgba(0,0,0,0.55)",
+                border: "1px solid rgba(255,248,240,0.15)",
               }}
-            >
-              {t.hero.cta}
-            </a>
-            <p style={{ margin: 0, fontSize: 18, fontStyle: "italic", fontFamily: crimson, color: "rgba(255,248,240,0.85)" }}>
-              {t.hero.subtitle}
-            </p>
+            />
           </div>
         </div>
 
@@ -852,158 +959,52 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ============ STORIA ============ */}
-      <section id="about" className="ltw-section-pad" style={{ padding: "140px 40px 120px", background: CREAM }}>
-        <div style={{ maxWidth: 1400, margin: "0 auto" }}>
-          <SectionHeader num={t.storia.num} main={t.storia.main} emText={t.storia.em} />
-
-          <div className="ltw-storia-grid">
-            <div>
-              <p style={{ margin: "0 0 56px", fontFamily: crimson, fontSize: 30, lineHeight: 1.45, color: INK, textWrap: "pretty" as any }}>
-                {t.storia.intro}
-              </p>
-
-              <div style={{ borderTop: "1px solid rgba(44,34,26,0.25)" }}>
-                {storia.map((voce, i) => {
-                  const aperta = accordion === voce.id;
-                  return (
-                    <div key={voce.id} style={{ borderBottom: "1px solid rgba(44,34,26,0.25)" }}>
-                      <button
-                        onClick={() => setAccordion(aperta ? null : voce.id)}
-                        style={{
-                          width: "100%",
-                          display: "flex",
-                          alignItems: "baseline",
-                          gap: 26,
-                          padding: "30px 0",
-                          background: "none",
-                          border: "none",
-                          cursor: "pointer",
-                          textAlign: "left",
-                          fontFamily: satoshi,
-                        }}
-                      >
-                        <span style={{ ...kicker, fontSize: 13, flexShrink: 0, width: 30 }}>0{i + 1}</span>
-                        <span style={{ flex: 1, fontFamily: crimson, fontWeight: 600, fontSize: 32, color: INK }}>{voce.titolo}</span>
-                        <span style={{ fontFamily: grotesk, fontSize: 26, fontWeight: 400, color: BROWN, flexShrink: 0 }}>
-                          {aperta ? "−" : "+"}
-                        </span>
-                      </button>
-                      {aperta && (
-                        <div style={{ padding: "0 0 34px 56px", display: "flex", flexDirection: "column", gap: 14, maxWidth: 640 }}>
-                          {voce.testi.map((testo, j) => (
-                            <p key={j} style={{ margin: 0, fontSize: 17.5, lineHeight: 1.7, color: "rgba(44,34,26,0.78)", textWrap: "pretty" as any }}>
-                              {testo}
-                            </p>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            <div style={{ position: "sticky", top: 100 }}>
-              <div style={{ position: "relative" }}>
-                <img
-                  src={`${IMG}473026623_572405422260123_5681489185905862866_n.jpg`}
-                  alt="Lagotto & Truffle Week Experience"
-                  style={{ width: "100%", height: 540, objectFit: "cover", display: "block", borderRadius: 4 }}
-                />
-                <div
-                  style={{
-                    position: "absolute",
-                    bottom: -28,
-                    left: -28,
-                    background: OLIVE,
-                    color: CREAM,
-                    padding: "22px 30px",
-                    borderRadius: 4,
-                    maxWidth: 300,
-                  }}
-                >
-                  <p style={{ margin: 0, fontFamily: crimson, fontStyle: "italic", fontSize: 21, lineHeight: 1.35 }}>
-                    For you and your dog — {t.hero.date}
-                  </p>
-                </div>
-              </div>
-              <div style={{ marginTop: 76, display: "flex", flexDirection: "column", gap: 26 }}>
-                {t.storia.highlights.map((f, i, arr) => (
-                  <div
-                    key={f.titolo}
-                    style={{
-                      display: "flex",
-                      gap: 18,
-                      alignItems: "baseline",
-                      borderBottom: i < arr.length - 1 ? "1px solid rgba(44,34,26,0.2)" : "none",
-                      paddingBottom: i < arr.length - 1 ? 22 : 0,
-                    }}
-                  >
-                    <span style={{ fontFamily: crimson, fontSize: 24, fontWeight: 600, color: OLIVE }}>→</span>
-                    <div>
-                      <h3 style={{ margin: "0 0 5px", fontFamily: crimson, fontWeight: 600, fontSize: 24, color: INK }}>{f.titolo}</h3>
-                      <p style={{ margin: 0, fontSize: 15.5, lineHeight: 1.55, color: "rgba(44,34,26,0.65)" }}>{f.testo}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* ============ PROGRAMMA ============ */}
       <section id="program" className="ltw-section-pad" style={{ padding: "120px 40px", background: INK, color: CREAM }}>
         <div style={{ maxWidth: 1400, margin: "0 auto" }}>
           <SectionHeader num={t.program.num} light main={t.program.main} emText={t.program.em} />
 
-          <div style={{ display: "flex", gap: 40, marginBottom: 72, flexWrap: "wrap", alignItems: "flex-end" }}>
-            {programma.map((g, i) => (
-              <button
-                key={g.numero}
-                onClick={() => setGiornoAttivo(i)}
-                style={{
-                  background: "none",
-                  border: "none",
-                  cursor: "pointer",
-                  padding: 0,
-                  textAlign: "left",
-                  transition: "all 0.25s",
-                  fontFamily: satoshi,
-                  color: i === giornoAttivo ? GOLD : "rgba(255,248,240,0.3)",
-                }}
-              >
-                <span style={{ display: "block", fontFamily: crimson, fontSize: "clamp(56px, 6vw, 96px)", fontWeight: 600, lineHeight: 0.9 }}>
-                  {g.numero}
-                </span>
-                <span
-                  style={{
-                    display: "block",
-                    fontFamily: grotesk,
-                    fontSize: 13,
-                    fontWeight: 600,
-                    letterSpacing: 2,
-                    textTransform: "uppercase",
-                    marginTop: 10,
-                  }}
-                >
-                  {g.nome}
-                </span>
-              </button>
-            ))}
-          </div>
-
-          <div className="ltw-program-grid">
-            {giorno.attivita.map((att) => (
-              <div key={att.nome} style={{ borderTop: "1px solid rgba(255,248,240,0.3)", paddingTop: 24 }}>
-                <span style={{ ...kicker, fontSize: 13, textTransform: "uppercase", letterSpacing: 1.5 }}>
-                  {giorno.nome} {giorno.numero} — {att.momento}
-                </span>
-                <h4 style={{ margin: "14px 0 10px", fontFamily: crimson, fontWeight: 600, fontSize: 30, lineHeight: 1.1, color: CREAM }}>
-                  {att.nome}
-                </h4>
-                <p style={{ margin: 0, fontSize: 16, lineHeight: 1.6, color: "rgba(255,248,240,0.65)" }}>{att.descrizione}</p>
+          <div style={{ display: "flex", flexDirection: "column", gap: 88 }}>
+            {programma.map((g) => (
+              <div key={g.numero}>
+                <div style={{ display: "flex", alignItems: "baseline", gap: 24, marginBottom: 40 }}>
+                  <span
+                    style={{
+                      fontFamily: crimson,
+                      fontSize: "clamp(56px, 6vw, 96px)",
+                      fontWeight: 600,
+                      lineHeight: 0.9,
+                      color: GOLD,
+                    }}
+                  >
+                    {g.numero}
+                  </span>
+                  <span
+                    style={{
+                      fontFamily: grotesk,
+                      fontSize: 14,
+                      fontWeight: 600,
+                      letterSpacing: 2.5,
+                      textTransform: "uppercase",
+                      color: "rgba(255,248,240,0.7)",
+                    }}
+                  >
+                    {g.nome}
+                  </span>
+                </div>
+                <div className="ltw-program-grid">
+                  {g.attivita.map((att) => (
+                    <div key={att.nome} style={{ borderTop: "1px solid rgba(255,248,240,0.3)", paddingTop: 24 }}>
+                      <span style={{ ...kicker, fontSize: 13, textTransform: "uppercase", letterSpacing: 1.5 }}>
+                        {g.nome} {g.numero} — {att.momento}
+                      </span>
+                      <h4 style={{ margin: "14px 0 10px", fontFamily: crimson, fontWeight: 600, fontSize: 30, lineHeight: 1.1, color: CREAM }}>
+                        {att.nome}
+                      </h4>
+                      <p style={{ margin: 0, fontSize: 16, lineHeight: 1.6, color: "rgba(255,248,240,0.65)" }}>{att.descrizione}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
@@ -1029,114 +1030,6 @@ export default function Home() {
             >
               {t.program.contactCta}
             </a>
-          </div>
-        </div>
-      </section>
-
-      {/* ============ TEAM ============ */}
-      <section id="team" className="ltw-section-pad" style={{ padding: "140px 40px", background: CREAM, position: "relative" }}>
-        <div style={{ maxWidth: 1400, margin: "0 auto" }}>
-          <SectionHeader num={t.team.num} main={t.team.main} emText={t.team.em} />
-
-          <div className="ltw-team-grid">
-            <div style={{ position: "relative", zIndex: 2 }}>
-              <h3
-                className="ltw-team-name"
-                style={{
-                  margin: "0 0 6px",
-                  fontFamily: crimson,
-                  fontWeight: 600,
-                  fontSize: "clamp(56px, 6.5vw, 100px)",
-                  lineHeight: 0.95,
-                  letterSpacing: "-0.02em",
-                  color: INK,
-                  position: "relative",
-                  zIndex: 2,
-                }}
-              >
-                Nicoletta
-                <br />
-                <em style={{ fontWeight: 500, color: OLIVE }}>Conte</em>
-              </h3>
-              <p
-                style={{
-                  margin: "26px 0 0",
-                  fontFamily: grotesk,
-                  fontSize: 14,
-                  fontWeight: 600,
-                  letterSpacing: 2.5,
-                  textTransform: "uppercase",
-                  color: BROWN,
-                }}
-              >
-                {t.team.role}
-              </p>
-              <p style={{ margin: "26px 0 0", fontSize: 18, lineHeight: 1.7, color: "rgba(44,34,26,0.75)", maxWidth: 460, textWrap: "pretty" as any }}>
-                {t.team.bio}
-              </p>
-              <div style={{ margin: "32px 0 0", display: "flex", flexDirection: "column", maxWidth: 440 }}>
-                {t.team.bullets.map((riga, i, arr) => (
-                  <div
-                    key={riga}
-                    style={{
-                      padding: "14px 0",
-                      borderTop: "1px solid rgba(44,34,26,0.2)",
-                      borderBottom: i === arr.length - 1 ? "1px solid rgba(44,34,26,0.2)" : "none",
-                      fontSize: 16,
-                      color: "rgba(44,34,26,0.85)",
-                    }}
-                  >
-                    {riga}
-                  </div>
-                ))}
-              </div>
-              <div style={{ marginTop: 36, display: "flex", gap: 16, flexWrap: "wrap" }}>
-                <a
-                  className="ltw-btn-ink"
-                  href="mailto:nico.conte76543@gmail.com"
-                  style={{
-                    display: "inline-block",
-                    background: INK,
-                    color: CREAM,
-                    fontFamily: grotesk,
-                    fontWeight: 600,
-                    fontSize: 15,
-                    textDecoration: "none",
-                    padding: "15px 32px",
-                    borderRadius: 999,
-                  }}
-                >
-                  {t.team.contactBtn}
-                </a>
-                <a
-                  className="ltw-btn-outline"
-                  href="https://www.instagram.com/nicoletta_truffle/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    display: "inline-block",
-                    background: "none",
-                    color: INK,
-                    fontFamily: grotesk,
-                    fontWeight: 600,
-                    fontSize: 15,
-                    textDecoration: "none",
-                    padding: "15px 32px",
-                    borderRadius: 999,
-                    border: "1px solid rgba(44,34,26,0.4)",
-                  }}
-                >
-                  {t.team.instagramBtn}
-                </a>
-              </div>
-            </div>
-            <div className="ltw-team-photo">
-              <img
-                src={`${IMG}nicoletta.jpg`}
-                alt="Nicoletta Conte"
-                style={{ width: "100%", height: 680, objectFit: "cover", objectPosition: "70% 20%", display: "block", borderRadius: 4 }}
-              />
-            </div>
           </div>
         </div>
       </section>
@@ -1320,6 +1213,215 @@ export default function Home() {
               </button>
             </div>
           )}
+        </div>
+      </section>
+
+      {/* ============ STORIA ============ */}
+      <section id="about" className="ltw-section-pad" style={{ padding: "140px 40px 120px", background: CREAM }}>
+        <div style={{ maxWidth: 1400, margin: "0 auto" }}>
+          <SectionHeader num={t.storia.num} main={t.storia.main} emText={t.storia.em} />
+
+          <div className="ltw-storia-grid">
+            <div>
+              <p style={{ margin: "0 0 56px", fontFamily: crimson, fontSize: 30, lineHeight: 1.45, color: INK, textWrap: "pretty" as any }}>
+                {t.storia.intro}
+              </p>
+
+              <div style={{ borderTop: "1px solid rgba(44,34,26,0.25)" }}>
+                {storia.map((voce, i) => {
+                  const aperta = accordion === voce.id;
+                  return (
+                    <div key={voce.id} style={{ borderBottom: "1px solid rgba(44,34,26,0.25)" }}>
+                      <button
+                        onClick={() => setAccordion(aperta ? null : voce.id)}
+                        style={{
+                          width: "100%",
+                          display: "flex",
+                          alignItems: "baseline",
+                          gap: 26,
+                          padding: "30px 0",
+                          background: "none",
+                          border: "none",
+                          cursor: "pointer",
+                          textAlign: "left",
+                          fontFamily: satoshi,
+                        }}
+                      >
+                        <span style={{ ...kicker, fontSize: 13, flexShrink: 0, width: 30 }}>0{i + 1}</span>
+                        <span style={{ flex: 1, fontFamily: crimson, fontWeight: 600, fontSize: 32, color: INK }}>{voce.titolo}</span>
+                        <span style={{ fontFamily: grotesk, fontSize: 26, fontWeight: 400, color: BROWN, flexShrink: 0 }}>
+                          {aperta ? "−" : "+"}
+                        </span>
+                      </button>
+                      {aperta && (
+                        <div style={{ padding: "0 0 34px 56px", display: "flex", flexDirection: "column", gap: 14, maxWidth: 640 }}>
+                          {voce.testi.map((testo, j) => (
+                            <p key={j} style={{ margin: 0, fontSize: 17.5, lineHeight: 1.7, color: "rgba(44,34,26,0.78)", textWrap: "pretty" as any }}>
+                              {testo}
+                            </p>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div style={{ position: "sticky", top: 100 }}>
+              <div style={{ position: "relative" }}>
+                <img
+                  src={`${IMG}473026623_572405422260123_5681489185905862866_n.jpg`}
+                  alt="Lagotto & Truffle Week Experience"
+                  style={{ width: "100%", height: 540, objectFit: "cover", display: "block", borderRadius: 4 }}
+                />
+                <div
+                  style={{
+                    position: "absolute",
+                    bottom: -28,
+                    left: -28,
+                    background: OLIVE,
+                    color: CREAM,
+                    padding: "22px 30px",
+                    borderRadius: 4,
+                    maxWidth: 300,
+                  }}
+                >
+                  <p style={{ margin: 0, fontFamily: crimson, fontStyle: "italic", fontSize: 21, lineHeight: 1.35 }}>
+                    For you and your dog — {t.hero.date}
+                  </p>
+                </div>
+              </div>
+              <div style={{ marginTop: 76, display: "flex", flexDirection: "column", gap: 26 }}>
+                {t.storia.highlights.map((f, i, arr) => (
+                  <div
+                    key={f.titolo}
+                    style={{
+                      display: "flex",
+                      gap: 18,
+                      alignItems: "baseline",
+                      borderBottom: i < arr.length - 1 ? "1px solid rgba(44,34,26,0.2)" : "none",
+                      paddingBottom: i < arr.length - 1 ? 22 : 0,
+                    }}
+                  >
+                    <span style={{ fontFamily: crimson, fontSize: 24, fontWeight: 600, color: OLIVE }}>→</span>
+                    <div>
+                      <h3 style={{ margin: "0 0 5px", fontFamily: crimson, fontWeight: 600, fontSize: 24, color: INK }}>{f.titolo}</h3>
+                      <p style={{ margin: 0, fontSize: 15.5, lineHeight: 1.55, color: "rgba(44,34,26,0.65)" }}>{f.testo}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============ TEAM ============ */}
+      <section id="team" className="ltw-section-pad" style={{ padding: "140px 40px", background: CREAM, position: "relative" }}>
+        <div style={{ maxWidth: 1400, margin: "0 auto" }}>
+          <SectionHeader num={t.team.num} main={t.team.main} emText={t.team.em} />
+
+          <div className="ltw-team-grid">
+            <div style={{ position: "relative", zIndex: 2 }}>
+              <h3
+                className="ltw-team-name"
+                style={{
+                  margin: "0 0 6px",
+                  fontFamily: crimson,
+                  fontWeight: 600,
+                  fontSize: "clamp(56px, 6.5vw, 100px)",
+                  lineHeight: 0.95,
+                  letterSpacing: "-0.02em",
+                  color: INK,
+                  position: "relative",
+                  zIndex: 2,
+                }}
+              >
+                Nicoletta
+                <br />
+                <em style={{ fontWeight: 500, color: OLIVE }}>Conte</em>
+              </h3>
+              <p
+                style={{
+                  margin: "26px 0 0",
+                  fontFamily: grotesk,
+                  fontSize: 14,
+                  fontWeight: 600,
+                  letterSpacing: 2.5,
+                  textTransform: "uppercase",
+                  color: BROWN,
+                }}
+              >
+                {t.team.role}
+              </p>
+              <p style={{ margin: "26px 0 0", fontSize: 18, lineHeight: 1.7, color: "rgba(44,34,26,0.75)", maxWidth: 460, textWrap: "pretty" as any }}>
+                {t.team.bio}
+              </p>
+              <div style={{ margin: "32px 0 0", display: "flex", flexDirection: "column", maxWidth: 440 }}>
+                {t.team.bullets.map((riga, i, arr) => (
+                  <div
+                    key={riga}
+                    style={{
+                      padding: "14px 0",
+                      borderTop: "1px solid rgba(44,34,26,0.2)",
+                      borderBottom: i === arr.length - 1 ? "1px solid rgba(44,34,26,0.2)" : "none",
+                      fontSize: 16,
+                      color: "rgba(44,34,26,0.85)",
+                    }}
+                  >
+                    {riga}
+                  </div>
+                ))}
+              </div>
+              <div style={{ marginTop: 36, display: "flex", gap: 16, flexWrap: "wrap" }}>
+                <a
+                  className="ltw-btn-ink"
+                  href="mailto:nico.conte76543@gmail.com"
+                  style={{
+                    display: "inline-block",
+                    background: INK,
+                    color: CREAM,
+                    fontFamily: grotesk,
+                    fontWeight: 600,
+                    fontSize: 15,
+                    textDecoration: "none",
+                    padding: "15px 32px",
+                    borderRadius: 999,
+                  }}
+                >
+                  {t.team.contactBtn}
+                </a>
+                <a
+                  className="ltw-btn-outline"
+                  href="https://www.instagram.com/nicoletta_truffle/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: "inline-block",
+                    background: "none",
+                    color: INK,
+                    fontFamily: grotesk,
+                    fontWeight: 600,
+                    fontSize: 15,
+                    textDecoration: "none",
+                    padding: "15px 32px",
+                    borderRadius: 999,
+                    border: "1px solid rgba(44,34,26,0.4)",
+                  }}
+                >
+                  {t.team.instagramBtn}
+                </a>
+              </div>
+            </div>
+            <div className="ltw-team-photo">
+              <img
+                src={`${IMG}nicoletta.jpg`}
+                alt="Nicoletta Conte"
+                style={{ width: "100%", height: 680, objectFit: "cover", objectPosition: "70% 20%", display: "block", borderRadius: 4 }}
+              />
+            </div>
+          </div>
         </div>
       </section>
 
