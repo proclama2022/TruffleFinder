@@ -275,6 +275,7 @@ const TXT = {
       programCta: "Scopri il programma",
       subtitle: "L'esperienza unica per te e il tuo cane",
       alt: "Logo Lagotto & Truffle Week",
+      posterAlt: "Locandina Lagotto & Truffle Week — 14–18 ottobre 2026",
       info: [
         { label: "Quando", value: "14–18 ottobre 2026" },
         { label: "Dove", value: "Portico di Romagna · Al Vecchio Convento" },
@@ -369,6 +370,7 @@ const TXT = {
       programCta: "Discover the program",
       subtitle: "The unique experience for you and your dog",
       alt: "Lagotto & Truffle Week logo",
+      posterAlt: "Lagotto & Truffle Week poster — 14–18 October 2026",
       info: [
         { label: "When", value: "14–18 October 2026" },
         { label: "Where", value: "Portico di Romagna · Al Vecchio Convento" },
@@ -483,12 +485,16 @@ const CSS = `
   .ltw-gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 210px; gap: 14px; }
   .ltw-footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 56px; margin-bottom: 52px; }
   .ltw-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .ltw-hero-grid { display: grid; grid-template-columns: 7fr 5fr; gap: 72px; align-items: center; width: 100%; }
+  .ltw-hero-poster { justify-self: center; width: 100%; max-width: 460px; }
   .ltw-hero-info { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; width: 100%; max-width: 940px; border-top: 1px solid rgba(255,248,240,0.25); }
   .ltw-hero-info > div { padding: 22px 28px 0; border-left: 1px solid rgba(255,248,240,0.25); }
   .ltw-hero-info > div:first-child { border-left: none; }
   .ltw-team-name { margin-right: -140px; }
 
   @media (max-width: 1024px) {
+    .ltw-hero-grid { grid-template-columns: 1fr; gap: 44px; }
+    .ltw-hero-poster { max-width: 380px; }
     .ltw-storia-grid, .ltw-contact-grid { grid-template-columns: 1fr; gap: 56px; }
     .ltw-program-grid, .ltw-footer-grid { grid-template-columns: 1fr 1fr; }
     .ltw-gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 180px; }
@@ -761,153 +767,173 @@ export default function Home() {
             zIndex: 2,
             flex: 1,
             display: "flex",
-            flexDirection: "column",
             alignItems: "center",
-            justifyContent: "center",
-            textAlign: "center",
-            gap: 26,
-            padding: "130px 40px 70px",
-            maxWidth: 1100,
+            padding: "110px 40px 56px",
+            maxWidth: 1320,
             margin: "0 auto",
             width: "100%",
           }}
         >
-          <img
-            src={`${IMG}logo.jpg`}
-            alt={t.hero.alt}
-            style={{
-              width: "clamp(130px, 16vw, 190px)",
-              height: "clamp(130px, 16vw, 190px)",
-              borderRadius: "50%",
-              objectFit: "cover",
-              border: `4px solid ${GOLD}`,
-              boxShadow: "0 20px 60px rgba(0,0,0,0.5)",
-            }}
-          />
-          <div>
-            <p
+          <div className="ltw-hero-grid">
+            <div
               style={{
-                margin: "0 0 14px",
-                fontFamily: grotesk,
-                fontSize: 14,
-                fontWeight: 600,
-                letterSpacing: 4,
-                textTransform: "uppercase",
-                color: "rgba(255,248,240,0.7)",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                textAlign: "center",
+                gap: 20,
               }}
             >
-              {t.hero.kicker}
-            </p>
-            <h1
-              style={{
-                margin: 0,
-                fontFamily: crimson,
-                fontWeight: 600,
-                fontSize: "clamp(52px, 7.5vw, 104px)",
-                lineHeight: 0.95,
-                letterSpacing: "-0.03em",
-                color: CREAM,
-              }}
-            >
-              Lagotto <em style={{ fontWeight: 500, color: GOLD }}>&amp; Truffle Week</em>
-            </h1>
-          </div>
-          <div>
-            <p
-              style={{
-                margin: 0,
-                fontFamily: crimson,
-                fontStyle: "italic",
-                fontWeight: 600,
-                fontSize: "clamp(38px, 5.5vw, 72px)",
-                lineHeight: 1,
-                color: GOLD,
-              }}
-            >
-              {t.hero.date}
-            </p>
-            {MOSTRA_COUNTDOWN && (
-              <p
+              <img
+                src={`${IMG}logo.jpg`}
+                alt={t.hero.alt}
                 style={{
-                  margin: "18px 0 0",
-                  display: "inline-block",
-                  padding: "9px 22px",
-                  borderRadius: 999,
-                  border: "1px solid rgba(255,248,240,0.35)",
-                  fontFamily: grotesk,
-                  fontSize: 13,
-                  fontWeight: 600,
-                  letterSpacing: 2.5,
-                  textTransform: "uppercase",
-                  color: "rgba(255,248,240,0.85)",
+                  width: "clamp(110px, 12vw, 150px)",
+                  height: "clamp(110px, 12vw, 150px)",
+                  borderRadius: "50%",
+                  objectFit: "cover",
+                  border: `4px solid ${GOLD}`,
+                  boxShadow: "0 20px 60px rgba(0,0,0,0.5)",
                 }}
-              >
-                −{cdGiorni} {t.hero.countdownLabel}
-              </p>
-            )}
-          </div>
-          <div className="ltw-hero-info" style={{ marginTop: 10 }}>
-            {t.hero.info.map((voce) => (
-              <div key={voce.label}>
+              />
+              <div>
                 <p
                   style={{
-                    margin: "0 0 6px",
+                    margin: "0 0 14px",
                     fontFamily: grotesk,
-                    fontSize: 12.5,
-                    fontWeight: 700,
-                    letterSpacing: 2.5,
+                    fontSize: 14,
+                    fontWeight: 600,
+                    letterSpacing: 4,
                     textTransform: "uppercase",
+                    color: "rgba(255,248,240,0.7)",
+                  }}
+                >
+                  {t.hero.kicker}
+                </p>
+                <h1
+                  style={{
+                    margin: 0,
+                    fontFamily: crimson,
+                    fontWeight: 600,
+                    fontSize: "clamp(48px, 6vw, 88px)",
+                    lineHeight: 0.95,
+                    letterSpacing: "-0.03em",
+                    color: CREAM,
+                  }}
+                >
+                  Lagotto <em style={{ fontWeight: 500, color: GOLD }}>&amp; Truffle Week</em>
+                </h1>
+              </div>
+              <div>
+                <p
+                  style={{
+                    margin: 0,
+                    fontFamily: crimson,
+                    fontStyle: "italic",
+                    fontWeight: 600,
+                    fontSize: "clamp(36px, 4.5vw, 60px)",
+                    lineHeight: 1,
                     color: GOLD,
                   }}
                 >
-                  {voce.label}
+                  {t.hero.date}
                 </p>
-                <p style={{ margin: 0, fontFamily: crimson, fontSize: 20, lineHeight: 1.35, color: CREAM }}>{voce.value}</p>
+                {MOSTRA_COUNTDOWN && (
+                  <p
+                    style={{
+                      margin: "18px 0 0",
+                      display: "inline-block",
+                      padding: "9px 22px",
+                      borderRadius: 999,
+                      border: "1px solid rgba(255,248,240,0.35)",
+                      fontFamily: grotesk,
+                      fontSize: 13,
+                      fontWeight: 600,
+                      letterSpacing: 2.5,
+                      textTransform: "uppercase",
+                      color: "rgba(255,248,240,0.85)",
+                    }}
+                  >
+                    −{cdGiorni} {t.hero.countdownLabel}
+                  </p>
+                )}
               </div>
-            ))}
-          </div>
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 18, marginTop: 14, flexWrap: "wrap" }}>
-            <a
-              className="ltw-btn-gold"
-              href="#program"
+              <div className="ltw-hero-info" style={{ marginTop: 10 }}>
+                {t.hero.info.map((voce) => (
+                  <div key={voce.label}>
+                    <p
+                      style={{
+                        margin: "0 0 6px",
+                        fontFamily: grotesk,
+                        fontSize: 12.5,
+                        fontWeight: 700,
+                        letterSpacing: 2.5,
+                        textTransform: "uppercase",
+                        color: GOLD,
+                      }}
+                    >
+                      {voce.label}
+                    </p>
+                    <p style={{ margin: 0, fontFamily: crimson, fontSize: 20, lineHeight: 1.35, color: CREAM }}>{voce.value}</p>
+                  </div>
+                ))}
+              </div>
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 18, marginTop: 14, flexWrap: "wrap" }}>
+                <a
+                  className="ltw-btn-gold"
+                  href="#program"
+                  style={{
+                    display: "inline-block",
+                    background: GOLD,
+                    color: INK,
+                    fontFamily: grotesk,
+                    fontWeight: 700,
+                    fontSize: 16,
+                    letterSpacing: 0.5,
+                    textDecoration: "none",
+                    padding: "18px 44px",
+                    borderRadius: 999,
+                  }}
+                >
+                  {t.hero.programCta}
+                </a>
+                <a
+                  className="ltw-btn-outline-cream"
+                  href="#contact"
+                  style={{
+                    display: "inline-block",
+                    background: "none",
+                    color: CREAM,
+                    fontFamily: grotesk,
+                    fontWeight: 700,
+                    fontSize: 16,
+                    letterSpacing: 0.5,
+                    textDecoration: "none",
+                    padding: "17px 44px",
+                    borderRadius: 999,
+                    border: "1px solid rgba(255,248,240,0.45)",
+                  }}
+                >
+                  {t.hero.cta}
+                </a>
+              </div>
+              <p style={{ margin: 0, fontSize: 18, fontStyle: "italic", fontFamily: crimson, color: "rgba(255,248,240,0.75)" }}>
+                {t.hero.subtitle}
+              </p>
+            </div>
+
+            <img
+              className="ltw-hero-poster"
+              src={`${IMG}locandina-2026.jpg`}
+              alt={t.hero.posterAlt}
               style={{
-                display: "inline-block",
-                background: GOLD,
-                color: INK,
-                fontFamily: grotesk,
-                fontWeight: 700,
-                fontSize: 16,
-                letterSpacing: 0.5,
-                textDecoration: "none",
-                padding: "18px 44px",
-                borderRadius: 999,
+                display: "block",
+                borderRadius: 10,
+                boxShadow: "0 30px 80px rgba(0,0,0,0.55)",
+                border: "1px solid rgba(255,248,240,0.15)",
               }}
-            >
-              {t.hero.programCta}
-            </a>
-            <a
-              className="ltw-btn-outline-cream"
-              href="#contact"
-              style={{
-                display: "inline-block",
-                background: "none",
-                color: CREAM,
-                fontFamily: grotesk,
-                fontWeight: 700,
-                fontSize: 16,
-                letterSpacing: 0.5,
-                textDecoration: "none",
-                padding: "17px 44px",
-                borderRadius: 999,
-                border: "1px solid rgba(255,248,240,0.45)",
-              }}
-            >
-              {t.hero.cta}
-            </a>
+            />
           </div>
-          <p style={{ margin: 0, fontSize: 18, fontStyle: "italic", fontFamily: crimson, color: "rgba(255,248,240,0.75)" }}>
-            {t.hero.subtitle}
-          </p>
         </div>
 
         {/* Marquee */}
