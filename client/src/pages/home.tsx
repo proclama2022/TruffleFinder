@@ -487,8 +487,8 @@ const CSS = `
   .ltw-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
   .ltw-hero-grid { display: grid; grid-template-columns: 7fr 5fr; gap: 72px; align-items: center; width: 100%; }
   .ltw-hero-poster { justify-self: center; width: 100%; max-width: 460px; }
-  .ltw-hero-info { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; width: 100%; max-width: 940px; border-top: 1px solid rgba(255,248,240,0.25); }
-  .ltw-hero-info > div { padding: 22px 28px 0; border-left: 1px solid rgba(255,248,240,0.25); }
+  .ltw-hero-info { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; width: 100%; max-width: 940px; border-top: 1px solid rgba(44,34,26,0.25); }
+  .ltw-hero-info > div { padding: 22px 28px 0; border-left: 1px solid rgba(44,34,26,0.25); }
   .ltw-hero-info > div:first-child { border-left: none; }
   .ltw-team-name { margin-right: -140px; }
 
@@ -647,10 +647,8 @@ export default function Home() {
           left: 0,
           right: 0,
           zIndex: 100,
-          background: navScura
-            ? "rgba(28,20,14,0.92)"
-            : "linear-gradient(180deg, rgba(20,14,10,0.75) 0%, rgba(20,14,10,0.35) 65%, rgba(20,14,10,0) 100%)",
-          backdropFilter: navScura ? "blur(10px)" : "none",
+          background: navScura ? "rgba(28,20,14,0.92)" : "rgba(28,20,14,0.82)",
+          backdropFilter: "blur(10px)",
           transition: "background 0.3s",
         }}
       >
@@ -756,7 +754,7 @@ export default function Home() {
           minHeight: "100vh",
           display: "flex",
           flexDirection: "column",
-          background: `radial-gradient(ellipse at 50% 25%, #7D6450 0%, ${BROWN} 82%)`,
+          background: `radial-gradient(ellipse at 50% 25%, ${CREAM} 0%, #EDDDC5 82%)`,
           overflow: "hidden",
         }}
       >
@@ -793,7 +791,7 @@ export default function Home() {
                   borderRadius: "50%",
                   objectFit: "cover",
                   border: `4px solid ${GOLD}`,
-                  boxShadow: "0 20px 60px rgba(0,0,0,0.5)",
+                  boxShadow: "0 18px 45px rgba(44,34,26,0.28)",
                 }}
               />
               <div>
@@ -805,7 +803,7 @@ export default function Home() {
                     fontWeight: 600,
                     letterSpacing: 4,
                     textTransform: "uppercase",
-                    color: "rgba(255,248,240,0.7)",
+                    color: OLIVE,
                   }}
                 >
                   {t.hero.kicker}
@@ -818,10 +816,10 @@ export default function Home() {
                     fontSize: "clamp(48px, 6vw, 88px)",
                     lineHeight: 0.95,
                     letterSpacing: "-0.03em",
-                    color: CREAM,
+                    color: INK,
                   }}
                 >
-                  Lagotto <em style={{ fontWeight: 500, color: GOLD }}>&amp; Truffle Week</em>
+                  Lagotto <em style={{ fontWeight: 500, color: BROWN }}>&amp; Truffle Week</em>
                 </h1>
               </div>
               <div>
@@ -833,7 +831,7 @@ export default function Home() {
                     fontWeight: 600,
                     fontSize: "clamp(36px, 4.5vw, 60px)",
                     lineHeight: 1,
-                    color: GOLD,
+                    color: BROWN,
                   }}
                 >
                   {t.hero.date}
@@ -845,13 +843,13 @@ export default function Home() {
                       display: "inline-block",
                       padding: "9px 22px",
                       borderRadius: 999,
-                      border: "1px solid rgba(255,248,240,0.35)",
+                      border: "1px solid rgba(44,34,26,0.35)",
                       fontFamily: grotesk,
                       fontSize: 13,
                       fontWeight: 600,
                       letterSpacing: 2.5,
                       textTransform: "uppercase",
-                      color: "rgba(255,248,240,0.85)",
+                      color: "rgba(44,34,26,0.8)",
                     }}
                   >
                     −{cdGiorni} {t.hero.countdownLabel}
@@ -869,12 +867,12 @@ export default function Home() {
                         fontWeight: 700,
                         letterSpacing: 2.5,
                         textTransform: "uppercase",
-                        color: GOLD,
+                        color: OLIVE,
                       }}
                     >
                       {voce.label}
                     </p>
-                    <p style={{ margin: 0, fontFamily: crimson, fontSize: 20, lineHeight: 1.35, color: CREAM }}>{voce.value}</p>
+                    <p style={{ margin: 0, fontFamily: crimson, fontSize: 20, lineHeight: 1.35, color: INK }}>{voce.value}</p>
                   </div>
                 ))}
               </div>
@@ -898,12 +896,12 @@ export default function Home() {
                   {t.hero.programCta}
                 </a>
                 <a
-                  className="ltw-btn-outline-cream"
+                  className="ltw-btn-outline"
                   href="#contact"
                   style={{
                     display: "inline-block",
                     background: "none",
-                    color: CREAM,
+                    color: INK,
                     fontFamily: grotesk,
                     fontWeight: 700,
                     fontSize: 16,
@@ -911,13 +909,13 @@ export default function Home() {
                     textDecoration: "none",
                     padding: "17px 44px",
                     borderRadius: 999,
-                    border: "1px solid rgba(255,248,240,0.45)",
+                    border: "1px solid rgba(44,34,26,0.4)",
                   }}
                 >
                   {t.hero.cta}
                 </a>
               </div>
-              <p style={{ margin: 0, fontSize: 18, fontStyle: "italic", fontFamily: crimson, color: "rgba(255,248,240,0.75)" }}>
+              <p style={{ margin: 0, fontSize: 18, fontStyle: "italic", fontFamily: crimson, color: "rgba(44,34,26,0.75)" }}>
                 {t.hero.subtitle}
               </p>
             </div>
@@ -929,8 +927,8 @@ export default function Home() {
               style={{
                 display: "block",
                 borderRadius: 10,
-                boxShadow: "0 30px 80px rgba(0,0,0,0.55)",
-                border: "1px solid rgba(255,248,240,0.15)",
+                boxShadow: "0 26px 70px rgba(44,34,26,0.32)",
+                border: "6px solid #FFFFFF",
               }}
             />
           </div>
