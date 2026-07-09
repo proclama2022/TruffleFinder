@@ -756,7 +756,7 @@ export default function Home() {
           minHeight: "100vh",
           display: "flex",
           flexDirection: "column",
-          background: `radial-gradient(ellipse at 50% 25%, ${BROWN} 0%, ${INK} 82%)`,
+          background: `radial-gradient(ellipse at 50% 25%, #7D6450 0%, ${BROWN} 82%)`,
           overflow: "hidden",
         }}
       >
