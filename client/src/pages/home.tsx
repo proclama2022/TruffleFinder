@@ -459,9 +459,9 @@ const TXT = {
 const CSS = `
   @keyframes ltw-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
   .ltw-navlink { transition: color 0.25s; }
-  .ltw-navlink:hover { color: ${CREAM} !important; }
+  .ltw-navlink:hover { color: ${INK} !important; }
   .ltw-btn-gold { transition: background 0.25s; }
-  .ltw-btn-gold:hover { background: ${CREAM} !important; }
+  .ltw-btn-gold:hover { background: #DBAE45 !important; }
   .ltw-btn-ink { transition: background 0.25s; }
   .ltw-btn-ink:hover { background: ${BROWN} !important; }
   .ltw-btn-outline { transition: border-color 0.25s, background 0.25s; }
@@ -471,7 +471,7 @@ const CSS = `
   .ltw-cell { transition: opacity 0.3s; }
   .ltw-cell:hover { opacity: 0.85; }
   .ltw-footlink { transition: color 0.25s, border-color 0.25s; }
-  .ltw-footlink:hover { color: ${GOLD} !important; border-color: ${GOLD} !important; }
+  .ltw-footlink:hover { color: ${BROWN} !important; border-color: ${BROWN} !important; }
   .ltw-cta-big span { transition: color 0.3s; }
   .ltw-cta-big:hover span { color: ${INK} !important; }
   .ltw-input { transition: border-color 0.25s; }
@@ -611,9 +611,8 @@ export default function Home() {
     fontSize: 13.5,
     letterSpacing: 1.5,
     textTransform: "uppercase",
-    color: "rgba(255,248,240,0.85)",
+    color: "rgba(44,34,26,0.8)",
     textDecoration: "none",
-    textShadow: "0 1px 8px rgba(0,0,0,0.5)",
   };
 
   const labelInput: React.CSSProperties = {
@@ -622,16 +621,16 @@ export default function Home() {
     fontWeight: 700,
     letterSpacing: 2,
     textTransform: "uppercase",
-    color: "rgba(255,248,240,0.55)",
+    color: "rgba(44,34,26,0.55)",
   };
   const inputStyle: React.CSSProperties = {
     padding: "13px 2px",
     border: "none",
-    borderBottom: "1px solid rgba(255,248,240,0.3)",
+    borderBottom: "1px solid rgba(44,34,26,0.3)",
     background: "none",
     fontFamily: satoshi,
     fontSize: 16.5,
-    color: CREAM,
+    color: INK,
     outline: "none",
   };
 
@@ -647,8 +646,9 @@ export default function Home() {
           left: 0,
           right: 0,
           zIndex: 100,
-          background: navScura ? "rgba(28,20,14,0.92)" : "rgba(28,20,14,0.82)",
+          background: navScura ? "rgba(255,248,240,0.96)" : "rgba(255,248,240,0.88)",
           backdropFilter: "blur(10px)",
+          borderBottom: "1px solid rgba(44,34,26,0.12)",
           transition: "background 0.3s",
         }}
       >
@@ -669,7 +669,7 @@ export default function Home() {
             <img
               src={`${IMG}logo.jpg`}
               alt="Lagotto & Truffle Week"
-              style={{ width: 42, height: 42, borderRadius: "50%", objectFit: "cover", border: "2px solid rgba(255,248,240,0.5)" }}
+              style={{ width: 42, height: 42, borderRadius: "50%", objectFit: "cover", border: "2px solid rgba(44,34,26,0.25)" }}
             />
             <span
               className="ltw-brand-text"
@@ -679,9 +679,8 @@ export default function Home() {
                 fontSize: 15,
                 letterSpacing: 1,
                 textTransform: "uppercase",
-                color: CREAM,
+                color: INK,
                 whiteSpace: "nowrap",
-                textShadow: "0 1px 8px rgba(0,0,0,0.5)",
               }}
             >
               Lagotto &amp; Truffle Week
@@ -696,7 +695,7 @@ export default function Home() {
                 display: "flex",
                 alignItems: "center",
                 gap: 2,
-                border: "1px solid rgba(255,248,240,0.4)",
+                border: "1px solid rgba(44,34,26,0.3)",
                 borderRadius: 999,
                 padding: 3,
               }}
@@ -717,7 +716,7 @@ export default function Home() {
                     fontSize: 12,
                     letterSpacing: 1,
                     background: lang === l ? GOLD : "transparent",
-                    color: lang === l ? INK : "rgba(255,248,240,0.85)",
+                    color: lang === l ? INK : "rgba(44,34,26,0.7)",
                   }}
                 >
                   {l.toUpperCase()}
@@ -958,9 +957,9 @@ export default function Home() {
       </section>
 
       {/* ============ PROGRAMMA ============ */}
-      <section id="program" className="ltw-section-pad" style={{ padding: "120px 40px", background: INK, color: CREAM }}>
+      <section id="program" className="ltw-section-pad" style={{ padding: "120px 40px", background: CREAM, color: INK }}>
         <div style={{ maxWidth: 1400, margin: "0 auto" }}>
-          <SectionHeader num={t.program.num} light main={t.program.main} emText={t.program.em} />
+          <SectionHeader num={t.program.num} main={t.program.main} emText={t.program.em} />
 
           <div style={{ display: "flex", flexDirection: "column", gap: 88 }}>
             {programma.map((g) => (
@@ -972,7 +971,7 @@ export default function Home() {
                       fontSize: "clamp(56px, 6vw, 96px)",
                       fontWeight: 600,
                       lineHeight: 0.9,
-                      color: GOLD,
+                      color: BROWN,
                     }}
                   >
                     {g.numero}
@@ -984,7 +983,7 @@ export default function Home() {
                       fontWeight: 600,
                       letterSpacing: 2.5,
                       textTransform: "uppercase",
-                      color: "rgba(255,248,240,0.7)",
+                      color: "rgba(44,34,26,0.6)",
                     }}
                   >
                     {g.nome}
@@ -992,14 +991,14 @@ export default function Home() {
                 </div>
                 <div className="ltw-program-grid">
                   {g.attivita.map((att) => (
-                    <div key={att.nome} style={{ borderTop: "1px solid rgba(255,248,240,0.3)", paddingTop: 24 }}>
+                    <div key={att.nome} style={{ borderTop: "1px solid rgba(44,34,26,0.25)", paddingTop: 24 }}>
                       <span style={{ ...kicker, fontSize: 13, textTransform: "uppercase", letterSpacing: 1.5 }}>
                         {g.nome} {g.numero} — {att.momento}
                       </span>
-                      <h4 style={{ margin: "14px 0 10px", fontFamily: crimson, fontWeight: 600, fontSize: 30, lineHeight: 1.1, color: CREAM }}>
+                      <h4 style={{ margin: "14px 0 10px", fontFamily: crimson, fontWeight: 600, fontSize: 30, lineHeight: 1.1, color: INK }}>
                         {att.nome}
                       </h4>
-                      <p style={{ margin: 0, fontSize: 16, lineHeight: 1.6, color: "rgba(255,248,240,0.65)" }}>{att.descrizione}</p>
+                      <p style={{ margin: 0, fontSize: 16, lineHeight: 1.6, color: "rgba(44,34,26,0.7)" }}>{att.descrizione}</p>
                     </div>
                   ))}
                 </div>
@@ -1008,7 +1007,7 @@ export default function Home() {
           </div>
 
           <div style={{ marginTop: 88, display: "flex", alignItems: "center", justifyContent: "space-between", gap: 24, flexWrap: "wrap" }}>
-            <p style={{ margin: 0, fontFamily: crimson, fontStyle: "italic", fontSize: 22, color: "rgba(255,248,240,0.7)" }}>
+            <p style={{ margin: 0, fontFamily: crimson, fontStyle: "italic", fontSize: 22, color: "rgba(44,34,26,0.7)" }}>
               {t.program.closing}
             </p>
             <a
@@ -1482,9 +1481,9 @@ export default function Home() {
               </div>
             </div>
 
-            <div style={{ background: INK, color: CREAM, borderRadius: 4, padding: 56 }}>
-              <h3 style={{ margin: "0 0 38px", fontFamily: crimson, fontWeight: 600, fontSize: 36, color: CREAM }}>
-                {t.contact.formMain} <em style={{ fontWeight: 500, color: GOLD }}>{t.contact.formEm}</em>
+            <div style={{ background: SAND, color: INK, borderRadius: 4, padding: 56, border: "1px solid rgba(44,34,26,0.15)" }}>
+              <h3 style={{ margin: "0 0 38px", fontFamily: crimson, fontWeight: 600, fontSize: 36, color: INK }}>
+                {t.contact.formMain} <em style={{ fontWeight: 500, color: BROWN }}>{t.contact.formEm}</em>
               </h3>
               <div style={{ display: "flex", flexDirection: "column", gap: 28 }}>
                 <div className="ltw-form-row">
@@ -1542,7 +1541,7 @@ export default function Home() {
                       borderRadius: 6,
                       background: "rgba(151,166,95,0.25)",
                       border: "1px solid rgba(151,166,95,0.5)",
-                      color: CREAM,
+                      color: INK,
                       fontWeight: 600,
                       fontSize: 15,
                       textAlign: "center",
@@ -1558,7 +1557,7 @@ export default function Home() {
                       borderRadius: 6,
                       background: "rgba(233,196,106,0.15)",
                       border: `1px solid rgba(233,196,106,0.5)`,
-                      color: CREAM,
+                      color: INK,
                       fontWeight: 600,
                       fontSize: 15,
                       textAlign: "center",
@@ -1574,7 +1573,7 @@ export default function Home() {
       </section>
 
       {/* ============ CTA GIGANTE ============ */}
-      <section className="ltw-section-pad" style={{ background: OLIVE, padding: "100px 40px", textAlign: "center" }}>
+      <section className="ltw-section-pad" style={{ background: "#EDDDC5", padding: "100px 40px", textAlign: "center" }}>
         <a className="ltw-cta-big" href="#contact" style={{ textDecoration: "none" }}>
           <span
             style={{
@@ -1585,7 +1584,7 @@ export default function Home() {
               fontSize: "clamp(56px, 9vw, 140px)",
               lineHeight: 1,
               letterSpacing: "-0.02em",
-              color: CREAM,
+              color: BROWN,
             }}
           >
             {t.cta.text}
@@ -1599,7 +1598,7 @@ export default function Home() {
             fontWeight: 600,
             letterSpacing: 3,
             textTransform: "uppercase",
-            color: "rgba(255,248,240,0.85)",
+            color: "rgba(44,34,26,0.75)",
           }}
         >
           Portico di Romagna · {t.hero.date}
@@ -1607,7 +1606,7 @@ export default function Home() {
       </section>
 
       {/* ============ FOOTER ============ */}
-      <footer className="ltw-section-pad" style={{ background: DARKEST, color: CREAM, padding: "64px 40px 36px" }}>
+      <footer className="ltw-section-pad" style={{ background: SAND, color: INK, borderTop: "1px solid rgba(44,34,26,0.15)", padding: "64px 40px 36px" }}>
         <div style={{ maxWidth: 1400, margin: "0 auto" }}>
           <div className="ltw-footer-grid">
             <div>
@@ -1617,9 +1616,9 @@ export default function Home() {
                   alt="Lagotto & Truffle Week"
                   style={{ width: 44, height: 44, borderRadius: "50%", objectFit: "cover" }}
                 />
-                <h3 style={{ margin: 0, fontFamily: crimson, fontWeight: 600, fontSize: 20, color: CREAM }}>Lagotto &amp; Truffle Week</h3>
+                <h3 style={{ margin: 0, fontFamily: crimson, fontWeight: 600, fontSize: 20, color: INK }}>Lagotto &amp; Truffle Week</h3>
               </div>
-              <p style={{ margin: 0, fontSize: 15, lineHeight: 1.6, color: "rgba(255,248,240,0.65)" }}>{t.footer.tagline}</p>
+              <p style={{ margin: 0, fontSize: 15, lineHeight: 1.6, color: "rgba(44,34,26,0.7)" }}>{t.footer.tagline}</p>
             </div>
             <div>
               <h4
@@ -1630,20 +1629,20 @@ export default function Home() {
                   fontSize: 13,
                   letterSpacing: 2,
                   textTransform: "uppercase",
-                  color: "rgba(255,248,240,0.45)",
+                  color: "rgba(44,34,26,0.5)",
                 }}
               >
                 {t.footer.contactHeading}
               </h4>
-              <div style={{ display: "flex", flexDirection: "column", gap: 12, fontSize: 15, color: "rgba(255,248,240,0.8)" }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: 12, fontSize: 15, color: "rgba(44,34,26,0.85)" }}>
                 <span>
-                  +39 334 750 0887 <span style={{ color: "rgba(255,248,240,0.4)", fontSize: 13 }}>{t.footer.hours}</span>
+                  +39 334 750 0887 <span style={{ color: "rgba(44,34,26,0.5)", fontSize: 13 }}>{t.footer.hours}</span>
                 </span>
                 <span>
-                  nico.conte76543@gmail.com <span style={{ color: "rgba(255,248,240,0.4)", fontSize: 13 }}>{t.footer.replyWithin}</span>
+                  nico.conte76543@gmail.com <span style={{ color: "rgba(44,34,26,0.5)", fontSize: 13 }}>{t.footer.replyWithin}</span>
                 </span>
                 <span>
-                  Al Vecchio Convento <span style={{ color: "rgba(255,248,240,0.4)", fontSize: 13 }}>· Portico di Romagna</span>
+                  Al Vecchio Convento <span style={{ color: "rgba(44,34,26,0.5)", fontSize: 13 }}>· Portico di Romagna</span>
                 </span>
               </div>
             </div>
@@ -1656,12 +1655,12 @@ export default function Home() {
                   fontSize: 13,
                   letterSpacing: 2,
                   textTransform: "uppercase",
-                  color: "rgba(255,248,240,0.45)",
+                  color: "rgba(44,34,26,0.5)",
                 }}
               >
                 {t.footer.communityHeading}
               </h4>
-              <p style={{ margin: "0 0 18px", fontSize: 14.5, lineHeight: 1.6, color: "rgba(255,248,240,0.65)" }}>{t.footer.communityText}</p>
+              <p style={{ margin: "0 0 18px", fontSize: 14.5, lineHeight: 1.6, color: "rgba(44,34,26,0.7)" }}>{t.footer.communityText}</p>
               <div style={{ display: "flex", gap: 20 }}>
                 {["Facebook", "Instagram", "YouTube"].map((social) => (
                   <a
@@ -1670,9 +1669,9 @@ export default function Home() {
                     href={social === "Instagram" ? "https://www.instagram.com/nicoletta_truffle/" : "#"}
                     style={{
                       fontSize: 14,
-                      color: "rgba(255,248,240,0.75)",
+                      color: "rgba(44,34,26,0.8)",
                       textDecoration: "none",
-                      borderBottom: "1px solid rgba(255,248,240,0.3)",
+                      borderBottom: "1px solid rgba(44,34,26,0.3)",
                       paddingBottom: 2,
                     }}
                   >
@@ -1684,7 +1683,7 @@ export default function Home() {
           </div>
           <div
             style={{
-              borderTop: "1px solid rgba(255,248,240,0.12)",
+              borderTop: "1px solid rgba(44,34,26,0.15)",
               paddingTop: 26,
               display: "flex",
               justifyContent: "space-between",
@@ -1693,14 +1692,14 @@ export default function Home() {
               gap: 14,
             }}
           >
-            <p style={{ margin: 0, fontSize: 13.5, color: "rgba(255,248,240,0.45)" }}>{t.footer.copyright}</p>
+            <p style={{ margin: 0, fontSize: 13.5, color: "rgba(44,34,26,0.6)" }}>{t.footer.copyright}</p>
             <div style={{ display: "flex", gap: 24 }}>
               {t.footer.legal.map((voce, i) => (
                 <Link
                   key={voce}
                   href={LEGAL_HREFS[i]}
                   className="ltw-footlink"
-                  style={{ fontSize: 13.5, color: "rgba(255,248,240,0.45)", textDecoration: "none" }}
+                  style={{ fontSize: 13.5, color: "rgba(44,34,26,0.6)", textDecoration: "none" }}
                 >
                   {voce}
                 </Link>
