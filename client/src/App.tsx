@@ -1,27 +1,34 @@
-import { Switch, Route } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { LanguageProvider } from "@/components/language-provider";
-import ComingSoon from "@/pages/coming-soon";
-import Home from "@/pages/home";
+// LanguageProvider disattivato durante la manutenzione (da ripristinare
+// insieme al Router originale): evita di includere i testi del sito nel bundle.
+// import { LanguageProvider } from "@/components/language-provider";
 import Maintenance from "@/pages/maintenance";
-import NotFound from "@/pages/not-found";
-import PrivacyPolicy from "@/pages/privacy-policy";
-import CookiePolicy from "@/pages/cookie-policy";
-import Terms from "@/pages/terms";
 // MUI Theme integration
 import { ThemeProvider as MuiThemeProvider, createTheme, responsiveFontSizes } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 
-// Metti a false per ripubblicare il sito completo
-const MODALITA_MANUTENZIONE = true;
+// ============ SITO IN MANUTENZIONE ============
+// Il sito completo e' temporaneamente offline: nessuna pagina (home compresa)
+// viene inclusa nella build, online c'e' solo la pagina di cortesia.
+// Per ripubblicare il sito: elimina la funzione Router qui sotto e
+// ripristina il blocco commentato.
+function Router() {
+  return <Maintenance />;
+}
+
+/* ————— ROUTER ORIGINALE, da ripristinare per ripubblicare il sito —————
+import { Switch, Route } from "wouter";
+import ComingSoon from "@/pages/coming-soon";
+import Home from "@/pages/home";
+import NotFound from "@/pages/not-found";
+import PrivacyPolicy from "@/pages/privacy-policy";
+import CookiePolicy from "@/pages/cookie-policy";
+import Terms from "@/pages/terms";
 
 function Router() {
-  if (MODALITA_MANUTENZIONE) {
-    return <Maintenance />;
-  }
   return (
     <Switch>
       <Route path="/" component={Home} />
@@ -33,6 +40,7 @@ function Router() {
     </Switch>
   );
 }
+————————————————————————————————————————————————————————————————————— */
 
 // Simplified MUI theme without dark mode
 const muiTheme = responsiveFontSizes(createTheme({
@@ -72,12 +80,10 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <MuiThemeProvider theme={muiTheme}>
         <CssBaseline />
-        <LanguageProvider>
-          <TooltipProvider>
-            <Toaster />
-            <Router />
-          </TooltipProvider>
-        </LanguageProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Router />
+        </TooltipProvider>
       </MuiThemeProvider>
     </QueryClientProvider>
   );
