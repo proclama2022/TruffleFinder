@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { LanguageProvider } from "@/components/language-provider";
 import ComingSoon from "@/pages/coming-soon";
 import Home from "@/pages/home";
+import Maintenance from "@/pages/maintenance";
 import NotFound from "@/pages/not-found";
 import PrivacyPolicy from "@/pages/privacy-policy";
 import CookiePolicy from "@/pages/cookie-policy";
@@ -14,7 +15,13 @@ import Terms from "@/pages/terms";
 import { ThemeProvider as MuiThemeProvider, createTheme, responsiveFontSizes } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 
+// Metti a false per ripubblicare il sito completo
+const MODALITA_MANUTENZIONE = true;
+
 function Router() {
+  if (MODALITA_MANUTENZIONE) {
+    return <Maintenance />;
+  }
   return (
     <Switch>
       <Route path="/" component={Home} />
