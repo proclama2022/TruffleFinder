@@ -1,7 +1,7 @@
-# Piano di Allineamento UI/UX per Lagotto & Truffle Week
+# Piano di Allineamento UI/UX per Truffle Camp
 
 ## Introduzione
-Questo documento presenta un piano dettagliato per allineare l'interfaccia utente e l'esperienza utente del sito "Lagotto & Truffle Week" alle specifiche definite nel design guide. L'analisi ha rivelato diverse discrepanze tra l'implementazione attuale e le linee guida di design, che devono essere corrette per garantire coerenza visiva e esperienza utente ottimale.
+Questo documento presenta un piano dettagliato per allineare l'interfaccia utente e l'esperienza utente del sito "Truffle Camp" alle specifiche definite nel design guide. L'analisi ha rivelato diverse discrepanze tra l'implementazione attuale e le linee guida di design, che devono essere corrette per garantire coerenza visiva e esperienza utente ottimale.
 
 ## Discrepanze Identificate
 

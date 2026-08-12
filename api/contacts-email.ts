@@ -63,7 +63,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const htmlContent = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f9f9f9;">
         <div style="background-color: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-          <h2 style="color: #d97706; margin-bottom: 20px; text-align: center;">Nuovo Contatto - Lagotto Truffle Week</h2>
+          <h2 style="color: #2F4A2B; margin-bottom: 20px; text-align: center;">Nuovo Contatto - Truffle Camp</h2>
 
           <div style="margin: 20px 0;">
             <h3 style="color: #374151; margin-bottom: 10px;">Dettagli Contatto</h3>
@@ -89,7 +89,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
           <div style="margin: 20px 0;">
             <h3 style="color: #374151; margin-bottom: 10px;">Messaggio</h3>
-            <div style="background-color: #f3f4f6; padding: 15px; border-radius: 5px; border-left: 4px solid #d97706;">
+            <div style="background-color: #f3f4f6; padding: 15px; border-radius: 5px; border-left: 4px solid #2F4A2B;">
               ${contact.message.replace(/\n/g, '<br>')}
             </div>
           </div>
@@ -97,14 +97,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           <hr style="border: none; border-top: 1px solid #e5e7eb; margin: 20px 0;">
 
           <p style="color: #6b7280; font-size: 14px; text-align: center;">
-            Inviato dal sito Lagotto Truffle Week - ${new Date().toLocaleString('it-IT')}
+            Inviato dal sito Truffle Camp - ${new Date().toLocaleString('it-IT')}
           </p>
         </div>
       </div>
     `;
 
     const textContent = `
-Nuovo Contatto - Lagotto Truffle Week
+Nuovo Contatto - Truffle Camp
 
 Nome: ${contact.name} ${contact.surname || ''}
 Email: ${contact.email}
@@ -114,7 +114,7 @@ Nome Cane: ${contact.dog_name || 'Non fornito'}
 Messaggio:
 ${contact.message}
 
-Inviato dal sito Lagotto Truffle Week - ${new Date().toLocaleString('it-IT')}
+Inviato dal sito Truffle Camp - ${new Date().toLocaleString('it-IT')}
     `;
 
     const emailTo = process.env.EMAIL_TO || process.env.EMAIL_USER;
@@ -127,7 +127,7 @@ Inviato dal sito Lagotto Truffle Week - ${new Date().toLocaleString('it-IT')}
     await transporter.sendMail({
       from: process.env.EMAIL_FROM || process.env.EMAIL_USER,
       to: emailTo,
-      subject: `Nuovo contatto da ${contact.name} - Lagotto Truffle Week`,
+      subject: `Nuovo contatto da ${contact.name} - Truffle Camp`,
       text: textContent,
       html: htmlContent,
     });

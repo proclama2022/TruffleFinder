@@ -59,7 +59,7 @@ export function Navigation() {
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-amber-400/20 to-amber-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <img
                   src={logoImage}
-                  alt="Lagotto & Truffle Week"
+                  alt="Truffle Camp"
                   className="w-full h-full object-cover rounded-2xl relative z-10"
                 />
               </div>

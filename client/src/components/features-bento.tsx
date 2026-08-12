@@ -69,7 +69,7 @@ export function FeaturesBento() {
           </h2>
           
           <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
-            Discover what makes our Lagotto & Truffle Week the most comprehensive and authentic experience in Italy.
+            Discover what makes our Truffle Camp the most comprehensive and authentic experience in Italy.
           </p>
         </div>
 

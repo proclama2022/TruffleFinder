@@ -1,8 +1,8 @@
-# Guida Design One-Page: Lagotto & Truffle Week
+# Guida Design One-Page: Truffle Camp
 
 ## Panoramica Generale
 
-Sito one-page per la "Lagotto & Truffle Week" 2025 - un'esperienza immersiva che scorre verticalmente attraverso tutte le sezioni, dall'hero iniziale fino ai contatti finali, con navigazione fluida tramite scroll e menu ancorato.
+Sito one-page per la "Truffle Camp" 2025 - un'esperienza immersiva che scorre verticalmente attraverso tutte le sezioni, dall'hero iniziale fino ai contatti finali, con navigazione fluida tramite scroll e menu ancorato.
 
 ## Palette Cromatica
 
@@ -229,4 +229,4 @@ Sito one-page per la "Lagotto & Truffle Week" 2025 - un'esperienza immersiva che
 - **Option 2**: Tailwind CSS per utility-first approach
 - **Components**: Styled-components o CSS Modules per scoping
 
-Questa guida fornisce una base solida per implementare il sito one-page per Lagotto & Truffle Week, mantenendo focus su UX moderna, performance e brand identity coerente.
+Questa guida fornisce una base solida per implementare il sito one-page per Truffle Camp, mantenendo focus su UX moderna, performance e brand identity coerente.

@@ -289,7 +289,7 @@ export function ActivitiesGrid() {
             Esperienze Visive
           </h2>
           <p className="text-xl lg:text-2xl text-[var(--primary)] dark:text-gray-300 max-w-4xl mx-auto leading-relaxed font-body">
-            Scopri la Lagotto & Truffle Week attraverso la nostra Bento Grid moderna
+            Scopri il Truffle Camp attraverso la nostra Bento Grid moderna
           </p>
         </div>
 

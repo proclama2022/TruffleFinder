@@ -4,8 +4,8 @@
 The about-section.tsx file contains hardcoded Italian text in the accordion sections that needs to be translated.
 
 ## Hardcoded Text Found:
-1. Line 95: "La Lagotto & Truffle Week nasce dalla passione per il Lagotto Romagnolo e l'arte della ricerca del tartufo, riunendo ogni anno appassionati, cinofili ed esperti nelle splendide colline dell'Appennino Tosco-Romagnolo."
-2. Line 98: "La prima edizione ha gettato le basi per una manifestazione ricca di emozioni, cultura cinofila e condivisione. Ogni anno la Truffle Week si rinnova, coinvolgendo nuovi ospiti e rafforzando la collaborazione con associazioni e operatori locali."
+1. Line 95: "Il Truffle Camp nasce dalla passione per il Lagotto Romagnolo e l'arte della ricerca del tartufo, riunendo ogni anno appassionati, cinofili ed esperti nelle splendide colline dell'Appennino Tosco-Romagnolo."
+2. Line 98: "La prima edizione ha gettato le basi per una manifestazione ricca di emozioni, cultura cinofila e condivisione. Ogni anno la Truffle Camp si rinnova, coinvolgendo nuovi ospiti e rafforzando la collaborazione con associazioni e operatori locali."
 3. Line 112: "Partecipanti da tutta Europa"
 4. Line 118: "Negli anni abbiamo visto partecipanti provenire da tutta Europa – Lituania, Inghilterra, Polonia, Slovacchia, Svizzera, Francia e perfino dall'Australia – tutti accomunati dal desiderio di vivere un'esperienza autentica, tra natura, formazione e convivialità."
 5. Line 131: "Sessioni esperienziali uniche"

@@ -76,10 +76,10 @@ useEffect(() => {
           <div className="space-y-4 sm:space-y-6 text-center">
             <h1 className="text-4xl sm:text-6xl md:text-8xl font-headline font-black leading-tight hero-title text-clip-safe">
               <span className="block text-white drop-shadow-2xl shadow-black/50 py-1 sm:py-2">
-                Lagotto
+                Truffle
               </span>
               <span className="block text-2xl sm:text-4xl md:text-6xl font-subtitle bg-gradient-to-r from-[var(--accent)] via-[var(--secondary)] to-[var(--accent)] bg-clip-text text-transparent drop-shadow-lg shadow-black/30 font-bold py-1 sm:py-2">
-                & Truffle Week
+                Camp
               </span>
             </h1>
             

@@ -214,10 +214,10 @@ export function HeroSectionMUI() {
                           pb: 0.25
                         }}
                       >
-                        Lagotto
+                        Truffle
                       </Typography>
                       {/* Logo accanto al titolo */}
-                      <Box component="img" src={"/images/gallery/logo.jpg"} alt="Lagotto & Truffle Week" sx={{ width: { xs: 40, md: 56 }, height: { xs: 40, md: 56 }, borderRadius: 2, boxShadow: 2 }} />
+                      <Box component="img" src={"/images/gallery/logo.jpg"} alt="Truffle Camp" sx={{ width: { xs: 40, md: 56 }, height: { xs: 40, md: 56 }, borderRadius: 2, boxShadow: 2 }} />
                     </Stack>
                     
                     <Stack direction="row" spacing={2} alignItems="center">
@@ -239,7 +239,7 @@ export function HeroSectionMUI() {
                         pb: 0.2
                       }}
                     >
-                      & Truffle Week
+                      Camp
                     </Typography>
                   </Stack>
                 </CardContent>

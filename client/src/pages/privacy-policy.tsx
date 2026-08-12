@@ -5,12 +5,12 @@ export default function PrivacyPolicy() {
     <LegalPage
       title="Informativa sulla Privacy"
       updated="4 luglio 2026"
-      intro="Questa informativa descrive come Lagotto & Truffle Week raccoglie e utilizza i dati personali degli utenti del sito, in conformità al Regolamento (UE) 2016/679 (GDPR)."
+      intro="Questa informativa descrive come Truffle Camp raccoglie e utilizza i dati personali degli utenti del sito, in conformità al Regolamento (UE) 2016/679 (GDPR)."
       sections={[
         {
           heading: "Titolare del trattamento",
           paragraphs: [
-            "Il titolare del trattamento è Nicoletta Conte, organizzatrice di Lagotto & Truffle Week, con sede dell'evento a Portico di Romagna, Al Vecchio Convento.",
+            "Il titolare del trattamento è Nicoletta Conte, organizzatrice di Truffle Camp, con sede dell'evento a Portico di Romagna, Al Vecchio Convento.",
             "Per qualsiasi richiesta relativa ai dati personali è possibile scrivere a nico.conte76543@gmail.com o chiamare il numero +39 334 750 0887.",
           ],
         },
@@ -29,7 +29,7 @@ export default function PrivacyPolicy() {
         {
           heading: "Finalità e base giuridica del trattamento",
           paragraphs: [
-            "I dati raccolti tramite il modulo di contatto sono utilizzati esclusivamente per rispondere alle richieste di informazioni e di prenotazione relative a Lagotto & Truffle Week.",
+            "I dati raccolti tramite il modulo di contatto sono utilizzati esclusivamente per rispondere alle richieste di informazioni e di prenotazione relative a Truffle Camp.",
             "La base giuridica del trattamento è l'esecuzione di misure precontrattuali adottate su richiesta dell'interessato (art. 6.1.b GDPR), oltre al consenso implicito nell'invio volontario del modulo.",
           ],
         },
@@ -37,7 +37,7 @@ export default function PrivacyPolicy() {
           heading: "Come vengono trattati i dati",
           paragraphs: [
             "I messaggi inviati dal modulo di contatto vengono trasmessi in modo sicuro a un servizio di automazione (Make.com), utilizzato per instradare le richieste all'organizzazione dell'evento. I dati non vengono ceduti, venduti o comunicati a terzi per finalità di marketing.",
-            "Durante l'evento potranno essere scattate fotografie e video utilizzati a scopo promozionale sul sito e sui canali social di Lagotto & Truffle Week; i dettagli sono descritti nei Termini e Condizioni.",
+            "Durante l'evento potranno essere scattate fotografie e video utilizzati a scopo promozionale sul sito e sui canali social di Truffle Camp; i dettagli sono descritti nei Termini e Condizioni.",
           ],
         },
         {

@@ -1,7 +1,6 @@
 import { Link } from "wouter";
-import { CREAM, INK, GOLD, OLIVE, BROWN, DARKEST, grotesk, crimson, satoshi } from "@/lib/theme";
-
-const IMG = "/images/gallery/";
+import { BrandLockup } from "@/components/brand-logo";
+import { CREAM, INK, FOREST, MOSS, DARKEST, creamA, inkA, grotesk, crimson, satoshi } from "@/lib/theme";
 
 export type LegalSection = {
   heading: string;
@@ -22,7 +21,7 @@ export function LegalPage({
 }) {
   return (
     <div style={{ minHeight: "100vh", background: CREAM, fontFamily: satoshi, color: INK }}>
-      <nav style={{ background: INK, padding: "0 40px" }}>
+      <nav style={{ background: FOREST, padding: "0 40px" }}>
         <div
           style={{
             maxWidth: 900,
@@ -33,24 +32,8 @@ export function LegalPage({
             justifyContent: "space-between",
           }}
         >
-          <Link href="/" style={{ display: "flex", alignItems: "center", gap: 12, textDecoration: "none" }}>
-            <img
-              src={`${IMG}logo.jpg`}
-              alt="Lagotto & Truffle Week"
-              style={{ width: 36, height: 36, borderRadius: "50%", objectFit: "cover" }}
-            />
-            <span
-              style={{
-                fontFamily: grotesk,
-                fontWeight: 700,
-                fontSize: 14,
-                letterSpacing: 1,
-                textTransform: "uppercase",
-                color: CREAM,
-              }}
-            >
-              Lagotto &amp; Truffle Week
-            </span>
+          <Link href="/" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
+            <BrandLockup size={38} ring={CREAM} color={CREAM} subColor={creamA(0.65)} />
           </Link>
           <Link
             href="/"
@@ -60,7 +43,7 @@ export function LegalPage({
               fontSize: 13,
               letterSpacing: 1,
               textTransform: "uppercase",
-              color: "rgba(255,248,240,0.75)",
+              color: creamA(0.75),
               textDecoration: "none",
             }}
           >
@@ -91,14 +74,14 @@ export function LegalPage({
             fontWeight: 600,
             letterSpacing: 1.5,
             textTransform: "uppercase",
-            color: OLIVE,
+            color: MOSS,
           }}
         >
           Ultimo aggiornamento: {updated}
         </p>
 
         {intro && (
-          <p style={{ margin: "0 0 48px", fontSize: 18, lineHeight: 1.7, color: "rgba(44,34,26,0.8)" }}>{intro}</p>
+          <p style={{ margin: "0 0 48px", fontSize: 18, lineHeight: 1.7, color: inkA(0.8) }}>{intro}</p>
         )}
 
         {sections.map((s) => (
@@ -110,21 +93,21 @@ export function LegalPage({
                 fontWeight: 600,
                 fontSize: 26,
                 color: INK,
-                borderBottom: "2px solid rgba(44,34,26,0.15)",
+                borderBottom: `2px solid ${inkA(0.15)}`,
                 paddingBottom: 12,
               }}
             >
               {s.heading}
             </h2>
             {s.paragraphs?.map((p, i) => (
-              <p key={i} style={{ margin: "0 0 14px", fontSize: 16, lineHeight: 1.75, color: "rgba(44,34,26,0.8)" }}>
+              <p key={i} style={{ margin: "0 0 14px", fontSize: 16, lineHeight: 1.75, color: inkA(0.8) }}>
                 {p}
               </p>
             ))}
             {s.bullets && (
               <ul style={{ margin: "0 0 14px", paddingLeft: 22, display: "flex", flexDirection: "column", gap: 8 }}>
                 {s.bullets.map((b, i) => (
-                  <li key={i} style={{ fontSize: 16, lineHeight: 1.7, color: "rgba(44,34,26,0.8)" }}>
+                  <li key={i} style={{ fontSize: 16, lineHeight: 1.7, color: inkA(0.8) }}>
                     {b}
                   </li>
                 ))}
@@ -146,8 +129,8 @@ export function LegalPage({
             gap: 14,
           }}
         >
-          <p style={{ margin: 0, fontSize: 13.5, color: "rgba(255,248,240,0.45)" }}>
-            © 2026 Lagotto &amp; Truffle Week. Tutti i diritti riservati.
+          <p style={{ margin: 0, fontSize: 13.5, color: creamA(0.45) }}>
+            © 2026 Truffle Camp · Nicoletta Conte. Tutti i diritti riservati.
           </p>
           <div style={{ display: "flex", gap: 24 }}>
             {[
@@ -158,7 +141,7 @@ export function LegalPage({
               <Link
                 key={l.href}
                 href={l.href}
-                style={{ fontSize: 13.5, color: "rgba(255,248,240,0.45)", textDecoration: "none" }}
+                style={{ fontSize: 13.5, color: creamA(0.45), textDecoration: "none" }}
               >
                 {l.label}
               </Link>

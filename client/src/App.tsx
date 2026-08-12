@@ -46,8 +46,10 @@ function Router() {
 const muiTheme = responsiveFontSizes(createTheme({
   palette: {
     mode: "light",
-    primary: { main: "#d97706" }, // amber 600-like
-    secondary: { main: "#0ea5e9" }, // sky 500-like
+    primary: { main: "#2F4A2B" }, // verde bosco del logo
+    secondary: { main: "#6B4A2E" }, // marrone della firma Nicoletta Conte
+    background: { default: "#FAF3E7", paper: "#FAF3E7" }, // crema del logo
+    text: { primary: "#22301D" },
   },
   typography: {
     fontFamily: [

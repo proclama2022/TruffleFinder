@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <title>Truffle Camp</title>
+  <circle cx="100" cy="100" r="98" fill="#FAF3E7"/>
+  <circle cx="100" cy="100" r="88" fill="none" stroke="#2F4A2B" stroke-width="11"/>
+  <g transform="translate(100,102) scale(1.42) translate(-100,-102)">
+    <path d="M 63,90 C 52,86 50,72 59,68 C 66,65 71,71 67,76" fill="none" stroke="#2F4A2B" stroke-width="7" stroke-linecap="round"/>
+    <rect x="68" y="94" width="8" height="26" rx="4" fill="#2F4A2B"/>
+    <rect x="79" y="94" width="8" height="26" rx="4" fill="#2F4A2B"/>
+    <rect x="95" y="94" width="8" height="26" rx="4" fill="#2F4A2B"/>
+    <rect x="105" y="94" width="8" height="26" rx="4" fill="#2F4A2B"/>
+    <ellipse cx="86" cy="91" rx="27" ry="18" fill="#2F4A2B" transform="rotate(-7 86 91)"/>
+    <ellipse cx="112" cy="102" rx="11" ry="16" fill="#2F4A2B" transform="rotate(-28 112 102)"/>
+    <ellipse cx="120" cy="113" rx="8" ry="7" fill="#2F4A2B"/>
+    <ellipse cx="106" cy="104" rx="8" ry="12" fill="#2F4A2B" transform="rotate(-15 106 104)"/>
+    <path d="M 44,120 L 104,120 C 114,120 116,129 126,129 C 136,129 142,124 156,120" fill="none" stroke="#2F4A2B" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="128" cy="129" r="7.5" fill="#B08A4E"/>
+  </g>
+</svg>

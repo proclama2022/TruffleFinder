@@ -1,5 +1,6 @@
 import { useEffect } from "react";
-import { CREAM, INK, BROWN, OLIVE, grotesk, crimson, satoshi } from "@/lib/theme";
+import { BrandLogo } from "@/components/brand-logo";
+import { CREAM, HAZE, INK, BROWN, MOSS, inkA, grotesk, crimson, satoshi } from "@/lib/theme";
 
 export default function Maintenance() {
   useEffect(() => {
@@ -23,11 +24,12 @@ export default function Maintenance() {
         gap: 22,
         padding: "40px 24px",
         textAlign: "center",
-        background: `radial-gradient(ellipse at 50% 30%, ${CREAM} 0%, #EDDDC5 85%)`,
+        background: `radial-gradient(ellipse at 50% 30%, ${CREAM} 0%, ${HAZE} 85%)`,
         fontFamily: satoshi,
         color: INK,
       }}
     >
+      <BrandLogo size={150} style={{ marginBottom: 6 }} />
       <p
         style={{
           margin: 0,
@@ -36,7 +38,7 @@ export default function Maintenance() {
           fontWeight: 700,
           letterSpacing: 3.5,
           textTransform: "uppercase",
-          color: OLIVE,
+          color: MOSS,
         }}
       >
         Torneremo presto · We'll be back soon
@@ -54,12 +56,12 @@ export default function Maintenance() {
       >
         Sito in <em style={{ fontWeight: 500, color: BROWN }}>manutenzione</em>
       </h1>
-      <p style={{ margin: 0, maxWidth: 520, fontSize: 17, lineHeight: 1.65, color: "rgba(44,34,26,0.7)" }}>
+      <p style={{ margin: 0, maxWidth: 520, fontSize: 17, lineHeight: 1.65, color: inkA(0.7) }}>
         Stiamo lavorando per voi: il sito tornerà online a breve.
         <br />
         We're working on it: the website will be back online shortly.
       </p>
-      <div style={{ width: 64, height: 2, background: "rgba(44,34,26,0.25)", marginTop: 8 }} />
+      <div style={{ width: 64, height: 2, background: inkA(0.25), marginTop: 8 }} />
     </div>
   );
 }

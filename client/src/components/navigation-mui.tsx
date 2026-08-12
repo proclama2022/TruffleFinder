@@ -57,10 +57,10 @@ export function NavigationMUI() {
         <Toolbar disableGutters sx={{ minHeight: { xs: 64, md: 80 }, px: { xs: 1, md: 2 } }}>
           {/* Logo + Brand */}
           <Box sx={{ display: "flex", alignItems: "center", gap: { xs: 1, md: 1.5 }, mr: 2 }}>
-            <Box component="img" src={logoImage} alt="Lagotto & Truffle Week" sx={{ width: { xs: 40, md: 48 }, height: { xs: 40, md: 48 }, borderRadius: 2 }} />
+            <Box component="img" src={logoImage} alt="Truffle Camp" sx={{ width: { xs: 40, md: 48 }, height: { xs: 40, md: 48 }, borderRadius: 2 }} />
             <Box sx={{ display: { xs: 'none', md: 'block' } }}>
               <Typography variant="h6" noWrap sx={{ fontWeight: 800, lineHeight: 1.25, pb: 0.25 }}>
-                Lagotto & Truffle Week
+                Truffle Camp
               </Typography>
             </Box>
           </Box>
@@ -139,8 +139,8 @@ export function NavigationMUI() {
       >
         <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 1 }}>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-            <Box component="img" src={logoImage} alt="Lagotto & Truffle Week" sx={{ width: 32, height: 32, borderRadius: 1 }} />
-            <Typography variant="subtitle1" fontWeight={700}>Lagotto & Truffle Week</Typography>
+            <Box component="img" src={logoImage} alt="Truffle Camp" sx={{ width: 32, height: 32, borderRadius: 1 }} />
+            <Typography variant="subtitle1" fontWeight={700}>Truffle Camp</Typography>
           </Box>
           <IconButton onClick={handleCloseNavMenu} aria-label="Close menu">
             <CloseIcon />

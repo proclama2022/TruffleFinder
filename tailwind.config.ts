@@ -44,6 +44,18 @@ export default {
         border: "var(--border)",
         input: "var(--input)",
         ring: "var(--ring)",
+        // Token di brand Truffle Camp, campionati dal logo
+        brand: {
+          cream: "#FAF3E7",
+          sand: "#F1E5CF",
+          ink: "#22301D",
+          forest: "#2F4A2B",
+          "forest-light": "#3D5F37",
+          moss: "#5F7D4C",
+          brown: "#6B4A2E",
+          truffle: "#B08A4E",
+          darkest: "#18220F",
+        },
         chart: {
           "1": "var(--chart-1)",
           "2": "var(--chart-2)",
@@ -85,9 +97,11 @@ export default {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       fontFamily: {
-        headline: ['Instrument Serif', 'serif'],
-        body: ['Instrument Serif', 'serif'],
-        display: ['Instrument Serif', 'serif'],
+        // Stessa scala tipografica usata dal design token-driven in lib/theme.ts
+        headline: ['Crimson Pro', 'serif'],
+        display: ['Crimson Pro', 'serif'],
+        subtitle: ['Space Grotesk', 'sans-serif'],
+        body: ['Satoshi', 'sans-serif'],
       },
     },
   },

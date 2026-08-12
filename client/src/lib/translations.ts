@@ -328,7 +328,7 @@ const itTranslations: TranslationStructure = {
   teamSection: {
     title: "Il Nostro Team di Esperti",
     nicolettaRole: "Fondatrice & Esperta di Lagotto",
-    nicolettaDescription: "Nicoletta è la mente e il cuore dietro Lagotto & Truffle Week. Con anni di esperienza nell'allevamento e nell'addestramento di Lagotto Romagnolo, la sua passione per i cani e la ricerca del tartufo è contagiosa. Guida ogni partecipante attraverso un'esperienza autentica e indimenticabile.",
+    nicolettaDescription: "Nicoletta è la mente e il cuore dietro Truffle Camp. Con anni di esperienza nell'allevamento e nell'addestramento di Lagotto Romagnolo, la sua passione per i cani e la ricerca del tartufo è contagiosa. Guida ogni partecipante attraverso un'esperienza autentica e indimenticabile.",
   },
   
   // About Section additional
@@ -383,8 +383,8 @@ const itTranslations: TranslationStructure = {
   step5AdvancedTechniques: "Passo 5: Tecniche Avanzate",
   
   // Contact and Event Info
-  lagottoTruffleWeek: "Lagotto & Truffle Week",
-  lagottoTruffleWeekBirth: "Lagotto & Truffle Week - La Nascita",
+  lagottoTruffleWeek: "Truffle Camp",
+  lagottoTruffleWeekBirth: "Truffle Camp - La Nascita",
   phoneNumber: "+39 334 750 0887",
   emailAddress: "nico.conte76543@gmail.com",
   alVecchioConvento: "Al Vecchio Convento",
@@ -419,7 +419,7 @@ const itTranslations: TranslationStructure = {
   // Footer
   quickLinks: "Link Rapidi",
   followUs: "Seguici",
-  allRightsReserved: "© 2025 Lagotto & Truffle Week. Tutti i diritti riservati.",
+  allRightsReserved: "© 2025 Truffle Camp. Tutti i diritti riservati.",
   
   // Messages
   messageSent: "Messaggio inviato con successo!",
@@ -497,7 +497,7 @@ const itTranslations: TranslationStructure = {
   
   // Team Section additional
   meetTheExpert: "Incontra l'Esperta",
-  heartAndSoul: "Il cuore e l'anima dietro Lagotto & Truffle Week",
+  heartAndSoul: "Il cuore e l'anima dietro Truffle Camp",
   yearsExperience: "15+ anni di esperienza",
   expertise: "Competenze",
   professionalTraining: "Addestramento professionale Lagotto Romagnolo",
@@ -508,8 +508,8 @@ const itTranslations: TranslationStructure = {
   passionateAbout: "Appassionata di Lagotto Romagnolo e ricerca tartufi",
   
   // About Section additional
-  lagottoTruffleWeekStory: "La Lagotto & Truffle Week nasce dalla passione per il Lagotto Romagnolo e l'arte della ricerca del tartufo, riunendo ogni anno appassionati, cinofili ed esperti nelle splendide colline dell'Appennino Tosco-Romagnolo.",
-  firstEditionFoundation: "La prima edizione ha gettato le basi per una manifestazione ricca di emozioni, cultura cinofila e condivisione. Ogni anno la Truffle Week si rinnova, coinvolgendo nuovi ospiti e rafforzando la collaborazione con associazioni e operatori locali.",
+  lagottoTruffleWeekStory: "Il Truffle Camp nasce dalla passione per il Lagotto Romagnolo e l'arte della ricerca del tartufo, riunendo ogni anno appassionati, cinofili ed esperti nelle splendide colline dell'Appennino Tosco-Romagnolo.",
+  firstEditionFoundation: "La prima edizione ha gettato le basi per una manifestazione ricca di emozioni, cultura cinofila e condivisione. Ogni anno il Truffle Camp si rinnova, coinvolgendo nuovi ospiti e rafforzando la collaborazione con associazioni e operatori locali.",
   participantsFromEurope: "Partecipanti da tutta Europa",
   europeanCommunityDescription: "Negli anni abbiamo visto partecipanti provenire da tutta Europa – Lituania, Inghilterra, Polonia, Slovacchia, Svizzera, Francia e perfino dall'Australia – tutti accomunati dal desiderio di vivere un'esperienza autentica, tra natura, formazione e convivialità.",
   uniqueExperientialSessions: "Sessioni esperienziali uniche",
@@ -588,7 +588,7 @@ const enTranslations: TranslationStructure = {
   teamSection: {
     title: "Our Team of Experts",
     nicolettaRole: "Founder & Lagotto Expert",
-    nicolettaDescription: "Nicoletta is the mind and heart behind Lagotto & Truffle Week. With years of experience in breeding and training Lagotto Romagnolo, her passion for dogs and truffle hunting is contagious. She guides every participant through an authentic and unforgettable experience.",
+    nicolettaDescription: "Nicoletta is the mind and heart behind Truffle Camp. With years of experience in breeding and training Lagotto Romagnolo, her passion for dogs and truffle hunting is contagious. She guides every participant through an authentic and unforgettable experience.",
   },
   
   // About Section additional
@@ -643,8 +643,8 @@ const enTranslations: TranslationStructure = {
   step5AdvancedTechniques: "Step 5: Advanced Techniques",
   
   // Contact and Event Info
-  lagottoTruffleWeek: "Lagotto & Truffle Week",
-  lagottoTruffleWeekBirth: "Lagotto & Truffle Week - The Birth",
+  lagottoTruffleWeek: "Truffle Camp",
+  lagottoTruffleWeekBirth: "Truffle Camp - The Birth",
   phoneNumber: "+39 334 750 0887",
   emailAddress: "nico.conte76543@gmail.com",
   alVecchioConvento: "Al Vecchio Convento",
@@ -679,7 +679,7 @@ const enTranslations: TranslationStructure = {
   // Footer
   quickLinks: "Quick Links",
   followUs: "Follow Us",
-  allRightsReserved: "© 2025 Lagotto & Truffle Week. All rights reserved.",
+  allRightsReserved: "© 2025 Truffle Camp. All rights reserved.",
   
   // Messages
   messageSent: "Message sent successfully!",
@@ -757,7 +757,7 @@ const enTranslations: TranslationStructure = {
   
   // Team Section additional
   meetTheExpert: "Meet the Expert",
-  heartAndSoul: "The heart and soul behind Lagotto & Truffle Week",
+  heartAndSoul: "The heart and soul behind Truffle Camp",
   yearsExperience: "15+ Years Experience",
   expertise: "Expertise",
   professionalTraining: "Professional Lagotto Romagnolo Training",
@@ -768,8 +768,8 @@ const enTranslations: TranslationStructure = {
   passionateAbout: "Passionate about Lagotto Romagnolo & Truffle Hunting",
   
   // About Section additional
-  lagottoTruffleWeekStory: "Lagotto & Truffle Week was born from a passion for the Lagotto Romagnolo and the art of truffle hunting, bringing together enthusiasts, dog lovers and experts every year in the beautiful hills of the Tuscan-Romagna Apennines.",
-  firstEditionFoundation: "The first edition laid the foundations for an event full of emotions, dog culture and sharing. Every year the Truffle Week renews itself, involving new guests and strengthening collaboration with associations and local operators.",
+  lagottoTruffleWeekStory: "Truffle Camp was born from a passion for the Lagotto Romagnolo and the art of truffle hunting, bringing together enthusiasts, dog lovers and experts every year in the beautiful hills of the Tuscan-Romagna Apennines.",
+  firstEditionFoundation: "The first edition laid the foundations for an event full of emotions, dog culture and sharing. Every year Truffle Camp renews itself, involving new guests and strengthening collaboration with associations and local operators.",
   participantsFromEurope: "Participants from all over Europe",
   europeanCommunityDescription: "Over the years we have seen participants come from all over Europe – Lithuania, England, Poland, Slovakia, Switzerland, France and even from Australia – all united by the desire to live an authentic experience, between nature, training and conviviality.",
   uniqueExperientialSessions: "Unique experiential sessions",

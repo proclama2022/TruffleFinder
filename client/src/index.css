@@ -78,10 +78,10 @@ body {
 
 @keyframes pulseGlow {
   from {
-    text-shadow: 0 0 20px rgba(245, 158, 11, 0.5);
+    text-shadow: 0 0 20px rgba(176, 138, 78, 0.5);
   }
   to {
-    text-shadow: 0 0 30px rgba(245, 158, 11, 0.8), 0 0 40px rgba(245, 158, 11, 0.3);
+    text-shadow: 0 0 30px rgba(47, 74, 43, 0.8), 0 0 40px rgba(245, 158, 11, 0.3);
   }
 }
 
@@ -138,12 +138,12 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(245, 158, 11, 0.6);
+  background: rgba(47, 74, 43, 0.55);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(245, 158, 11, 0.8);
+  background: rgba(47, 74, 43, 0.8);
 }
 
 /* Dark mode scrollbar */
@@ -152,16 +152,16 @@ html {
 }
 
 .dark ::-webkit-scrollbar-thumb {
-  background: rgba(245, 158, 11, 0.4);
+  background: rgba(47, 74, 43, 0.4);
 }
 
 .dark ::-webkit-scrollbar-thumb:hover {
-  background: rgba(245, 158, 11, 0.6);
+  background: rgba(47, 74, 43, 0.55);
 }
 
 :root {
-  /* Palette Cromatica Aggiornata - Tema Tartufo */
-  --background: #FFF8F0; /* Testi generici e fondi neutri */
+  /* Palette Truffle Camp - campionata dal logo (verde bosco / marrone / crema) */
+  --background: #FAF3E7; /* Crema del logo: fondo di tutte le sezioni */
   --foreground: hsl(25, 20%, 8%);
   --muted: hsl(35, 15%, 88%);
   --muted-foreground: hsl(25, 12%, 45%);
@@ -171,39 +171,41 @@ html {
   --card-foreground: hsl(25, 20%, 8%);
   --border: hsl(35, 20%, 85%);
   --input: hsl(35, 20%, 85%);
-  --primary: #5B4636; /* Marrone tartufo intenso */
+  --primary: #2F4A2B; /* Verde bosco del logo */
   --primary-foreground: hsl(35, 15%, 96%);
-  --secondary: #B8A274; /* Beige/truffle gold */
+  --secondary: #6B4A2E; /* Marrone della firma Nicoletta Conte */
   --secondary-foreground: hsl(25, 20%, 8%);
-  --accent: #E9C46A; /* Giallo crema per highlight */
+  --accent: #B08A4E; /* Ocra del tartufo, micro-accento */
   --accent-foreground: hsl(25, 20%, 12%);
-  --moss: #97A65F; /* Verde Muschio */
+  --moss: #5F7D4C; /* Verde muschio */
   --destructive: hsl(0, 75%, 55%);
   --destructive-foreground: hsl(35, 15%, 96%);
-  --ring: #5B4636; /* Marrone tartufo intenso */
+  --ring: #2F4A2B; /* Verde bosco del logo */
   --radius: 1.2rem;
 }
 
 .dark {
-  --background: hsl(240, 10%, 3.9%);
-  --foreground: hsl(0, 0%, 98%);
-  --muted: hsl(240, 3.7%, 15.9%);
-  --muted-foreground: hsl(240, 5%, 64.9%);
-  --popover: hsl(240, 10%, 3.9%);
-  --popover-foreground: hsl(0, 0%, 98%);
-  --card: hsl(240, 10%, 3.9%);
-  --card-foreground: hsl(0, 0%, 98%);
-  --border: hsl(240, 3.7%, 15.9%);
-  --input: hsl(240, 3.7%, 15.9%);
-  --primary: hsl(25, 62%, 32%);
-  --primary-foreground: hsl(60, 9.1%, 97.8%);
-  --secondary: hsl(43, 80%, 56%);
-  --secondary-foreground: hsl(20, 14.3%, 4.1%);
-  --accent: hsl(240, 3.7%, 15.9%);
-  --accent-foreground: hsl(0, 0%, 98%);
-  --destructive: hsl(0, 62.8%, 30.6%);
-  --destructive-foreground: hsl(0, 0%, 98%);
-  --ring: hsl(240, 4.9%, 83.9%);
+  /* Variante scura sul verde del bosco, non sul grigio neutro */
+  --background: #18220F;
+  --foreground: #FAF3E7;
+  --muted: #22301D;
+  --muted-foreground: rgba(250, 243, 231, 0.6);
+  --popover: #18220F;
+  --popover-foreground: #FAF3E7;
+  --card: #22301D;
+  --card-foreground: #FAF3E7;
+  --border: rgba(250, 243, 231, 0.16);
+  --input: rgba(250, 243, 231, 0.16);
+  --primary: #5F7D4C;
+  --primary-foreground: #FAF3E7;
+  --secondary: #6B4A2E;
+  --secondary-foreground: #FAF3E7;
+  --accent: #B08A4E;
+  --accent-foreground: #18220F;
+  --moss: #5F7D4C;
+  --destructive: hsl(0, 62.8%, 40%);
+  --destructive-foreground: #FAF3E7;
+  --ring: #5F7D4C;
 }
 
 @layer base {
@@ -1163,7 +1165,7 @@ html {
     content: '';
     position: absolute;
     inset: -2px;
-    background: linear-gradient(45deg, #fbbf24, #f59e0b, #d97706, #92400e);
+    background: linear-gradient(45deg, #B08A4E, #6B4A2E, #2F4A2B, #18220F);
     border-radius: inherit;
     z-index: -1;
     opacity: 0;
@@ -1195,7 +1197,7 @@ html {
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(45deg, #f59e0b, #d97706);
+    background: linear-gradient(45deg, #6B4A2E, #2F4A2B);
   }
 
   /* Hero Section Text Fixes */
@@ -1992,7 +1994,7 @@ html, body, #root {
     content: '';
     position: absolute;
     inset: -2px;
-    background: linear-gradient(45deg, #fbbf24, #f59e0b, #d97706, #92400e);
+    background: linear-gradient(45deg, #B08A4E, #6B4A2E, #2F4A2B, #18220F);
     border-radius: inherit;
     z-index: -1;
     opacity: 0;
@@ -2024,7 +2026,7 @@ html, body, #root {
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(45deg, #f59e0b, #d97706);
+    background: linear-gradient(45deg, #6B4A2E, #2F4A2B);
   }
 
   /* Hero Section Text Fixes */

@@ -5,7 +5,7 @@ export default function CookiePolicy() {
     <LegalPage
       title="Politica sui Cookie"
       updated="4 luglio 2026"
-      intro="Questa pagina descrive l'utilizzo di cookie e tecnologie simili sul sito di Lagotto & Truffle Week."
+      intro="Questa pagina descrive l'utilizzo di cookie e tecnologie simili sul sito di Truffle Camp."
       sections={[
         {
           heading: "Cosa sono i cookie",

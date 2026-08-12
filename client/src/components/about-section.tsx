@@ -234,7 +234,7 @@ export function AboutSection() {
                       <div className="relative h-96 overflow-hidden">
                         <img
                           src={galleryImage1}
-                          alt="Lagotto & Truffle Week Experience"
+                          alt="Truffle Camp Experience"
                           className="w-full h-full object-cover"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>

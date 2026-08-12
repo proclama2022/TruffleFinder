@@ -5,7 +5,7 @@ export default function Terms() {
     <LegalPage
       title="Termini e Condizioni"
       updated="4 luglio 2026"
-      intro="I presenti Termini e Condizioni regolano la partecipazione a Lagotto & Truffle Week, evento organizzato da Nicoletta Conte a Portico di Romagna, Al Vecchio Convento."
+      intro="I presenti Termini e Condizioni regolano la partecipazione a Truffle Camp, evento organizzato da Nicoletta Conte a Portico di Romagna, Al Vecchio Convento."
       sections={[
         {
           heading: "Richieste e prenotazioni",
@@ -47,7 +47,7 @@ export default function Terms() {
         {
           heading: "Diritti d'immagine",
           paragraphs: [
-            "Durante l'evento potranno essere realizzate fotografie e riprese video, anche ritraenti i partecipanti e i loro cani, utilizzate a scopo promozionale sul sito di Lagotto & Truffle Week e sui relativi canali social.",
+            "Durante l'evento potranno essere realizzate fotografie e riprese video, anche ritraenti i partecipanti e i loro cani, utilizzate a scopo promozionale sul sito di Truffle Camp e sui relativi canali social.",
             "Chi non desidera essere ripreso può comunicarlo allo staff dell'organizzazione all'inizio dell'evento.",
           ],
         },

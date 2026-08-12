@@ -1,38 +1,60 @@
-# Lagotto & Truffle Week - Design System Guide
+# Truffle Camp - Design System Guide
 
 ## 📋 Panoramica
 
-Questa guida documenta il sistema di design standardizzato per il sito web Lagotto & Truffle Week, creato per risolvere le inconsistenze di design e migliorare l'esperienza utente complessiva.
+Questa guida documenta il sistema di design standardizzato per il sito web Truffle Camp, creato per risolvere le inconsistenze di design e migliorare l'esperienza utente complessiva.
 
 ## 🎨 Palette Colori
 
+La palette e' campionata direttamente dal logo: anello e lettering verde bosco,
+firma marrone, fondo crema, tartufo ocra.
+
 ### Colori Principali
 ```css
---primary: #5B4636;        /* Marrone tartufo intenso */
---secondary: #B8A274;      /* Beige/truffle gold */
---accent: #E9C46A;         /* Giallo crema per highlight */
---moss: #97A65F;           /* Verde muschio */
---background: #FFF8F0;     /* Sfondo neutro */
+--primary: #2F4A2B;        /* Verde bosco del logo */
+--secondary: #6B4A2E;      /* Marrone della firma "Nicoletta Conte" */
+--accent: #B08A4E;         /* Ocra del tartufo, micro-accento */
+--moss: #5F7D4C;           /* Verde muschio, kicker e numerazioni */
+--background: #FAF3E7;     /* Crema del logo */
 ```
+
+Fonte di verita' per il codice: `client/src/lib/theme.ts`. Le stesse tinte sono
+esposte come variabili CSS in `client/src/index.css` e come utility Tailwind
+sotto il namespace `brand-*` (`bg-brand-forest`, `text-brand-brown`, ...).
+
+| Token | Hex | Uso |
+|---|---|---|
+| `FOREST` | `#2F4A2B` | CTA, nav, marquee, footer, anello del logo |
+| `FOREST_LIGHT` | `#3D5F37` | Hover dei bottoni pieni |
+| `BROWN` | `#6B4A2E` | Corsivi dei titoli, firma, testo secondario |
+| `MOSS` | `#5F7D4C` | Kicker, numerazioni di sezione, frecce |
+| `TRUFFLE` | `#B08A4E` | Micro-accenti, mai su grandi superfici |
+| `CREAM` | `#FAF3E7` | Fondo principale, testo su fondi scuri |
+| `SAND` | `#F1E5CF` | Sezioni alternate (gallery, footer) |
+| `INK` | `#22301D` | Testo corrente |
+| `DARKEST` | `#18220F` | Fondi pieni, footer legali |
 
 ### Utilizzo dei Colori
-- **Primary**: Testi principali, icone, elementi di navigazione
-- **Secondary**: Elementi secondari, bordi, sfumature
-- **Accent**: Call-to-action, highlight, elementi interattivi
-- **Moss**: Elementi decorativi, accenti naturali
-- **Background**: Sfondi delle sezioni, card
+- **Primary (verde bosco)**: azioni primarie, navigazione, superfici piene
+- **Secondary (marrone)**: enfasi tipografica e testo secondario
+- **Accent (ocra tartufo)**: dettagli puntuali, hover su fondi scuri
+- **Moss**: etichette e numerazioni
+- **Background (crema)**: fondo di tutte le sezioni
 
 ### Esempi di Implementazione
-```css
-/* Testo principale */
-color: var(--primary);
+```tsx
+import { FOREST, CREAM, inkA } from "@/lib/theme";
 
-/* Pulsanti CTA */
-background: linear-gradient(to-r, var(--accent), var(--secondary));
+// CTA primaria: verde bosco pieno, testo crema
+<a style={{ background: FOREST, color: CREAM }}>Prenota ora</a>
 
-/* Bordi e divisori */
-border-color: var(--secondary)/30;
+// Testo attenuato: usare gli helper alpha, mai rgba() hardcoded
+<p style={{ color: inkA(0.7) }}>…</p>
 ```
+
+> **Regola**: niente `rgba()` scritti a mano. Gli helper `inkA()`, `creamA()`,
+> `forestA()`, `brownA()`, `truffleA()` in `theme.ts` restano allineati alla
+> palette anche quando cambia.
 
 ## 🔤 Sistema Tipografico
 
@@ -55,9 +77,12 @@ border-color: var(--secondary)/30;
 ```
 
 ### Font Families
-- **Headline**: 'Montserrat Alternates' - Per titoli principali
-- **Subtitle**: 'Montserrat Alternates' - Per sottotitoli
-- **Body**: 'Nunito' - Per testo del corpo
+- **Headline / Display**: 'Crimson Pro' (serif) - titoli e corsivi di enfasi
+- **Subtitle / Kicker**: 'Space Grotesk' - etichette maiuscole, nav, bottoni
+- **Body**: 'Satoshi' - testo corrente
+
+Esportati da `theme.ts` come `crimson`, `grotesk`, `satoshi` e mappati su
+Tailwind come `font-headline`, `font-subtitle`, `font-body`.
 
 ### Linee Guida d'Uso
 - **H1**: Solo per il titolo principale della pagina
@@ -277,5 +302,5 @@ Ogni componente utilizza le classi standardizzate per garantire coerenza.
 
 ---
 
-**Versione**: 1.0  
-**Ultimo Aggiornamento**: Gennaio 2025
+**Versione**: 2.0 - rebrand Truffle Camp  
+**Ultimo Aggiornamento**: Agosto 2026
