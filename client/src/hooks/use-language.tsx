@@ -1,10 +1,15 @@
 import { createContext, useContext, ReactNode, useState, useEffect } from "react";
 import { translations, Language, TranslationKey } from "@/lib/translations";
 
+type StringTranslationKey = {
+  [K in TranslationKey]: (typeof translations)["it"][K] extends string ? K : never;
+}[TranslationKey];
+
 interface LanguageContextType {
   language: Language;
   setLanguage: (language: Language) => void;
-  t: (key: TranslationKey) => string;
+  t: (key: StringTranslationKey) => string;
+  currentTranslations: (typeof translations)["it"];
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
@@ -25,12 +30,12 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     document.documentElement.lang = newLanguage;
   };
 
-  const t = (key: TranslationKey): string => {
-    return translations[language][key] || translations.it[key] || key;
+  const t = (key: StringTranslationKey): string => {
+    return (translations[language][key] as string) || (translations.it[key] as string) || key;
   };
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+    <LanguageContext.Provider value={{ language, setLanguage, t, currentTranslations: translations[language] }}>
       {children}
     </LanguageContext.Provider>
   );

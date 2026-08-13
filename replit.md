@@ -1,8 +1,8 @@
-# Lagotto & Truffle Week - Event Landing Page
+# Truffle Camp by Nicoletta Conte - Event Landing Page
 
 ## Overview
 
-This is a modern, bilingual (Italian/English) event landing page for "Lagotto & Truffle Week" - a specialized event for Lagotto Romagnolo dogs and their owners. The application features a beautiful, responsive design with truffle-themed styling, comprehensive event information, and integrated booking/contact functionality.
+This is a modern, bilingual (Italian/English) event landing page for "Truffle Camp by Nicoletta Conte" - a specialized event for Lagotto Romagnolo dogs and their owners. The application features a beautiful, responsive design with truffle-themed styling, comprehensive event information, and integrated booking/contact functionality.
 
 ## System Architecture
 
