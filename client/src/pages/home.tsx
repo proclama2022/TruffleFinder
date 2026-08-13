@@ -245,9 +245,10 @@ const FOTO = [
   { src: `${IMG}464824467_17957117315831393_3218779434772932755_n.jpg`, cat: "cani" },
   { src: `${IMG}464877167_17957117444831393_8590192735761577707_n.jpg`, cat: "eventi" },
   { src: `${IMG}464935188_17957117384831393_7153552770582827653_n.jpg`, cat: "caccia" },
-  { src: `${IMG}464968712_17957117327831393_4065399704841922148_n.jpg`, cat: "eventi" },
-  { src: `${IMG}469168979_548681407965858_5427275510400062944_n.jpg`, cat: "cani" },
-  { src: `${IMG}469362531_548682184632447_550109455162274963_n.jpg`, cat: "eventi" },
+  // Rimosse dal rebrand perché portano il marchio precedente:
+  // - 464968712…: lavagna con scritto "TRUFFLE WEEK con Nicoletta Conte"
+  // - 469168979…, 469362531…: watermark tondo "Lagotto & Truffle Week"
+  // I file restano in client/offline-assets/gallery/ se servissero altrove.
   { src: `${IMG}472686206_572405268926805_1526769013100232144_n.jpg`, cat: "caccia" },
   { src: `${IMG}473026623_572405422260123_5681489185905862866_n.jpg`, cat: "cani" },
 ];
